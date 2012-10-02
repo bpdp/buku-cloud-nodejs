@@ -1,0 +1,51 @@
+Gambar
+======
+
+Di awal:
+
+  \usepackage{graphicx}
+
+Menggunakan di text:
+
+  ... cake can be seen in Figure~\ref{fig:swtechstack}
+
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.5]{images/layerCake.png}
+    \end{center}
+    \caption{Semantic Web technology stack}
+    \label{fig:swtechstack}
+  \end{figure}
+
+Listing program
+===============
+
+Di awal:
+
+  \usepackage{listings}
+  ...
+  ...
+  \lstset{numbers=left,basicstyle=\scriptsize,numberstyle=\scriptsize,frame=tb,captionpos=b,backgroundcolor=\color{light-gray},showspaces=false,showstringspaces=false}
+
+Contoh pemakaian:
+
+\lstset{language=XML,caption=XML declaration for XHTML document}
+\begin{lstlisting}
+    <?xml version="1.0" encoding="UTF-8" ?>
+\end{lstlisting}
+
+Footnote
+========
+
+text\footnote{asdasda}
+
+Citation
+========
+
+di bibliografi:
+
+\bibitem{infomaproposal}Tim Berners-Lee, \textit{Information Management: A Proposal}, \url{http://www.w3.org/History/1989/proposal.html}, accessed on January 23rd, 2009, 10:21AM.
+
+di text:
+
+asdasda~\cite{infomaproposal}

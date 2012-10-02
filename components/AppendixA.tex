@@ -1,0 +1,169 @@
+\chapter{Gaya Penulisan Kode / \textit{Coding Style}}
+
+\section{Tentang Gaya Penulisan Kode}
+
+Pada saat seseorang berada pada proses pembuatan kode sumber (\textit{coding}), apapun gaya penulisan programnya, tidak akan bermasalah jika program itu hanya dia buat untuk si pemrogram itu sendiri. Meski demikian, hal tersebut jarang terjadi karena biasanya selalu ada kerja kelompok atau setidaknya program tersebut akan digunakan oleh pihak lain yang suatu saat perlu memahami apa yang tertulis di kode sumber tersebut. Untuk keperluan itu, biasanya diperlukan suatu gaya penulisan kode. Saat ini banyak sekali gaya penulisan kode untuk JavaScript / Node.js, biasanya tergantung pada kesepakatan anggota-anggota dalam kelompok pengembang dan berdasarkan pada pengalaman mereka tersebut. Pada lampiran ini, gaya penulisan kode dari NPM akan dituliskan secara utuh (dalam bahasa aslinya dengan harapan bisa bermanfaat untuk penyeragaman dan kemudahan membaca atau menelusuri \textit{bugs/errors}). Gaya penulisan kode ini diambil dari \url{https://npmjs.org/doc/coding-style.html}.
+
+\section{npm's Coding Style}
+
+npm's "funny" coding style
+
+\subsection{DESCRIPTION}
+npm's coding style is a bit unconventional. It is not different for difference's sake, but rather a carefully crafted style that is designed to reduce visual clutter and make bugs more apparent.
+
+If you want to contribute to npm (which is very encouraged), you should make your code conform to npm's style.
+
+\subsection{Line Length}
+Keep lines shorter than 80 characters. It's better for lines to be too short than to be too long. Break up long lists, objects, and other statements onto multiple lines.
+
+\subsection{Indentation}
+Two-spaces. Tabs are better, but they look like hell in web browsers (and on github), and node uses 2 spaces, so that's that.
+
+Configure your editor appropriately.
+
+\subsection{Curly braces}
+
+Curly braces belong on the same line as the thing that necessitates them. Bad:
+
+\lstset{language=Javascript,caption=Bad curly braces placement - 1}
+\begin{lstlisting}
+function ()
+{
+\end{lstlisting}
+  
+Good:
+
+\lstset{language=Javascript,caption=Good curly braces placement - 1}
+\begin{lstlisting}
+function () {
+\end{lstlisting}
+
+If a block needs to wrap to the next line, use a curly brace. Don't use it if it doesn't. Bad:
+
+\lstset{language=Javascript,caption=Bad curly braces placement - 2}
+\begin{lstlisting}
+if (foo) { bar() }
+while (foo)
+  bar()
+\end{lstlisting}
+
+Good:
+
+\lstset{language=Javascript,caption=Good curly braces placement - 2}
+\begin{lstlisting}
+if (foo) bar()
+while (foo) {
+  bar()
+}
+\end{lstlisting}
+
+\subsection{Semicolons}
+
+Don't use them except in four situations:
+
+\begin{itemize}
+  \item \textbf{for (;;) loops}. They're actually required.
+  \item null loops like: \textbf{while (something) ;} (But you'd better have a good reason for doing that.)
+  \item \textbf{case "foo": doSomething(); break}
+  \item In front of a leading \textbf{(} or \textbf{[} at the start of the line. This prevents the expression from being interpreted as a function call or property access, respectively.
+\end{itemize}
+
+Some examples of good semicolon usage:
+
+\lstset{language=Javascript,caption=Good semicolon usage}
+\begin{lstlisting}
+;(x || y).doSomething()
+;[a, b, c].forEach(doSomething)
+for (var i = 0; i < 10; i ++) {
+  switch (state) {
+    case "begin": start(); continue
+    case "end": finish(); break
+    default: throw new Error("unknown state")
+  }
+  end()
+}
+\end{lstlisting}
+
+Note that starting lines with - and + also should be prefixed with a semicolon, but this is much less common.
+
+\subsection{Comma First}
+
+If there is a list of things separated by commas, and it wraps across multiple lines, put the comma at the start of the next line, directly below the token that starts the list. Put the final token in the list on a line by itself. For example:
+
+\lstset{language=Javascript,caption=Comma first}
+\begin{lstlisting}
+var magicWords = [ "abracadabra"
+                 , "gesundheit"
+                 , "ventrilo"
+                 ]
+  , spells = { "fireball" : function () { setOnFire() }
+             , "water" : function () { putOut() }
+             }
+  , a = 1
+  , b = "abc"
+  , etc
+  , somethingElse
+\end{lstlisting}
+
+\subsection{Whitespace}
+
+Put a single space in front of ( for anything other than a function call. Also use a single space wherever it makes things more readable.
+
+Don't leave trailing whitespace at the end of lines. Don't indent empty lines. Don't use more spaces than are helpful.
+
+\subsection{Functions}
+
+Use named functions. They make stack traces a lot easier to read.
+
+\subsection{Callbacks, Sync/async Style}
+
+Use the asynchronous/non-blocking versions of things as much as possible. It might make more sense for npm to use the synchronous fs APIs, but this way, the fs and http and child process stuff all uses the same callback-passing methodology.
+
+The callback should always be the last argument in the list. Its first argument is the Error or null.
+
+Be very careful never to ever ever throw anything. It's worse than useless. Just send the error message back as the first argument to the callback.
+
+\subsection{Errors}
+
+Always create a new Error object with your message. Don't just return a string message to the callback. Stack traces are handy.
+
+\subsection{Logging}
+
+Logging is done using the npmlog utility.
+
+Please clean up logs when they are no longer helpful. In particular, logging the same object over and over again is not helpful. Logs should report what's happening so that it's easier to track down where a fault occurs.
+
+Use appropriate log levels. See config(1) and search for "loglevel".
+
+\subsection{Case, naming, etc.}
+
+\begin{itemize}
+  \item Use \textbf{lowerCamelCase} for multiword identifiers when they refer to objects, functions, methods, members, or anything not specified in this section.
+  \item Use \textbf{UpperCamelCase} for class names (things that you'd pass to "new"). 
+  \item Use \textbf{all-lower-hyphen-css-case} for multiword filenames and config keys.
+  \item Use named functions. They make stack traces easier to follow.
+  \item Use \textbf{CAPS\_SNAKE\_CASE} for constants, things that should never change and are rarely used.
+  \item Use a single uppercase letter for function names where the function would normally be anonymous, but needs to call itself recursively. It makes it clear that it's a "throwaway" function.
+\end{itemize}
+
+\subsection{null, undefined, false, 0}
+
+\begin{itemize}
+  \item Boolean variables and functions should always be either \textbf{true} or \textbf{false}. Don't set it to 0 unless it's supposed to be a number.
+  \item When something is intentionally missing or removed, set it to \textbf{null}.
+  \item Don't set things to \textbf{undefined}. Reserve that value to mean "not yet set to anything."
+  \item Boolean objects are verboten.
+\end{itemize}    
+
+\vspace{10mm}
+\hrule
+\vspace{10mm}
+
+Selain gaya penulisan kode dari NPM ini, ada beberapa lagi lainnya yang bisa dilihat, antara lain:
+
+\begin{itemize}
+  \item Spludo \url{http://spludo.com/source/coding-standards/}
+  \item Google JavaScript Style Guide (\url{http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml})
+  \item Felix's Node.js Style Guide (\url{http://nodeguide.com/style.html})
+\end{itemize}
+

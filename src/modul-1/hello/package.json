@@ -1,0 +1,7 @@
+{
+  "name":"bpdp-m1-hello",
+  "version":"0.0.1",
+  "dependencies":{
+    "express":""
+  }
+}

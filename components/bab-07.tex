@@ -1,0 +1,155 @@
+\chapter{Framework Node.js: Flatiron}
+
+\section{Mengenal Flatiron}
+
+\subsection{Apa itu Flatiron?}
+
+\subsection{Fitur Flatiron}
+
+\section{Instalasi Flatiron}
+
+\subsection{Global}
+Jika ingin menggunakan tipe instalasi ini
+
+\subsection{Lokal}
+
+\subsubsection{Instalasi Menggunakan npm}
+\lstset{language=bash,caption=Proses instalasi Flatiron}
+\begin{lstlisting}
+$ npm install flatiron
+npm http GET https://registry.npmjs.org/flatiron
+npm http 200 https://registry.npmjs.org/flatiron
+npm http GET https://registry.npmjs.org/optimist/0.3.4
+npm http GET https://registry.npmjs.org/director/1.1.0
+npm http GET https://registry.npmjs.org/broadway/0.2.5
+npm http GET https://registry.npmjs.org/prompt/0.2.6
+npm http GET https://registry.npmjs.org/pkginfo/0.2.3
+npm http 200 https://registry.npmjs.org/optimist/0.3.4
+npm http 200 https://registry.npmjs.org/director/1.1.0
+npm http 200 https://registry.npmjs.org/pkginfo/0.2.3
+npm http GET https://registry.npmjs.org/director/-/director-1.1.0.tgz
+npm http GET https://registry.npmjs.org/optimist/-/optimist-0.3.4.tgz
+npm http GET https://registry.npmjs.org/pkginfo/-/pkginfo-0.2.3.tgz
+npm http 200 https://registry.npmjs.org/broadway/0.2.5
+npm http GET https://registry.npmjs.org/broadway/-/broadway-0.2.5.tgz
+npm http 200 https://registry.npmjs.org/prompt/0.2.6
+npm http GET https://registry.npmjs.org/prompt/-/prompt-0.2.6.tgz
+npm http 200 https://registry.npmjs.org/director/-/director-1.1.0.tgz
+npm http 200 https://registry.npmjs.org/pkginfo/-/pkginfo-0.2.3.tgz
+npm http 200 https://registry.npmjs.org/optimist/-/optimist-0.3.4.tgz
+npm http 200 https://registry.npmjs.org/broadway/-/broadway-0.2.5.tgz
+npm http 200 https://registry.npmjs.org/prompt/-/prompt-0.2.6.tgz
+npm http GET https://registry.npmjs.org/wordwrap
+npm http GET https://registry.npmjs.org/winston/0.6.2
+npm http GET https://registry.npmjs.org/cliff/0.1.8
+npm http GET https://registry.npmjs.org/eventemitter2/0.4.9
+npm http GET https://registry.npmjs.org/nconf/0.6.4
+npm http GET https://registry.npmjs.org/read
+npm http GET https://registry.npmjs.org/winston
+npm http GET https://registry.npmjs.org/utile
+npm http GET https://registry.npmjs.org/utile/0.1.2
+npm http GET https://registry.npmjs.org/revalidator
+npm http 200 https://registry.npmjs.org/cliff/0.1.8
+npm http GET https://registry.npmjs.org/cliff/-/cliff-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/eventemitter2/0.4.9
+npm http GET https://registry.npmjs.org/eventemitter2/-/eventemitter2-0.4.9.tgz
+npm http 200 https://registry.npmjs.org/wordwrap
+npm http 200 https://registry.npmjs.org/nconf/0.6.4
+npm http GET https://registry.npmjs.org/nconf/-/nconf-0.6.4.tgz
+npm http 200 https://registry.npmjs.org/winston/0.6.2
+npm http GET https://registry.npmjs.org/winston/-/winston-0.6.2.tgz
+npm http 200 https://registry.npmjs.org/read
+npm http 200 https://registry.npmjs.org/utile/0.1.2
+npm http GET https://registry.npmjs.org/utile/-/utile-0.1.2.tgz
+npm http 200 https://registry.npmjs.org/cliff/-/cliff-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/revalidator
+npm http 200 https://registry.npmjs.org/eventemitter2/-/eventemitter2-0.4.9.tgz
+npm http 200 https://registry.npmjs.org/nconf/-/nconf-0.6.4.tgz
+npm http 200 https://registry.npmjs.org/utile
+npm http GET https://registry.npmjs.org/utile/-/utile-0.1.5.tgz
+npm http 200 https://registry.npmjs.org/winston/-/winston-0.6.2.tgz
+npm http 200 https://registry.npmjs.org/utile/-/utile-0.1.2.tgz
+npm http 200 https://registry.npmjs.org/winston
+npm http 200 https://registry.npmjs.org/utile/-/utile-0.1.5.tgz
+npm http GET https://registry.npmjs.org/deep-equal
+npm http GET https://registry.npmjs.org/async
+npm http GET https://registry.npmjs.org/mkdirp
+npm http GET https://registry.npmjs.org/ncp
+npm http GET https://registry.npmjs.org/rimraf
+npm http GET https://registry.npmjs.org/mute-stream
+npm http GET https://registry.npmjs.org/i
+npm http GET https://registry.npmjs.org/cycle
+npm http GET https://registry.npmjs.org/colors
+npm http GET https://registry.npmjs.org/eyes
+npm http GET https://registry.npmjs.org/stack-trace
+npm http GET https://registry.npmjs.org/request
+npm http GET https://registry.npmjs.org/ini
+npm http 200 https://registry.npmjs.org/rimraf
+npm http 200 https://registry.npmjs.org/mute-stream
+npm http 200 https://registry.npmjs.org/i
+npm http GET https://registry.npmjs.org/i/-/i-0.3.1.tgz
+npm http 200 https://registry.npmjs.org/deep-equal
+npm http 200 https://registry.npmjs.org/mkdirp
+npm http 200 https://registry.npmjs.org/cycle
+npm WARN package.json cycle@1.0.0 No README.md file found!
+npm http 200 https://registry.npmjs.org/ncp
+npm http 200 https://registry.npmjs.org/colors
+npm http 200 https://registry.npmjs.org/eyes
+npm http GET https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/stack-trace
+npm http 200 https://registry.npmjs.org/i/-/i-0.3.1.tgz
+npm http 200 https://registry.npmjs.org/ini
+npm http 200 https://registry.npmjs.org/eyes/-/eyes-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/async
+npm http 200 https://registry.npmjs.org/request
+flatiron@0.2.8 node_modules/flatiron
+    pkginfo@0.2.3
+    director@1.1.0
+    optimist@0.3.4 (wordwrap@0.0.2)
+    broadway@0.2.5 (eventemitter2@0.4.9, cliff@0.1.8, nconf@0.6.4, utile@0.1.2, winston@0.6.2)
+    prompt@0.2.6 (revalidator@0.1.2, read@1.0.4, utile@0.1.5, winston@0.6.2)
+$
+\end{lstlisting}
+
+\subsubsection{Konfigurasi}
+
+Untuk menggunakan Flatiron, konfigurasi yang diperlukan hanyalah konfigurasi \textit{environment variables} dari Node.js serta Flatiron. Setelah itu, setiap kali akan menggunakan Node.js dan Flatiron, gunakan perintah \textit{source} untuk mengaktifkan. Berikut ini adalah konfigurasinya:
+
+\lstset{language=bash,caption=Variabel lingkungan dari Node.js}
+\begin{lstlisting}
+bpdp@bpdp-arch environment]$ cat ~/environment/nodejs   
+NODEJS_HOME=/opt/software/nodejs
+
+PATH=$PATH:$NODEJS_HOME/bin
+MANPATH=$MANPATH:$NODEJS_HOME/share/man
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NODEJS_HOME/lib
+C_INCLUDE_PATH=$C_INCLUDE_PATH:$NODEJS_HOME/include
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$NODEJS_HOME/include
+
+export PATH
+export MANPATH
+export LD_LIBRARY_PATH
+export C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH
+[bpdp@bpdp-arch environment]$ 
+\end{lstlisting}
+
+\lstset{language=bash,caption=Variabel lingkungan dari Flatiron}
+\begin{lstlisting}
+[bpdp@bpdp-arch environment]$ cat ~/environment/flatiron 
+FI_HOME=/opt/software/flatiron
+
+PATH=$PATH:$FI_HOME/bin
+
+export PATH
+[bpdp@bpdp-arch environment]$ 
+\end{lstlisting}
+
+Setelah itu, setiap kali akan menggunakan Node.js dan Flatiron, hanya perlu mengetikkan perintah di shell berikut ini:
+
+\lstset{language=bash,caption=Mengaktifkan Node.js dan Flatiron}
+\begin{lstlisting}
+$ source ~/environment/nodejs
+$ source ~/environment/flatiron
+\end{lstlisting}
+
