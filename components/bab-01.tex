@@ -2,7 +2,7 @@
 
 \section{Apa itu Cloud Computing?}
 
-Cloud Computing, atau sering diterjemahkan sebagai ``Komputasi Awan'' dalam bahasa Indonesia mempunyai berbagai definisi:
+Cloud Computing, \index{Cloud Computing} atau sering diterjemahkan sebagai ``Komputasi Awan'' dalam bahasa Indonesia mempunyai berbagai definisi:\index{Cloud Computing!Definisi}
 \begin{itemize}
   \item \textbf{Wikipedia}: penggunaan sumber daya komputasi (peranti keras dan peranti lunak) yang berfungsi untuk memberikan layanan melalui suatu jaringan (pada umumnya Internet)\footnote{\url{http://en.wikipedia.org/wiki/Cloud_computing}}.
   \item \textbf{NIST\footnote{The National Institute of Standards and Technology}}: model yang memungkinkan akses jaringan ubiquitous (dari mana saja), nyaman, on-demand (saat ada permintaan) ke sekumpulan sumber daya komputasi yang dikonfigurasi untuk berbagi (jaringan, server, penyimpanan, dan berbagai layanan lain) yang dapat dengan cepat ditetapkan dan dirilis dengan usaha yang minimal dari manajemen ataupun interaksi dengan penyedia layanan\footnote{\url{http://csrc.nist.gov/publications/PubsSPs.html\#800-145}}.
@@ -20,7 +20,7 @@ Jika diwujudkan secara visual, Cloud Computing bisa dilihat pada Gambar~\ref{fig
 
 \section{Karakteristik Cloud Computing}
 
-Menurut NIST, ada beberapa karakteristik dari Cloud Computing:
+Menurut NIST, ada beberapa karakteristik dari Cloud Computing:\index{Cloud Computing!Karakteristik}
 \begin{itemize}
   \item \textbf{On-demand self-service}: layanan bisa diperoleh pada saat diminta, tanpa intervensi atau interaksi manusia di sisi penyedia jasa. 
   \item \textbf{Broad network access}: tersedia melalui jaringan dengan berbagai peranti yang umum (komputer, tablet, HP, dan lain-lain)
@@ -29,15 +29,15 @@ Menurut NIST, ada beberapa karakteristik dari Cloud Computing:
   \item \textbf{Measured service}: penggunaan sumber daya bisa diukur, di-monitor, dikendalikan, dan dilaporkan.
 \end{itemize}
 
-Karakteristik lain yang tidak kalah penting adalah \textit{multitenancy}. \textit{Multitenancy} merupakan suatu prinsip dalam arsitektur software. Pada arsitektur tersebut, satu instan dari software berjalan pada server, melayani banyak organisasi klien. Aplikasi dirancang untuk mempartisi data dan konfigurasinya secara virtual dan setiap organisasi klien tersebut bekerja dengan instan aplikasi virtual tersebut\footnote{\url{http://en.wikipedia.org/wiki/Multitenancy}}.
+Karakteristik lain yang tidak kalah penting adalah \textit{multitenancy}. \textit{Multitenancy} merupakan suatu prinsip dalam arsitektur software. Pada arsitektur tersebut, satu instan dari software berjalan pada server, melayani banyak organisasi klien. Aplikasi dirancang untuk mempartisi data dan konfigurasinya secara virtual dan setiap organisasi klien tersebut bekerja dengan instan aplikasi virtual tersebut\footnote{\url{http://en.wikipedia.org/wiki/Multitenancy}}. \index{Multitenancy}
 
 \section{\textit{Public} dan \textit{Private} Cloud Computing}
 
-Cloud Computing bisa dibangun untuk keperluan pribadi suatu organisasi dan (secara legal) hanya bisa diakses oleh organisasi yang bersangkutan. Tipe tersebut dikenal dengan \textit{Private Cloud Computing}. Sementara itu, jika sumber daya Cloud Computing bisa diakses oleh publik (dengan hak akses yang sesuai), maka model tersebut dikenal sebagai \textit{Public Cloud Computing}. Pembahasan di buku ini adalah pembahasan tentang \textit{Public Cloud Computing} dan semua referensi tentang Cloud Computing di buku ini akan menunjuk pada \textit{Public Cloud Computing} kecuali dinyatakan lain.
+\index{Cloud Computing!Private}Cloud Computing bisa dibangun untuk keperluan pribadi suatu organisasi dan (secara legal) hanya bisa diakses oleh organisasi yang bersangkutan. Tipe tersebut dikenal dengan \textit{Private Cloud Computing}. \index{Cloud Computing!Public}Sementara itu, jika sumber daya Cloud Computing bisa diakses oleh publik (dengan hak akses yang sesuai), maka model tersebut dikenal sebagai \textit{Public Cloud Computing}. Pembahasan di buku ini adalah pembahasan tentang \textit{Public Cloud Computing} dan semua referensi tentang Cloud Computing di buku ini akan menunjuk pada \textit{Public Cloud Computing} kecuali dinyatakan lain.
 
 \section{Model Layanan Cloud Computing}
 
-Model layanan pada Cloud Computing akan berkembang sesuai kebutuhan konsumen serta inovasi dari berbagai penyedia layanan. Saat ini, pada umumnya, ada tiga model layanan:
+\index{Cloud Computing!Model layanan}Model layanan pada Cloud Computing akan berkembang sesuai kebutuhan konsumen serta inovasi dari berbagai penyedia layanan. Saat ini, pada umumnya, ada tiga model layanan:
 \begin{itemize}
   \item \textbf{SaaS} (\textit{Software as a Service}): layanan berupa aplikasi yang ditempatkan pada infrastruktur penyedia layanan, siap digunakan oleh konsumen.
   \item \textbf{PaaS} (\textit{Platform as a Service}): menyediakan layanan ke konsumen berupa platform untuk men-deploy aplikasi.
@@ -63,11 +63,11 @@ Jika pengembangan aplikasi dilakukan oleh tim, maka perlu adanya software untuk 
 
 \section{Node.js dan Cloud Computing}
 
-Node.js merupakan salah satu peranti pengembang yang bisa digunakan untuk membuat aplikasi berbasis Cloud. Node.js dikembangkan dari \textit{engine} JavaScript yang dibuat oleh Google untuk browser \textit{Chrome / Chromium} (V8). Dengan menggunakan Node.js, semua pengembangan akan dilakukan menggunakan JavaScript, baik pada sisi klien maupun server. Node.js dibuat pertama kali oleh Ryan Dahl (twitter.com/ryah) dan sampai saat ini dikembangkan oleh komunitas sebagai software bebas dengan pendanaan utama dari Joyent, perusahaan tempat Ryan Dahl bekerja.
+\index{Node.js}Node.js merupakan salah satu peranti pengembang yang bisa digunakan untuk membuat aplikasi berbasis Cloud. Node.js dikembangkan dari \textit{engine} JavaScript yang dibuat oleh Google untuk browser \textit{Chrome / Chromium} (V8). Dengan menggunakan Node.js, semua pengembangan akan dilakukan menggunakan JavaScript, baik pada sisi klien maupun server. Node.js dibuat pertama kali oleh Ryan Dahl (twitter.com/ryah) dan sampai saat ini dikembangkan oleh komunitas sebagai software bebas dengan pendanaan utama dari Joyent, perusahaan tempat Ryan Dahl bekerja.
 
 \section{Layanan Hosting Aplikasi: CloudFoundry}
 
-Saat ini, mulai banyak penyedia layanan Cloud yang mendukung Node.js, diantaranya adalah CloudFoundry (\url{http://www.cloudfoundry.com}, selanjutnya akan kita sebut dengan CF). Buku ini akan menggunakan fasilitas dari CF. Daftar lengkap dari penyedia infrastruktur Node.js bisa dilihat pada \url{https://github.com/joyent/node/wiki/Node-Hosting}.
+\index{CloudFoundry}Saat ini, mulai banyak penyedia layanan Cloud yang mendukung Node.js, diantaranya adalah CloudFoundry (\url{http://www.cloudfoundry.com}, selanjutnya akan kita sebut dengan CF). Buku ini akan menggunakan fasilitas dari CF. Daftar lengkap dari penyedia infrastruktur Node.js bisa dilihat pada \url{https://github.com/joyent/node/wiki/Node-Hosting}.\index{Node.js!Hosting}
 
 \subsection{Pendaftaran}
 
@@ -101,7 +101,7 @@ Setelah itu, CF akan mengirimkan pemberitahuan bahwa proses pendaftaran selesai 
 
 \subsection{Instalasi \textit{Command Line Utilities}}
 
-\textit{Command Line Utilities / CLU)} adalah software yang dijalankan melalui shell / \textit{command line / command prompt}. CLU untuk CF ini dibuat dengan menggunakan Ruby dan didistribusikan dalam bentuk \textit{gem} sehingga untuk instalasi ini diperlukan ruby dan rubygem. Berikut adalah perintah untuk instalasi vmc (CLU dari CF).
+\index{CloudFoundry!vmc}\textit{Command Line Utilities / CLU)} adalah software yang dijalankan melalui shell / \textit{command line / command prompt}. CLU untuk CF ini dibuat dengan menggunakan Ruby dan didistribusikan dalam bentuk \textit{gem} sehingga untuk instalasi ini diperlukan ruby dan rubygem. Berikut adalah perintah untuk instalasi vmc (CLU dari CF).
 
 \lstset{language=bash,caption=Instalasi vmc}
 \begin{lstlisting}
