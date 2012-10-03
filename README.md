@@ -15,3 +15,5 @@ Saya bisa dihubungi melalui:
 
 * **Twitter:** [@bpdp](http://twitter.com/#!/bpdp)
 * **Facebook:** [/bambangpdp](http://www.facebook.com/bambangpdp)
+
+[<img src="http://creativecommons.or.id/wp-content/uploads/2012/07/cc-by-sa.jpg">](http://wiki.creativecommons.org/Licenses/by-sa/3.0LegalText_(Indonesian))
