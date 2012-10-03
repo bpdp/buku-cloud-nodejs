@@ -337,9 +337,67 @@ $
 
 \subsection{Instalasi dan Konfigurasi Node.js di Komputer Lokal}
 
+Node.js tersedia untuk Linux, Windows, Mac OS X, serta SunOS. Untuk versi Linux, kebanyakan distro sudah menyertakan paket Node.js, hanya saja ada banyak versi dari Node.js dan jika kita menggunakan manajemen paket dari distro Linux, kita hanya bisa menginstall 1 versi saja. Sebagai contoh, di Arch Linux, paket Node.js bisa diinstrall dengan perintah ``pacman -S nodejs'' tetapi hanya pada versi resmi di repo Arch (saat buku ini ditulis - awal Oktober 2012), paket resmi dari Arch adalah 0.8.11. 
+
+Langkah instalasi berikut ini adalah langkah untuk instalasi tanpa manajemen paket dari distro Linux.
+\begin{itemize}
+  \item Ambil paket \textit{binary executable} dari \url{http://nodejs/download} atau langsung ke \url{http://nodejs.org/dist/}. Versi yang digunakan disini adalah 0.8.11.
+
+\lstset{language=bash,caption=Hasil dari download Node.js}
+\begin{lstlisting}
+$ ls -la
+total 4320
+drwxr-xr-x  2 bpdp users    4096 Oct  3 06:08 .
+drwxr-xr-x 22 bpdp users    4096 Oct  3 16:17 ..
+-rw-r--r--  1 bpdp users 4406113 Oct  3 06:19 node-v0.8.11-linux-x86.tar.gz
+$ 
+\end{lstlisting}
+
+  \item Ekstrak ke direktori yang diinginkan:
+
+\lstset{language=bash,caption=Ekstraksi Node.js}
+\begin{lstlisting}
+$ tar -xzvf ~/master/nodejs/node-v0.8.11-linux-x86.tar.gz
+$ ln -s node-v0.8.11-linux-x86 nodejs
+$ ls -la
+....
+....
+drwxr-xr-x   6 bpdp users  4096 Aug 16 06:18 node-v0.8.11-linux-x86
+lrwxrwxrwx   1 bpdp users    21 Aug 17 06:37 nodejs -> node-v0.8.11-linux-x86
+....
+....
+$ 
+\end{lstlisting}
+
+  \item Konfigurasi variabel lingkungan. Sebaiknya disimpan pada suatu file (pada buku ini, konfigurasi akan disimpan di \textit{\$HOME/environment/nodejs}):
+
+\lstset{language=bash,caption=Konfigurasi variabel lingkungan Node.js}
+\begin{lstlisting}
+NODEJS_HOME=/home/bpdp/software/nodejs
+ 
+PATH=$PATH:$NODEJS_HOME/bin
+MANPATH=$MANPATH:$NODEJS_HOME/share/man
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NODEJS_HOME/lib
+C_INCLUDE_PATH=$C_INCLUDE_PATH:$NODEJS_HOME/include
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$NODEJS_HOME/include
+ 
+export PATH
+export MANPATH
+export LD_LIBRARY_PATH
+export C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH
+\end{lstlisting}
+
+  \item Setiap akan menggunakan Node.js, yang diperlukan adalah men-source file konfigurasi tersebut: \textbf{source \~/environment/nodejs}.
+\end{itemize}
+
 \section{Pengelolaan Aplikasi di Cloud}
 
+Aplikasi yang dibuat nantinya akan di-deploy ke server CF. Pada umumnya, developer akan melakukan proses untuk upload (\textit{push}), menghapus (\textit{delete}), serta memperbaharui (\textit{update}) aplikasi di server.
+
 \subsection{\textit{Push, Delete, Update} Aplikasi}
+
+Pada pembahasan ini, akan diberikan contoh menggunakan dua kategori, yaitu dengan menggunakan \textit{framework} (ExpressJS - \url{http://expressjs.com}) serta tanpa menggunakan \textit{framework}.
 
 \subsection{Menggunakan Framework ExpressJS}
 
@@ -347,10 +405,6 @@ $
 \begin{lstlisting}
 [bpdp@bpdp-arch modul-1]$ mkdir hello 
 [bpdp@bpdp-arch modul-1]$ cd hello/ 
-[bpdp@bpdp-arch hello]$ ls 
-total 8 
-drwxr-xr-x 2 bpdp users 4096 Sep 25 22:31 . 
-drwxr-xr-x 3 bpdp users 4096 Sep 25 22:31 .. 
 [bpdp@bpdp-arch hello]$ source ~/environment/nodejs 
 [bpdp@bpdp-arch hello]$ npm install express 
 npm http GET https://registry.npmjs.org/express 
@@ -417,16 +471,16 @@ npm http 200 https://registry.npmjs.org/pause/-/pause-0.0.1.tgz
 npm http 200 https://registry.npmjs.org/formidable/-/formidable-1.0.11.tgz 
 npm http 200 https://registry.npmjs.org/bytes/-/bytes-0.1.0.tgz 
 express@3.0.0rc4 node_modules/express 
-¿¿¿¿¿¿¿¿¿ methods@0.0.1 
-¿¿¿¿¿¿¿¿¿ fresh@0.1.0 
-¿¿¿¿¿¿¿¿¿ range-parser@0.0.4 
-¿¿¿¿¿¿¿¿¿ cookie@0.0.4 
-¿¿¿¿¿¿¿¿¿ crc@0.2.0 
-¿¿¿¿¿¿¿¿¿ commander@0.6.1 
-¿¿¿¿¿¿¿¿¿ debug@0.7.0 
-¿¿¿¿¿¿¿¿¿ mkdirp@0.3.3 
-¿¿¿¿¿¿¿¿¿ send@0.0.4 (mime@1.2.6) 
-¿¿¿¿¿¿¿¿¿ connect@2.4.4 (pause@0.0.1, bytes@0.1.0, qs@0.4.2, formidable@1.0.11) 
+          methods@0.0.1 
+          fresh@0.1.0 
+          range-parser@0.0.4 
+          cookie@0.0.4 
+          crc@0.2.0 
+          commander@0.6.1 
+          debug@0.7.0 
+          mkdirp@0.3.3 
+          send@0.0.4 (mime@1.2.6) 
+          connect@2.4.4 (pause@0.0.1, bytes@0.1.0, qs@0.4.2, formidable@1.0.11) 
 [bpdp@bpdp-arch hello]$ ls -la 
 total 12 
 drwxr-xr-x 3 bpdp users 4096 Sep 25 22:31 . 
@@ -434,7 +488,7 @@ drwxr-xr-x 3 bpdp users 4096 Sep 25 22:31 ..
 drwxr-xr-x 4 bpdp users 4096 Sep 25 22:31 node_modules 
 \end{lstlisting}
 
-Aplikasi yang dibuat:
+Aplikasi yang dibuat terdiri atas \textit{package.json} untuk mendefinisikan aplikasi serta dependensi-nya dan app.js yang merupakan file utama untuk dijalankan pada server.
 
 \lstset{language=Javascript,caption=package.json untuk ExpressJS}
 \begin{lstlisting}
@@ -447,8 +501,6 @@ Aplikasi yang dibuat:
 } 
 \end{lstlisting}
 
-app.js
-
 \lstset{language=Javascript,caption=app.js untuk ExpressJS}
 \begin{lstlisting}
 var app = require('express').createServer(); 
@@ -458,7 +510,7 @@ app.get('/', function(req, res) {
 app.listen(3000); 
 \end{lstlisting}
 
-Deployment:
+Proses deployment digambarkan sebagai berikut:
 
 \lstset{language=bash,caption=Deployment aplikasi ExpressJS ke CF}
 \begin{lstlisting}
@@ -503,7 +555,7 @@ Hasilnya terlihat pada tampilan browser di Gambar~\ref{fig:modul1-hello}
     \label{fig:modul1-hello}
   \end{figure}
 
-Mengupdate aplikasi:
+Aplikasi yang sudah dibuat seringkali diubah, oleh karena itu vmc juga menyediakan fasilitas untuk Mengupdate aplikasi. 
 
 \lstset{language=Javascript,caption=Update: menambahkan versi Node.js ke app.js}
 \begin{lstlisting}
@@ -591,7 +643,7 @@ Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-ganti-runtime}
 
 \subsection{Tanpa Framework}
 
-app.js:
+Tanpa \textit{framework}, yang kita perlukan hanyalah langsung mem-\textit{push} file yang kita buat (dalam contoh ini adalah app.js):
 
 \lstset{language=Javascript,caption=app.js tanpa framework}
 \begin{lstlisting}
@@ -611,7 +663,7 @@ http.createServer(function (req, res) {
 }).listen(1337);
 \end{lstlisting}
 
-Deployement:
+Proses deployement adalah sebagai berikut:
 
 \lstset{language=bash,caption=Deployment app.js tanpa framework}
 \begin{lstlisting}
@@ -645,6 +697,3 @@ Hasilnya bisa dilihat pada Gambar~\ref{fig:modul1-hello-no-framework}
     \caption{Hasil deployement app.js tanpa framework}
     \label{fig:modul1-hello-no-framework}
   \end{figure}
-
-
-
