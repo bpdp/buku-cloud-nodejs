@@ -29,6 +29,8 @@ Menurut NIST, ada beberapa karakteristik dari Cloud Computing:
   \item \textbf{Measured service}: penggunaan sumber daya bisa diukur, di-monitor, dikendalikan, dan dilaporkan.
 \end{itemize}
 
+Karakteristik lain yang tidak kalah penting adalah \textit{multitenancy}. \textit{Multitenancy} merupakan suatu prinsip dalam arsitektur software. Pada arsitektur tersebut, satu instan dari software berjalan pada server, melayani banyak organisasi klien. Aplikasi dirancang untuk mempartisi data dan konfigurasinya secara virtual dan setiap organisasi klien tersebut bekerja dengan instan aplikasi virtual tersebut\footnote{\url{http://en.wikipedia.org/wiki/Multitenancy}}.
+
 \section{\textit{Public} dan \textit{Private} Cloud Computing}
 
 Cloud Computing bisa dibangun untuk keperluan pribadi suatu organisasi dan (secara legal) hanya bisa diakses oleh organisasi yang bersangkutan. Tipe tersebut dikenal dengan \textit{Private Cloud Computing}. Sementara itu, jika sumber daya Cloud Computing bisa diakses oleh publik (dengan hak akses yang sesuai), maka model tersebut dikenal sebagai \textit{Public Cloud Computing}. Pembahasan di buku ini adalah pembahasan tentang \textit{Public Cloud Computing} dan semua referensi tentang Cloud Computing di buku ini akan menunjuk pada \textit{Public Cloud Computing} kecuali dinyatakan lain.
@@ -46,20 +48,26 @@ Meski sampai saat ini, umumnya terdapat tiga model tersebut, beberapa model keli
 
 \section{Pengembangan Aplikasi di Cloud Computing}
 
+Pada umumnya, para pengembang aplikasi di Cloud Computing juga menggunakan pendekatan \textit{Agile Software Development} yang berbasis pada pengembangan secara iteratif untuk setiap \textit{milestone} (dalam iterasi analisis-desain-\textit{coding-testing-debugging}) mulai dari \textit{milestone} paling awal sampai software dirilis. Perbedaan paling mendasar hanyalah pada platform yang digunakan untuk \textit{deployment}, peranti pengembangan yang digunakan, serta utilitas untuk mengelola aplikasi yang di-\textit{deploy} pada instan di cloud.
+
 Pengembangan aplikasi di Cloud Computing akan melibatkan peranti pengembang yang didukung oleh infrastruktur Cloud. Kita akan memerlukan PaaS untuk keperluan ini. Pada dasarnya pengembangan aplikasi akan meliputi siklus berikut:
 
 \begin{itemize}
-  \item Coding
+  \item \textit{Coding}
   \item Test di komputer lokal
   \item Upload ke server (dalam Cloud Computing, proses ini diistilahkan dengan ``\textit{push}''
   \item Edit - push
 \end{itemize}
 
+Jika pengembangan aplikasi dilakukan oleh tim, maka perlu adanya software untuk \textit{version control}, misalnya Git, mercurial, dan lain-lain. Setelah itu, aktivitas yang dilakukan biasanya terpusat pada \textit{push} (untuk mengupload instan dari aplikasi ke server) dan \textit{pull} (untuk mengambil instan aplikasi dari server).
+
 \section{Node.js dan Cloud Computing}
 
-Node.js merupakan salah satu peranti pengembang yang bisa digunakan untuk membuat aplikasi berbasis Cloud.
+Node.js merupakan salah satu peranti pengembang yang bisa digunakan untuk membuat aplikasi berbasis Cloud. Node.js dikembangkan dari \textit{engine| JavaScript yang dibuat oleh Google untuk browser \textit{Chrome / Chromium} (V8). Dengan menggunakan Node.js, semua pengembangan akan dilakukan menggunakan JavaScript, baik pada sisi klien maupun server. Node.js dibuat pertama kali oleh Ryan Dahl (twitter.com/ryah) dan sampai saat ini dikembangkan oleh komunitas sebagai software bebas dengan pendanaan utama dari Joyent, perusahaan tempat Ryan Dahl bekerja.
 
 \section{Layanan Hosting Aplikasi: CloudFoundry}
+
+Saat ini, mulai banyak penyedia layanan Cloud yang mendukung Node.js, diantaranya adalah CloudFoundry (\url{http://www.cloudfoundry.com}, selanjutnya akan kita sebut dengan CF). Buku ini akan menggunakan fasilitas dari CF. Daftar lengkap dari penyedia infrastruktur Node.js bisa dilihat pada \url{https://github.com/joyent/node/wiki/Node-Hosting}.
 
 \subsection{Pendaftaran}
 
@@ -73,7 +81,7 @@ Untuk menggunakan fasilitas dari CF, kita akan mendaftar lebih dahulu di URL \ur
     \label{fig:cfsignup}
   \end{figure}
 
-  Setelah itu, CF akan mengirimkan pemberitahuan bahwa proses pendaftaran selesai seperti di Gambar~\ref{fig:cfsignuphasil}. \textit{Credentials} atau informasi tentang akun kita di CF akan dikirimkan ke e-mail kita seperti pada Gambar~\ref{fig:cfsignupapproved}.
+Setelah itu, CF akan mengirimkan pemberitahuan bahwa proses pendaftaran selesai seperti di Gambar~\ref{fig:cfsignuphasil}. \textit{Credentials} atau informasi tentang akun kita di CF akan dikirimkan ke e-mail kita seperti pada Gambar~\ref{fig:cfsignupapproved}.
  
   \begin{figure}
     \begin{center}
@@ -253,8 +261,6 @@ Currently available vmc commands are:
 $ 
 \end{lstlisting}
 
-
-
 \subsection{Konfigurasi di Server Cloud}
 
 Pada dasarnya, yang diperlukan hanyalah mengubah target ke server cloud dari CF dan kemudian mengubah password.
@@ -328,7 +334,6 @@ Successfully changed password
 
 $
 \end{lstlisting}
-
 
 \subsection{Instalasi dan Konfigurasi Node.js di Komputer Lokal}
 
