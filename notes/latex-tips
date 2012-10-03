@@ -49,3 +49,16 @@ di bibliografi:
 di text:
 
 asdasda~\cite{infomaproposal}
+
+Index
+=====
+
+di teks:
+
+Cloud Computing adalah \index{Cloud Computing} suatu ...
+
+bagian dari suatu indeks:
+
+PaaS adalah \index{Cloud Computing!PaaS} suatu ...
+
+
