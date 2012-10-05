@@ -2,12 +2,78 @@
 
 \section{REPL}
 
+REPL adalah lingkungan pemrograman interaktif, tempat developer bisa mengetikkan program per baris dan langsung mengeksekusi hasilnya. Biasanya ini digunakan untuk menguji perintah-perintah yang cukup dijalankan pada satu baris atau satu blok segmen kode sumber saja. Karena fungsinya itu, maka istilah yang digunakan adalah REPL (read-eval-print-loop), yaitu loop atau perulangan baca perintah - evaluasi perintah - tampilkan hasil. REPL sering juga disebut sebagai \textit{interactive top level} atau \textit{language shell}. ``Tradisi'' ini sudah dimulai sejak jaman LISP di mesin UNIX di era awal pengembangan \textit{development tools}. Saat ini hampir semua \textit{interpreter/compiler} mempunyai REPL, misalnya Python, Ruby, Scala, PHP, berbagai interpreter/compiler LISP, dan tidak ketinggalan Node.js. 
 
 \subsection{Mengaktifkan REPL}
 
+Untuk mengaktifkan REPL dari Node.js, \textit{executable command line program}-nya adalah \textbf{node}. Jika \textbf{node} dipanggil dengan argumen nama file JavaScript, maka file JavaScript tersebut akan dieksekusi, sementara jika tanpa argumen, akan masuke ke REPL:
+
+\lstset{language=bash,caption=Node.js REPL}
+\begin{lstlisting}
+$ node
+> .help
+.break	Sometimes you get stuck, this gets you out
+.clear	Alias for .break
+.exit	Exit the repl
+.help	Show repl options
+.load	Load JS from a file into the REPL session
+.save	Save all evaluated commands in this REPL session to a file
+>
+\end{lstlisting}
+
+Tanda ``\textbf{>}'' adalah tanda bahwa REPL Node.js siap untuk menerima perintah. Untuk melihat perintah-perintah REPL, bisa digunakan \textbf{.help}.
 
 \subsection{Perintah-perintah REPL}
 
+Pada sesi REPL, kita bisa memberikan perintah internal REPL maupun perintah-perintah lain yang sesuai dan dikenali sebagai perintah JavaScript. Perintah internal REPL Node.js terdiri atas:
+\begin{itemize}
+  \item \textbf{.break}: keluar dan melepaskan diri dari "keruwetan" baris perintah di REPL.
+  \item \textbf{.clear}: alias untuk .break
+  \item \textbf{.exit}: keluar dari sesi REPL (bisa juga dengan menggunakan Ctrl-D)
+  \item \textbf{.help}: menampilkan pertolong perintah internal REPL
+  \item \textbf{.load}: membaca dan mengeksekusi perintah-perintah JavaScript yang terdapat pada suatu file.
+  \item \textbf{.save}: menyimpan sesi REPL ke dalam suatu file.
+\end{itemize}
+
+Contoh untuk \textbf{.load}:
+
+\lstset{language=JavaScript,caption=Contoh penggunaan .load dalam REPL}
+\begin{lstlisting}
+> .load /home/bpdp/kerjaan/src/javascript/nodejs/server.js
+> var http = require('http');
+undefined
+> http.createServer(function (req, res) {
+...     res.writeHead(200, {'Content-Type': 'text/plain'});
+...       res.end('Hello, world!\n');
+... }).listen(8124, "127.0.0.1");
+{ _connections: 0,
+  connections: [Getter/Setter],
+  allowHalfOpen: true,
+  _handle: null,
+  _events: 
+   { request: [Function],
+     connection: [Function: connectionListener] },
+  httpAllowHalfOpen: false }
+> console.log('Server running at http://127.0.0.1:8124/');
+Server running at http://127.0.0.1:8124/
+undefined
+>
+\end{lstlisting}
+
+Setelah keluar dari sesi REPL, maka port akan ditutup dan hasil eksekusi di atas akan dibatalkan. 
+
+Untuk menyimpan hasil sesi REPL menggunakan \textbf{.save}, jika tanpa menyebutkan direktori, maka akan disimpan di direktori aktif saat itu. Contoh:
+\lstset{language=bash,caption=Contoh penggunaan perintah .save di sesi REPL}
+\begin{lstlisting}
+$ node
+> console.log("Selamat datang di Node.js")
+Selamat datang di Node.js
+undefined
+> .save /home/bpdp/kerjaan/src/javascript/nodejs/hello.js
+Session saved to:/home/bpdp/kerjaan/src/javascript/nodejs/hello.js
+> [bpdp@bpdp-arch ~]$ cat /home/bpdp/kerjaan/src/javascript/nodejs/hello.js 
+console.log("Selamat datang di Node.js")
+\end{lstlisting}
 
 \section{Dasar-dasar JavaScript di Node.js}
 
