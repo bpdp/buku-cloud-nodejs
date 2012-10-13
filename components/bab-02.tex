@@ -79,7 +79,50 @@ console.log("Selamat datang di Node.js")
 
 Node.js merupakan sistem peranti lunak yang merupakan implementasi dari bahasa pemrograman JavaScript. Spesifikasi JavaScript yang diimplementasikan merupakan spesifikasi resmi dari ECMAScript serta CommonJS (\url{http://commonjs.org}). Dengan demikian, jika anda sudah pernah mempelajari JavaScript sebelumnya, tata bahasa dari perintah yang dipahami oleh Node.js masih tetap sama dengan JavaScript. 
 
-\subsection{Membaca \textit{Input} dari Stream}
+\subsection{Membaca \textit{Masukan} dari Stream / Masukan Standar (stdin)}
+
+Untuk lebih memahami dasar-dasar JavaScript serta penerapannya di Node.js, seringkali kita perlu melakukan simulasi pertanyaan - proses - keluaran jawaban. Proses akan kita pelajari seiring dengan materi-materi berikutnya, sementara untuk keluaran, kita bisa menggunakan \textbf{console.log}. Bagian ini akan menjelaskan sedikit tentang masukan.
+
+Perintah untuk memberi masukan di Node.js sudah tersedia pada pustaka API \textit{Readline}\footnote{Lengkapnya bisa diakses di \url{http://nodejs.org/api/readline.html}}. Pola dari masukan ini adalah sebagai berikut:
+\begin{itemize}
+  \item me-\textit{require} pustaka Readline
+  \item membuat \textit{interface} untuk masukan dan keluaran
+  \item .. gunakan interface ..
+  \item .. gunakan interface ..
+  \item .. gunakan interface ..
+  \item .. gunakan interface ..
+  \item ..
+  \item ..
+  \item tutup \textit{interface}
+\end{itemize}
+
+Implementasi dari pola diatas bisa dilihat pada kode sumber berikut ini (diambil dari manual Node.js):
+
+\lstset{language=JavaScript,caption=readline.js: penggunaan pustaka Readline untuk masukan}
+\begin{lstlisting}
+var readline = require('readline');
+
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question("What do you think of node.js? ", function(answer) {
+  console.log("Thank you for your valuable feedback:", answer);
+
+  rl.close();
+});
+\end{lstlisting}
+
+Hasilnya adalah sebagai berikut:
+
+\lstset{language=bash,caption=Hasil eksekusi readline.js}
+\begin{lstlisting}
+[bpdp@bpdp-arch modul-2]$ node readline.js 
+What do you think of node.js? awesome!
+Thank you for your valuable feedback: awesome!
+[bpdp@bpdp-arch modul-2]$
+\end{lstlisting}
 
 \subsection{Nilai/Value dan Operasi Terhadap Nilai}
 
