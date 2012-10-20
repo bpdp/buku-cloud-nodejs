@@ -136,9 +136,50 @@ Thank you for your valuable feedback: awesome!
 
 \subsection{Nilai/Value dan Tipe Data}
 
+Program dalam JavaScript akan berhubungan dengan data atau nilai. Setiap nilai mempunyai tipe tertentu. JavaScript mengenali berbagai tipe berikut ini:
+\begin{itemize}
+  \item Angka: bulat (misalnya 4) atau pecahan (misalnya 3.75)
+  \item \textit{Boolean}: nilai benar (true) dan salah (false)
+  \item String: diapit oleh tanda petik ganda ("contoh string") atau tunggal ('contoh string')
+  \item \textit{null}
+  \item \textit{undefined}
+\end{itemize}
 
+JavaScript adalah bahasa pemrograman yang mengijinkan pemrogram untuk tidak mendefinisikan tipe data pada saat deklarasi, atau sering juga disebut sebagai \textit{dynamically typed language}:
+
+\lstset{language=JavaScript,caption=Fitur \textit{dynamically typed language}}
+\begin{lstlisting}
+var jumlahMahasiswa = 30
+console.log('Jumlah mahasiswa dalam satu kelas = ' + jumlahMahasiswa);
+// Jumlah mahasiswa dalam satu kelas = 30
+\end{lstlisting} 
+
+Pada contoh di atas, kita bisa melihat bahwa data akan dikonversi secara otomatis pada saat program dieksekusi.
+
+\begin{Sbox}
+\begin{minipage}{\textwidth}
+\textbf{Catatan:}
+\begin{itemize}
+  \item Khusus untuk operator "+", JavaScript akan melakukan penggabungan string (\textit{string concatenation}), tetapi untuk operator lain, akan dilakukan operasi matematis sesuai operator tersebut (-,/,*).
+  \item Konversi string ke tipe numerik bisa dilakukan dengan \textit{parseInt(string)} (jika bilangan bulat) dan \textit{parseFloat(string)} (jika bilangan pecahan).
+\end{itemize}
+\end{minipage}
+\end{Sbox}
+\begin{center}
+\shadowbox{\TheSbox}
+\end{center}
 
 \subsection{Variabel}
+
+Variabel adalah suatu nama yang didefinisikan untuk menampung suatu nilai. Nama ini akan digunakan sebagai referensi yang akan menunjukkan ke nilai yang ditampungnya. Nama variabel disebut dengan \textit{identifier} / pengenal. Ada beberapa syarat pemberian nama \textit{identifier} di JavaScript: 
+\begin{itemize}
+  \item Dimulai dengan huruf, \textit{underscore} (\_), atau tanda dollar (\$).
+  \item Karakter berikutnya bisa berupa angka, selain ketentuan pertama di atas.
+  \item Membedakan huruf besar - kecil.
+\end{itemize}
+Konvensi yang digunakan oleh pemrogram JavaScript terkait dengan penamaan ini adalah variasi dari metode \textit{camel case}, yaitu \textit{camelBack}. Contoh: jumlahMahasiswa, linkMenu.
+
+\subsection{Literal}
 
 
 \subsection{Aliran Kendali}
