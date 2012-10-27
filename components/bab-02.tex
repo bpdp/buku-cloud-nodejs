@@ -177,7 +177,7 @@ Variabel adalah suatu nama yang didefinisikan untuk menampung suatu nilai. Nama 
   \item Karakter berikutnya bisa berupa angka, selain ketentuan pertama di atas.
   \item Membedakan huruf besar - kecil.
 \end{itemize}
-Konvensi yang digunakan oleh pemrogram JavaScript terkait dengan penamaan ini adalah variasi dari metode \textit{camel case}, yaitu \textit{camelBack}. Contoh: jumlahMahasiswa, linkMenu.
+Konvensi yang digunakan oleh pemrogram JavaScript terkait dengan penamaan ini adalah variasi dari metode \textit{camel case}, yaitu \textit{camelBack}. Contoh: jumlahMahasiswa, linkMenu, status.
 
 \subsection{Konstanta}
 
@@ -188,9 +188,88 @@ Konstanta mirip dengan variabel, hanya saja sifatnya \textit{read-only}, tidak b
 const DEFAULT\_MENU = ``Home'';
 \end{lstlisting}
 
-Konvensi penamaan konstanta adalah menggunakan huruf besar semua.
+Konvensi penamaan konstanta adalah menggunakan huruf besar semua. Bagian ini (sampai saat buku ini ditulis) hanya berlaku di Firefox dan Google Chrome - V8 (artinya berlaku juga untuk Node.js).
 
 \subsection{Fungsi}
+
+\subsubsection{Pengertian Fungsi}
+
+Fungsi merupakan subprogram atau suatu bagian dari keseluruhan program yang ditujukan untuk mengerjakan suatu pekerjaan tertentu dan (biasanya) menghasilkan suatu nilai kembalian. Subprogram ini relatif independen terhadap bagian-bagian lain sehingga memenuhi kaidah "bisa-digunakan-kembali" atau \textit{reusable} pada beberapa program yang memerlukan fungsionalitasnya. Fungsi dalam ilmu komputer sering kali juga disebut dengan \textit{prcedure, routine}, atau \textit{method}.
+
+\subsubsection{Definisi Fungsi}
+
+Definisi fungsi dari JavaScript di Node.js bisa dilakukan dengan sintaksis berikut ini:
+
+\lstset{language=JavaScript,caption=Sintaksis Fungsi dalam JavaScript}
+\begin{lstlisting}
+function namaFungsi(argumen1, argumen2, ... , argumentN) {
+  ..
+  JavaScript code ..
+  JavaScript code ..
+  JavaScript code ..
+  JavaScript code ..
+  ..
+}
+\end{lstlisting}
+
+Setelah dideklarasikan, fungsi tersebut bisa dipanggil dengan cara sebagai berikut:
+
+\lstset{language=JavaScript,caption=Pemanggilan Fungsi dalam JavaScript}
+\begin{lstlisting}
+..
+..
+  namaFungsi(argumen1, argumen2, ..., argumenN);
+..
+..
+\end{lstlisting}
+
+Contoh dalam program serta pemanggilannya adalah sebagai berikut:
+
+\lstset{language=bash,caption=Contoh deklarasi fungsi dan pemanggilannya}
+\begin{lstlisting}
+$ node
+> function addX(angka) {
+... console.log(angka + 10);
+... }
+undefined
+> addX(20);
+30
+undefined
+>
+> function add2Numbers(angka1, angka2) {
+... return angka1 + angka2;
+... }
+undefined
+> console.log("232 + 432 = " + add2Numbers(232, 432));
+232 + 432 = 664
+undefined
+>
+\end{lstlisting}
+
+\subsubsection{Fungsi Anonim}
+
+Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan operator \textit{function}.
+
+\lstset{language=JavaScript,caption=Fungsi anonim}
+\begin{lstlisting}
+var pangkat = function(angka) {return angka * angka};
+console.log(pangkat(10));
+// output: 100
+\end{lstlisting}
+
+\subsubsection{Fungsi Rekursif}
+
+Fungsi rekursif adalah fungsi yang memanggil dirinya sendiri. Contoh dari aplikasi fungsi rekursif adalah pada penghitungan faktorial berikut:
+
+\lstset{language=JavaScript,caption=Fungsi rekursif untuk menghitung faktorial}
+\begin{lstlisting}
+function factorial(n){
+  if ((n == 0) || (n == 1))
+    return 1;
+  else
+    return (n * factorial(n - 1));
+}
+\end{lstlisting}
 
 \subsection{Literal}
 
