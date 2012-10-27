@@ -248,7 +248,7 @@ undefined
 
 \subsubsection{Fungsi Anonim}
 
-Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan operator \textit{function}.
+Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan literal \textit{function}.
 
 \lstset{language=JavaScript,caption=Fungsi anonim}
 \begin{lstlisting}
@@ -277,14 +277,49 @@ Literal digunakan untuk merepresentasikan nilai dalam JavaScript. Ada beberapa t
 
 \subsubsection{Literal Array}
 
-Array atau variabel berindeks adalah penampung untuk obyek yang menyerupai \textit{list} atau daftar. Obyek array juga menyediakan berbagai fungsi dan metode untuk mengolah anggota yang terdapat dalam daftar tersebut (terutama untuk operasi \textit{traversal} dan permutasi.
+Array atau variabel berindeks adalah penampung untuk obyek yang menyerupai \textit{list} atau daftar. Obyek array juga menyediakan berbagai fungsi dan metode untuk mengolah anggota yang terdapat dalam daftar tersebut (terutama untuk operasi \textit{traversal} dan permutasi. Listing berikut menunjukkan beberapa operasi untuk literal array.
+
+\lstset{language=JavaScript,caption=Array di JavaScript}
+\begin{lstlisting}
+var arrMembers = ['one','two',,'three',];
+// sengaja ada koma di bagian akhir
+console.log(arrMembers[0]);
+// hasil: one
+console.log(arrMembers[2]);
+// hasil: undefined
+console.log(arrMembers[3]);
+// hasil: three
+console.log(arrMembers[4]);
+// hasil: undefined - karena tidak ada
+console.log(arrMembers.length);
+// hasil: 4
+var multiArray = [
+  ['0-0','0-1','0-2'],
+  ['1-0','1-1','1-2'],
+  ['2-0','2-1','2-2']];
+console.log(multiArray[0][2]);
+// hasil: 0-2
+console.log(multiArray[1][2]);
+// hasil: 1-2
+\end{lstlisting}
 
 \subsubsection{Literal Boolean}
 
+Literal boolean menunjukkan nilai benar (true) atau salah (false).
 
 \subsubsection{Literal Integer}
 
+Literal integer digunakan untuk mengekspresikan nilai bilangan bulat. Nilai bulangan bulat dalam JavaScript bisa dalam bentuk:
+\begin{itemize}
+  \item decimal (basis 10): digit tanpa awalan nol.
+  \item octal (basis 8): digit diawali dengan 1 angka nol.\footnote{pada ECMA-262, bilangan octal ini sudah tidak digunakan lagi.}
+  \item hexadecimal (basis 16): digit diawali dengan 0x.
+\end{itemize}
+
 \subsubsection{Literal Floating-point}
+
+Literal ini digunakan untuk mengekspresikan nilai bilangan pecahan, misalnya 0.4343 atau bisa juga menggunakan E/e (nilai eksponensial), misalnya 
+-3.1E12.
 
 \subsubsection{Literal Obyek}
 
@@ -292,8 +327,57 @@ Literal ini akan dibahas di bab yang menjelaskan tentang paradigma pemrograman b
 
 \subsubsection{Literal String}
 
+Literal string mengekspresikan suatu nilai dalam bentuk sederetan karakter dan berada dalam tanda petik (ganda/``'' maupun tunggal/''). Contoh:
+\begin{itemize}
+   \item ``Kembali ke halaman utama''
+   \item 'Lisensi'
+   \item ``Hari ini, Jum'at, tanggal 21 November''
+   \item ``1234.543''
+   \item ``baris pertama \verb+\n+ baris kedua''
+ \end{itemize}
+
+Contoh terakhir di atas menggunakan karakter khusus (\verb+\n+). Beberapa karakter khusus lainnya adalah:
+
+\begin{itemize}
+  \item \verb+\b+: Backspace
+  \item \verb+\f+: Form feed
+  \item \verb+\n+: New line
+  \item \verb+\r+: Carriage return
+  \item \verb+\t+: Tab
+  \item \verb+\v+: Vertical tab
+  \item \verb+\'+: Apostrophe atau single quote
+  \item \verb+\"+: Double quote
+  \item \verb+\\+:	Backslash (\verb+\+).
+  \item \verb+\XXX+: Karakter dengan pengkodean Latin-1 dengan tiga digit octal antara 0 and 377. (misal, \verb+\+251 adalah simbol hak cipta).
+  \item \verb+\xXX+: seperti di atas, tetapi hexadecimal (2 digit).
+  \item \verb+\uXXXX+: Karakter \textit{Unicode} dengan 3 digit karakter hexadecimal.
+\end{itemize}
+
+Backslash sendiri sering digunakan sebagai \textit{escape character}, misalnya ``NaN sering disebut juga sebagai \verb+\+''Not a Number\verb+\+``''.
 
 \subsection{Aliran Kendali}
+
+\subsubsection{Pernyataan Kondisi \textit{if .. else if .. else}}
+
+
+
+\subsubsection{Pernyataan \textit{switch}}
+
+
+\subsubsection{\textit{Looping}}
+
+
+\subsubsubsection{\textit{for}}
+
+
+\subsubsubsection{do .. while}}
+
+
+\subsubsubsection{while}
+
+
+\subsubsubsection{label, break, dan continue}
+
 
 \subsection{Penanganan Error}
 
