@@ -355,6 +355,42 @@ Contoh terakhir di atas menggunakan karakter khusus (\verb+\n+). Beberapa karakt
 
 Backslash sendiri sering digunakan sebagai \textit{escape character}, misalnya ``NaN sering disebut juga sebagai \verb+\+''Not a Number\verb+\+``''.
 
+\subsection{Struktur Data dan Representasi JSON}
+
+JSON (\textit{JavaScript Object Notation}) adalah subset dari JavaScript dan merupakan struktur data native di JavaScript. Bentuk dari representasi struktur data JSON adalah sebagai berikut\footnote{\urlhttp://en.wikipedia.org/wiki/JSON}}:
+
+\lstset{language=JavaScript,caption=Representasi \textit{JSON}}
+\begin{lstlisting}
+{
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25,
+    "address": {
+        "streetAddress": "21 2nd Street",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10021"
+    },
+    "phoneNumber": [
+        {
+            "type": "home",
+            "number": "212 555-1234"
+        },
+        {
+            "type": "fax",
+            "number": "646 555-4567"
+        }
+    ]
+}
+\end{lstlisting}
+
+Dari representasi di atas, kita bisa membaca:
+\begin{itemize}
+  \item Nilai data ``firstname'' adalah ``John''
+  \item Data ``address'' terdiri atas sub data ``streetAddress'', ``city'', ``state'', dan ``postalCode'' yang masing-masing mempunyai nilai data sendiri-sendiri.
+  \item dan seterusnya
+\end{itemize}
+
 \subsection{Aliran Kendali}
 
 Alur program dikendalikan melalui pernyataan-pernyataan untuk aliran kendali. Ada beberapa pernyataan aliran kendali yang akan dibahas.
@@ -402,12 +438,84 @@ rl.question("Masukkan angka nilai: ", function(answer) {
 
 \subsubsection{Pernyataan \textit{switch}}
 
+Pernyataan ini digunakan untuk mengevaluasi suatu ekspresi dan membandingkan sama atau tidaknya dengan suatu label tertentu di dalam struktur pernyataan switch, serta mengeksekusi perintah-perintah sesuai dengan label yang cocok.
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{if .. else if .. else}}
+\begin{lstlisting}
+var readline = require('readline');
+
+var rl = readline.createInterface({
+    input: process.stdin,
+      output: process.stdout
+});
+
+console.log("Menu");
+console.log("====");
+console.log("1. Mengisi data");
+console.log("2. Mengedit data");
+console.log("3. Menghapus data");
+console.log("4. Mencari data");
+rl.question("Masukkan angka pilihan anda: ", function(answer) {
+  console.log("Pilihan anda: " + answer);
+  switch (answer) {
+    case "1":
+      console.log("Anda memilih menu pengisian data");
+      break;
+    case "2":
+      console.log("Anda memilih menu pengeditan data");
+      break;
+    case "3":
+      console.log("Anda memilih menu penghapusan data");
+      break;
+    case "4":
+      console.log("Anda memilih menu pencarian data");
+      break;
+    default:
+      console.log("Anda tidak memilih salah satu dari menu di atas");
+      break;
+  }
+  rl.close();
+});
+\end{lstlisting}
+
 
 \subsubsection{\textit{Looping}}
 
+Looping atau sering juga disebut ``kalang'' adalah konstruksi program yang digunakan untuk melakukan suatu blok perintah secara berulang-ulang.
 
 \textbf{for}
 
+\lstset{language=JavaScript,caption=Pernyataan \textit{for}}
+\begin{lstlisting}
+for (var i = 0; i < 9; i++) {
+  console.log(i);
+}
+// hasil:
+//0
+//1
+//2
+//3
+//4
+//5
+//6
+//7
+//8
+\end{lstlisting}
+
+Pernyataan ``for'' juga bisa digunakan untuk mengakses data yang tersimpam dalam struktur data JavaScript (JSON).
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{for .. in}}
+\begin{lstlisting}
+var data = {a:1, b:2, c:3};
+
+for (var iterasi in data) {
+  console.log("Nilai dari iterasi " + iterasi + " adalah: " + data[iterasi]);
+}
+// hasil:
+//Nilai dari iterasi a adalah: 1
+//Nilai dari iterasi b adalah: 2
+//Nilai dari iterasi c adalah: 3
+\end{lstlisting}
 
 \textbf{do .. while}
 
@@ -419,6 +527,4 @@ rl.question("Masukkan angka nilai: ", function(answer) {
 
 
 \subsection{Penanganan Error}
-
-\subsection{Struktur Data dan Representasi JSON}
 
