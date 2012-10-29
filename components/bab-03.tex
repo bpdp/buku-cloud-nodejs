@@ -5,4 +5,47 @@
 
 \section{Pemrograman Berorientasi Obyek}
 
+\subsection{Pengertian}
 
+Pemrograman Berorientasi Obyek (selanjutnya akan disingkat PBO) adalah suatu paradigma pemrograman yang memandang bahwa pemecahan masalah pemrograman akan dilakukan melalui definisi berbagai kelas kemudian membuat berbagai obyek berdasarkan kelas yng dibuat tersebut dan setelah itu mendefinisikan interaksi antar obyek tersebut dalam memecahkan masalah pemrograman. Obyek bisa saling berinteraksi karena setiap obyek mempunyai properti (sifat / karakteristik) dan \textit{method} untuk mengerjakan suatu pekerjaan tertentu. Jadi, bisa dikatakan bahwa paradigma ini menggunakan cara pandang yang manusiawi dalam penyelesaian masalah.
+
+Dengan demikian, inti dari PBO sebenarnya terletak pada kemampuan untuk mengabstraksikan berbagai obyek ke dalam kelas (yang terdiri atas properti serta method). Paradigma PBO biasanya juga mencakup \textit{inheritance} atau pewarisan (sehingga terbentuk skema yang terdiri atas \textit{superclass} dan \textit{subclass}). Ciri lainnya adalah \textit{polymorphism} dan \textit{encapsulation} / pengkapsulan.
+
+JavaScript adalah bahasa pemrograman yang mendukung PBO dan merupakan implementasi dari ECMAScript. Implementasi PBO di JavaScript adalah \textit{prototype-based programming} yang merupakan salah satu subset dari PBO. Pada \textit{prototype-based programming}, kelas / \textit{class} tidak ada. Pewarisan diimplementasikan melalui \textit{prototype}.
+
+\subsection{Definisi Obyek}
+
+Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. 
+
+\lstset{language=JavaScript,caption=Definisi obyek di JavaScript}
+\begin{lstlisting}
+var url = require('url');
+
+// Definisi obyek
+function Halaman(alamatUrl) {
+  this.url = alamatUrl;
+  console.log("Mengakses alamat " + alamatUrl);
+}
+
+Halaman.prototype.getDomainName = function() {
+  return url.parse(this.url, true).host; 
+}
+// sampai disini definisi obyek
+// Halaman.prototype.getDomainName => menetapkan method getDomainName
+// untuk obyek
+
+var halSatu = new Halaman("http://nodejs.org/api/http.html");
+var halDua = new Halaman("http://bpdp.name/login?fromHome");
+
+console.log("Alamat URL yang diakses oleh halSatu = " + halSatu.url);
+console.log("Alamat URL yang diakses oleh halDua = " + halDua.url);
+
+console.log("Nama domain halDua = " + halDua.getDomainName());
+
+// hasil:
+//Mengakses alamat http://nodejs.org
+//Mengakses alamat http://bpdp.name
+//Alamat URL yang diakses oleh halSatu = http://nodejs.org
+//Alamat URL yang diakses oleh halDua = http://bpdp.name
+//Nama domain halDua = bpdp.name
+\end{lstlisting}
