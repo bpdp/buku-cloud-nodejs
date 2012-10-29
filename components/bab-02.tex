@@ -519,12 +519,140 @@ for (var iterasi in data) {
 
 \textbf{do .. while}
 
+Pernyataan ini digunakan untuk mengerjakan suatu blok program selama suatu kondisi bernilai benar dengan jumlah minimal pengerjaan sebanyak 1 kali.
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{do .. while}}
+\begin{lstlisting}
+var i = 0;
+do {
+  i += 2;
+  console.log(i);
+} while (i < 20);
+// hasil:
+//2
+//4
+//6
+//8
+//10
+//12
+//14
+//16
+//18
+//20
+\end{lstlisting}
 
 \textbf{while}
 
+Seperti \textit{do .. while}, pernyataan ini digunakan untuk mengerjakan suatu blok program secara berulang-ulang selama kondisi bernilai benar. Meskipun demikian, bisa saja blok program tersebut tidak pernah dikerjakan jika pada saat awal expresi dievaluasi sudah bernilai \textit{false}.
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{while}}
+\begin{lstlisting}
+var n = 0;
+var x = 0;
+
+while (n < 5) {
+  n ++;
+  x += n;
+  console.log("Nilai n = " + n);
+  console.log("Nilai x = " + x);
+}
+// hasil:
+//Nilai n = 1
+//Nilai x = 1
+//Nilai n = 2
+//Nilai x = 3
+//Nilai n = 3
+//Nilai x = 6
+//Nilai n = 4
+//Nilai x = 10
+//Nilai n = 5
+//Nilai x = 15
+\end{lstlisting}
 
 \textbf{label, break, dan continue}
 
+Bagian ini digunakan dalam \textit{looping} dan \textit{switch}.
+\begin{itemize}
+  \item \textit{label} digunakan untuk memberi pengenal pada suatu lokasi program sehingga bisa direferensi oleh \textit{break} maupun \textit{continue} (jika dikehendaki). 
+  \item \textit{break} digunakan untuk menghentikan eksekusi dan meneruskan alur program ke pernyataan setelah \textit{looping} atau \textit{switch}
+  \item \textit{continue} digunakan untuk meneruskan eksekusi ke iterasi atau ke kondisi switch berikutnya.
+\end{itemize}
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{break} dan \textit{continue}}
+\begin{lstlisting}
+var n = 0;
+var x = 0;
+
+while (n < 5) {
+  n ++;
+  x += n;
+
+  if (x%2 == 0) {
+    continue;
+  };
+
+  if (x>10) {
+    break;
+  };
+
+  console.log("Nilai n = " + n);
+  console.log("Nilai x = " + x);
+
+};
+// hasil:
+//Nilai n = 1
+//Nilai x = 1
+//Nilai n = 2
+//Nilai x = 3
+\end{lstlisting}
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
+\begin{lstlisting}
+topLabel:
+  for(var k = 0; k < 10; k++){
+    for(var m = 0; m < 20; m++){
+      if(m == 5){
+        console.log("Nilai k = " + k);
+        console.log("Nilai m = " + m);
+        break topLabel;
+      }
+    }
+  }
+// hasil: 
+//Nilai k = 0
+//Nilai m = 5
+\end{lstlisting}
 
 \subsection{Penanganan Error}
 
+JavaScript mendukung pernyataan \textit{try .. catch .. finally} serta \textit{throw} untuk menangani error. Meskipun demikian, banyak hal yang tidak sesuai dengan konstruksi ini karena sifat JavaScript yang \textit{asynchronous}. Untuk kasus asynchrous, pemrogram lebih disarankan menggunakan \textit{function callback}.
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
+\begin{lstlisting}
+try {
+  gakAdaFungsiIni();
+} catch (e) {
+  console.log ("Error: " + e.message);
+} finally {
+  console.log ("Ini adalah semacam bagian untuk 'pembersihan',"); 
+  console.log ("akan dikerjakan, apapun yang terjadi");
+};
+//hasil:
+//Error: gakAdaFungsiIni is not defined
+//Ini adalah semacam bagian untuk 'pembersihan', 
+//akan dikerjakan, apapun yang terjadi
+\end{lstlisting}
+
+Jika diperlukan, kita bisa mendefinisikan sendiri error dengan menggunakan pernyataan \textit{throw}.
+
+\lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
+\begin{lstlisting}
+try {
+  var a = 1/0;
+  throw "Pembagian oleh angka 0";
+} catch (e) {
+  console.log ("Error: " + e);
+};
+// hasil:
+//Error: Pembagian oleh angka 0
+\end{lstlisting}
