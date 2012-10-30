@@ -11,7 +11,10 @@ Buku ini saya buat dengan menggunakan [LaTeX](http://www.latex-project.org) pada
 Penulis
 -------
 
-Buku ini ditulis oleh Bambang Purnomosidi D. P. Info tentang saya bisa diperoleh di [situs pribadi saya](http://bpdp.name). Saat ini saya menjadi dosen di [STMIK AKAKOM](http://www.akakom.ac.id) dan masih menjadi mahasiswa S3 di [Jurusan Teknik Elektro dan Teknologi Informasi - JTETI, UGM](http://pasca.te.ugm.ac.id)
+Buku ini ditulis oleh Bambang Purnomosidi D. P. Info tentang saya bisa diperoleh di [situs pribadi saya](http://bpdp.name). Saat ini saya menjadi dosen di [STMIK AKAKOM](http://www.akakom.ac.id) dan masih menjadi mahasiswa S3 di [Jurusan Teknik Elektro dan Teknologi Informasi - JTETI, UGM](http://pasca.te.ugm.ac.id).
+
+Kontributor:
+* [Aji Kisworo Mukti](http://adzymaniac.web.id)
 
 Saya bisa dihubungi melalui:
 
