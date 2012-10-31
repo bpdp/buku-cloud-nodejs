@@ -2,15 +2,15 @@
 
 \section{Apakah npm Itu?}
 
-Node.js memungkinkan developer untuk mengembangkan aplikasi secara modular dengan memisahkan berbagai \textit{resusable code} ke dalam pustaka. Berbagai pustaka tersebut bisa diperoleh di \url{http://npmjs.org}. Node.js menyediakan perintah \textit{npm} untuk mengelola paket pustaka di repositori tersebut.
+Node.js memungkinkan developer untuk mengembangkan aplikasi secara modular dengan memisahkan berbagai komponen \textit{reusable code} ke dalam pustaka (\textit{library}). Berbagai pustaka tersebut bisa diperoleh di \url{http://npmjs.org}. Node.js menyediakan perintah \textit{npm} untuk mengelola paket pustaka di repositori tersebut.
 
 \section{Menggunakan npm}
 
 \subsection{Instalasi Paket}
 
-Node Package Manager atau npm merupakan bilah alat berbasis baris perintah. Sama seperti kebanyakan bilah alat berbasis baris perintah lain, npm memiliki struktur perintah \textile{npm perintah argumen}. Installasi paket pustaka dilakukan dengan perintah berikut :
+npm sebenarnya bukan merupakan singkatan dari \textit{Node Package Manager}, meskipun seringkali orang menterjemahkan dengan singkatan tersebut dan npm seharusnya ditulis dalam huruf kecil semua seperti yang dijelaskan pada FAQ (\textit{Frequently Asked Questions})\footnote{\url{https://npmjs.org/doc/faq.html}}. npm merupakan bilah alat berbasis baris perintah, dijalankan melalui shell atau \textit{command prompt}. Sama seperti kebanyakan bilah alat berbasis baris perintah lain, npm memiliki struktur perintah \textit{npm perintah argumen}. Installasi paket pustaka dilakukan dengan perintah berikut :
 
-\lstset{language=bash,caption=Hasil instalasi Flatiron}
+\lstset{language=bash,caption=Cara install paket menggunakan npm}
 \begin{lstlisting}
 $ npm install foo
 \end{lstlisting}
@@ -19,46 +19,28 @@ Perintah diatas akan memasang versi terakhir dari paket pustaka foo. Selain itu 
 
 \subsection{Struktur Instalasi Paket Node.js}
 
-Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textite{node_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textite{/usr/lib/node_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar.
+Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textit{node\_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textit{/usr/lib/node\_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar. Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut:
 
-Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut :
-
-\lstset{language=bash,caption=Hasil instalasi Flatiron}
+\lstset{language=bash,caption=Argumen npm untuk melihat daftar paket terpasang}
 \begin{lstlisting}
 $ npm ls
 \end{lstlisting}
 
-Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global, perintah diatas juga akan menampilkan paket depedensi dalam struktur pohon. Berikut contoh struktur installasi dari paket pustaka lokal aplikasi :
+Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global, perintah diatas juga akan menampilkan paket dependensi dalam struktur pohon. Gambar~\ref{fig:npmls} berikut menampilkan contoh struktur installasi dari paket pustaka lokal aplikasi:
 
-\lstset{language=bash,caption=Hasil instalasi Flatiron}
-\begin{lstlisting}
-$ npm ls
-bpdp-m1-hello@0.0.1 /home/adzy/Projects/buku-cloud-nodejs/src/modul-1/hello
-└─┬ express@3.0.0 
-  ├── commander@0.6.1 
-  ├─┬ connect@2.6.0 
-  │ ├── bytes@0.1.0 
-  │ ├── formidable@1.0.11 
-  │ ├── pause@0.0.1 
-  │ ├── qs@0.5.1 
-  │ └─┬ send@0.0.4 
-  │   └── mime@1.2.6 
-  ├── cookie@0.0.4 
-  ├── crc@0.2.0 
-  ├── debug@0.7.0 
-  ├── fresh@0.1.0 
-  ├── methods@0.0.1 
-  ├── mkdirp@0.3.3 
-  ├── range-parser@0.0.4 
-  └─┬ send@0.1.0 
-    └── mime@1.2.6 
-\end{lstlisting}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.5]{images/npmls.jpg}
+    \end{center}
+    \caption{Hasil perintah npm ls}
+    \label{fig:npmls}
+  \end{figure}
 
-\subsection{Menghapus Paket / Uninstall}
+\subsection{Menghapus Paket / \textit{Uninstall}}
 
-Menghapus paket pustaka menggunakan npm pada dasarnya hampir sama dengan saat memasang paket, namun dengan perintah \textile{uninstall}. Berikut perintah lengkapnya.
+Menghapus paket pustaka menggunakan npm pada dasarnya hampir sama dengan saat memasang paket, namun dengan perintah \textit{uninstall}. Berikut perintah lengkapnya.
 
-\lstset{language=bash,caption=Hasil instalasi Flatiron}
+\lstset{language=bash,caption=Perintah menghapus paket di npm}
 \begin{lstlisting}
 $ npm uninstall foo
 \end{lstlisting}
