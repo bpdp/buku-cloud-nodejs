@@ -15,7 +15,7 @@ JavaScript adalah bahasa pemrograman yang mendukung PBO dan merupakan implementa
 
 \subsection{Definisi Obyek}
 
-Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. 
+Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. Sementara itu, Kelas.prototype.namaMethod digunakan untuk mendefinisikan method dengan nama method namaMethod pada kelas Kelas. Perhatikan contoh pada listing berikut.
 
 \lstset{language=JavaScript,caption=Definisi obyek di JavaScript}
 \begin{lstlisting}
@@ -43,9 +43,79 @@ console.log("Alamat URL yang diakses oleh halDua = " + halDua.url);
 console.log("Nama domain halDua = " + halDua.getDomainName());
 
 // hasil:
-//Mengakses alamat http://nodejs.org
-//Mengakses alamat http://bpdp.name
-//Alamat URL yang diakses oleh halSatu = http://nodejs.org
-//Alamat URL yang diakses oleh halDua = http://bpdp.name
+//Mengakses alamat http://nodejs.org/api/http.html
+//Mengakses alamat http://bpdp.name/login?fromHome
+//Alamat URL yang diakses oleh halSatu = http://nodejs.org/api/http.html
+//Alamat URL yang diakses oleh halDua = http://bpdp.name/login?fromHome
 //Nama domain halDua = bpdp.name
+\end{lstlisting}
+
+\subsection{\textit{Inheritance} / Pewarisan}
+
+Pewarisan di JavaScript bisa dicapai menggunakan \textit{prototype}. Listing program berikut memperlihatkan bagaimana pewarisan diimplementasikan di JavaScript.
+
+\lstset{language=JavaScript,caption=Pewarisan di PBO JavaScript}
+\begin{lstlisting}
+// Definisi obyek
+function Kelas(param) {
+  this.property1 = new String(param);
+}
+
+Kelas.prototype.methodSatu = function() {
+  return this.property1; 
+}
+
+var kelasSatu = new Kelas("ini parameter 1 dari kelas 1");
+
+console.log("Property 1 dari kelasSatu = " + kelasSatu.property1);
+console.log("Property 1 dari kelasSatu, diambil dari method  = " + kelasSatu.methodSatu());
+
+// Definisi inheritance:
+// SubKelas merupakan anak dari Kelas yang didefinisikan
+// di atas.
+
+SubKelas.prototype = new Kelas();
+SubKelas.prototype.constructor = SubKelas;
+
+function SubKelas(param) {
+  this.property1 = new String(param);
+}
+
+// method overriding
+SubKelas.prototype.methodSatu = function(keHurufBesar) {
+  console.log("Ubah ke huruf besar? = " + keHurufBesar);
+  if (keHurufBesar) {
+    return this.property1.toUpperCase();
+  } else {
+    return this.property1.toLowerCase();
+  }
+}
+
+SubKelas.prototype.methodDua = function() {
+  console.log("Berada di method dua dari SubKelas");
+}
+
+// mari diuji
+var subKelasSatu = new SubKelas("Parameter 1 Dari Sub Kelas 1");
+
+console.log("Property 1 dari sub kelas 1 = " + subKelasSatu.property1);
+console.log("Property 1 dari sub kelas 1, diambil dari method+param = " + 
+  subKelasSatu.methodSatu(true));
+console.log("Property 1 dari sub kelas 1, diambil dari method+param = " +
+  subKelasSatu.methodSatu(false));
+
+console.log(subKelasSatu.methodDua());
+// hasil:
+//
+//Property 1 dari kelasSatu = ini parameter 1 dari kelas 1
+//Property 1 dari kelasSatu, diambil dari method  = ini 
+//parameter 1 dari kelas 1
+//Property 1 dari sub kelas 1 = Parameter 1 Dari Sub Kelas 1
+//Ubah ke huruf besar? = true
+//Property 1 dari sub kelas 1, diambil dari method+param = 
+//PARAMETER 1 DARI SUB KELAS 1
+//Ubah ke huruf besar? = false
+//Property 1 dari sub kelas 1, diambil dari method+param = 
+//parameter 1 dari sub kelas 1
+//Berada di method dua dari SubKelas
 \end{lstlisting}
