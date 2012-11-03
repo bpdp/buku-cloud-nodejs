@@ -15,6 +15,7 @@ Buku ini ditulis oleh Bambang Purnomosidi D. P. Info tentang saya bisa diperoleh
 
 Kontributor:
 * [Aji Kisworo Mukti](http://adzymaniac.web.id)
+sdfkdsfdslkfjsdkfjkdsflsdklllllllllllllllllllllllllllllllllllllfjjjjjjjjjjjjjjjjjjjjjjjjjjjkdls  
 
 Saya bisa dihubungi melalui:
 
