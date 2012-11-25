@@ -2,9 +2,9 @@
 
 \section{Pemrograman Fungsional}
 
-Pemrograman fungsional, atau sering disebut \textit{functional programming}, selama ini lebih sering dibicarakan di level para akademisi. Meskipun demikian, saat ini terdapat kecenderungan paradigma ini semakin banyak digunakan di industri. Contoh nyata dari implementasi paradigma ini di industri antara lain adalah Scala (\url{http://www.scala-lang.org}), OCaml (\url{http://www.ocaml.org}), Haskell (\url{http://www.haskell.org}), Microsoft F# (\url{http://fsharp.org}), dan lain-lain. Dalam konteks paradigma pemrograman, peranti lunak yang dibangun menggunakan pendekatan paradigma ini akan terdiri atas berbagai fungsi yang mirip dengan fungsi matematis.
+Pemrograman fungsional, atau sering disebut \textit{functional programming}, selama ini lebih sering dibicarakan di level para akademisi. Meskipun demikian, saat ini terdapat kecenderungan paradigma ini semakin banyak digunakan di industri. Contoh nyata dari implementasi paradigma ini di industri antara lain adalah Scala (\url{http://www.scala-lang.org}), OCaml (\url{http://www.ocaml.org}), Haskell (\url{http://www.haskell.org}), Microsoft F# (\url{http://fsharp.org}), dan lain-lain. Dalam konteks paradigma pemrograman, peranti lunak yang dibangun menggunakan pendekatan paradigma ini akan terdiri atas berbagai fungsi yang mirip dengan fungsi matematis. Fungsi matematis tersebut di-evaluasi dengan penekanan pada penghindaran \textit{state} serta \textit{mutable data}. Bandingkan dengan paradigma pemrograman prosedural yang menekankan pada \textit{immutable data} dan definisi berbagai prosedur dan fungsi untuk mengubah \textit{state} serta data.
 
-JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada banyak fitur dari pemrograman fungsional yang terdapat dalam JavaScript. Dalam hal ini, JavaScript banyak dipengaruhi oleh bahasa pemrograman Scheme (\url{http://www.schemers.org/}). Bab ini akan membahas beberapa fitur pemrograman fungsional di JavaScript.
+JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada banyak fitur dari pemrograman fungsional yang terdapat dalam JavaScript. Dalam hal ini, JavaScript banyak dipengaruhi oleh bahasa pemrograman Scheme (\url{http://www.schemers.org/}). Bab ini akan membahas beberapa fitur pemrograman fungsional di JavaScript. Pembahasan ini didasari pembahasan di bab sebelumnya tentang Fungsi di JavaScript.
 
 % see for example: http://www.theochem.ru.nl/~pwormer/teachmat/JSfunctions.html
 % http://forum.codecall.net/topic/58835-javascript-using-lambda-functions/#axzz2C9NyqY4g
@@ -17,6 +17,11 @@ JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada 
 % http://www.theochem.ru.nl/~pwormer/teachmat/JSfunctions.html
 
 \subsection{Ekspresi Lambda}
+
+Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa di-\textit{bound} ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
+
+
+
 
 \subsection{Higher-order Function}
 
