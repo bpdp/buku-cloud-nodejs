@@ -18,10 +18,36 @@ JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada 
 
 \subsection{Ekspresi Lambda}
 
-Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa di-\textit{bound} ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
+Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa ditautkan (\textit{bound}) ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
 
+\lstset{language=JavaScript,caption=Ekspresi Lambda di JavaScript}
+\begin{lstlisting}
+// Diambil dari 
+// http://stackoverflow.com/questions/3865335/what-is-a-lambda-language
+// dengan beberapa perubahan
 
+function applyOperation(a, b, operation) {
+	return operation(a, b);
+}
 
+function add(a, b) {
+	return a+b;
+}
+
+function subtract(a, b) {
+	return a-b;
+}
+
+console.log('1,2, add: ' + applyOperation(1,2, add));
+console.log('43,21, subtract: ' + applyOperation(43,21, subtract));
+
+console.log('4^3: ' + applyOperation(4, 3, function(a,b) {return Math.pow(a, b)}))
+
+// hasil:
+// 1,2, add: 3
+// 43,21, subtract: 22
+// 4^3: 64
+\end{lstlisting}
 
 \subsection{Higher-order Function}
 
