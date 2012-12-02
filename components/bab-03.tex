@@ -51,6 +51,35 @@ console.log('4^3: ' + applyOperation(4, 3, function(a,b) {return Math.pow(a, b)}
 
 \subsection{Higher-order Function}
 
+\textit{Higher-order function} (sering disebut juga sebagai \textit{functor} adalah suatu fungsi yang setidak-tidaknya menggunakan satu atau lebih fungsi lain sebagai parameter dari fungsi, atau menghasilkan fungsi sebagai nilai kembalian. 
+
+\lstset{language=JavaScript,caption=Higher-order Function di JavaScript}
+\begin{lstlisting}
+function forEach(array, action) {
+	for (var i = 0; i < array.length; i++ )
+		action(array[i]);
+}
+
+function print(word) {
+	console.log(word);
+}
+
+function makeUpperCase(word) {
+	console.log(word.toUpperCase());
+}
+
+forEach(["satu", "dua", "tiga"], print);
+forEach(["satu", "dua", "tiga"], makeUpperCase);
+
+// hasil:
+//satu
+//dua
+//tiga
+//SATU
+//DUA
+//TIGA
+\end{lstlisting}
+
 \subsection{Closure}
 
 \subsection{Currying}
