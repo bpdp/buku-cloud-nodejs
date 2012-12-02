@@ -82,7 +82,59 @@ forEach(["satu", "dua", "tiga"], makeUpperCase);
 
 \subsection{Closure}
 
+Suatu \textit{closure} merupakan definisi suatu fungsi bersama-sama dengan lingkungannya. Lingkungan tersebut terdiri atas fungsi internal serta berbagai variabel lokal yang masih tetap tersedia saat fungsi utama / closure tersebut selesai dieksekusi. 
+
+\lstset{language=JavaScript,caption=Closure di JavaScript}
+\begin{lstlisting}
+// Diambil dengan sedikit perubahan dari:
+// https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+ 
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+ 
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+\end{lstlisting}
+
 \subsection{Currying}
+
+\textit{Currying} memungkinkan pemrogram untuk membuat suatu fungsi dengan cara menggunakan fungsi yang sudah tersedia secara parsial, artinya tidak perlu menggunakan semua argumen dari fungsi yang sudah tersedia tersebut.
+
+\lstset{language=JavaScript,caption=Currying di JavaScript}
+\begin{lstlisting}
+// Diambil dari:
+// http://javascriptweblog.wordpress.com/2010/04/05/
+// 		curry-cooking-up-tastier-functions/
+// dengan sedikit perubahan
+
+function toArray(fromEnum) {
+    return Array.prototype.slice.call(fromEnum);
+}
+
+Function.prototype.curry = function() {
+    if (arguments.length<1) {
+        return this; //nothing to curry with - return function
+    }
+    var __method = this;
+    var args = toArray(arguments);
+    return function() {
+        return __method.apply(this, args.concat(toArray(arguments)));
+    }
+}
+
+var add = function(a,b) {
+    return a + b;
+}
+
+//create function that returns 10 + argument
+var addTen = add.curry(10); 
+console.log(addTen(20)); //30
+\end{lstlisting}
 
 
 \section{Pemrograman Berorientasi Obyek}
