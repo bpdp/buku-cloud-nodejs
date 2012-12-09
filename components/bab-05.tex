@@ -27,9 +27,15 @@ Pada saat membangun aplikasi Cloud dengan antarmuka web menggunakan Node.js, ada
 }
 \end{lstlisting}
 
+Jika ingin memeriksa validitas dari data berformat JSON, pemrogram bisa menggunakan validator di \url{http://jsonlint.com}.
+
 \section{\textit{Event-Driven Programming} dan EventEmitter}
 
-\section{Asynchronous dan Non-blocking}
+
+
+\section{Asynchronous / Non-blocking IO dan \textit{Callback}}
+
+\textit{Asynchronous input/output} merupakan suatu bentuk pemrosesan masukan/keluaran yang memungkinkan pemrosesan dilanjutkan tanpa menunggu proses tersebut selesai. Saat pemrosesan masukan/keluaran tersebut selesai, hasil akan diberikan ke suatu fungsi. Fungsi yang menangani hasil pemrosesan saat pemrosesan tersebut selesai disebut \textit{callback} (pemanggilan kembali). Jadi, mekanismenya adalah: proses masukan/keluaran - lanjut ke alur berikutnya - panggil kembali fungsi pemroses jika proses masukan/keluaran sudah selesai.
 
 \lstset{language=JavaScript,caption=Membaca file secara synchronous}
 \begin{lstlisting}
@@ -99,7 +105,4 @@ sys.puts('Baris setelah membaca file');
 //    ]
 //}
 \end{lstlisting}
-
-
-\section{Callbacks}
 
