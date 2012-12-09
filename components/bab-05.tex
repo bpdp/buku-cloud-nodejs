@@ -1,8 +1,104 @@
 \chapter{Node.js dan Web: Teknik Pengembangan Aplikasi}
 
-\section{Events}
+\section{Pendahuluan}
+
+Pada saat membangun aplikasi Cloud dengan antarmuka web menggunakan Node.js, ada beberapa teknik pemrograman yang bisa digunakan. Bab ini akan membahas berbagai teknik tersebut. Untuk mengerjakan beberapa latihan di bab ini, digunakan suatu file dengan format JSON. File \textit{pegawai.json} berikut ini akan digunakan dalam pembahasan selanjutnya.
+
+\lstset{language=JavaScript,caption=pegawai.json}
+\begin{lstlisting}
+{
+    "pegawai": [
+        {
+            "id": "1",
+            "nama": "Zaky",
+            "alamat": "Purwomartani"
+        },
+        {
+            "id": "2",
+            "nama": "Ahmad",
+            "alamat": "Kalasan"
+        },
+        {
+            "id": "3",
+            "name": "Aditya",
+            "alamat": "Sleman"
+        }
+    ]
+}
+\end{lstlisting}
+
+\section{\textit{Event-Driven Programming} dan EventEmitter}
 
 \section{Asynchronous dan Non-blocking}
+
+\lstset{language=JavaScript,caption=Membaca file secara synchronous}
+\begin{lstlisting}
+var fs = require('fs');
+var sys = require('sys');
+
+sys.puts('Mulai baca file');
+data = fs.readFileSync('./pegawai.json', "utf-8");
+console.log(data);
+sys.puts('Baris setelah membaca file');
+// Hasil:
+//Mulai baca file
+//{
+//    "pegawai": [
+//        {
+//            "id": "1",
+//            "nama": "Zaky",
+//            "alamat": "Purwomartani"
+//        },
+//        {
+//            "id": "2",
+//            "nama": "Ahmad",
+//            "alamat": "Kalasan"
+//        },
+//        {
+//            "id": "3",
+//            "name": "Aditya",
+//            "alamat": "Sleman"
+//        }
+//    ]
+//}
+//
+//Baris setelah membaca file
+\end{lstlisting}
+
+\lstset{language=JavaScript,caption=Membaca file secara asynchronous}
+\begin{lstlisting}
+var fs = require('fs');
+var sys = require('sys');
+
+sys.puts('Mulai baca file');
+fs.readFile('./pegawai.json', "utf-8",  function(err, data) {
+  if (err) throw err;
+  console.log(data);
+})
+sys.puts('Baris setelah membaca file');
+// Hasil:
+//Mulai baca file
+//Baris setelah membaca file
+//{
+//    "pegawai": [
+//        {
+//            "id": "1",
+//            "nama": "Zaky",
+//            "alamat": "Purwomartani"
+//        },
+//        {
+//            "id": "2",
+//            "nama": "Ahmad",
+//            "alamat": "Kalasan"
+//        },
+//        {
+//            "id": "3",
+//            "name": "Aditya",
+//            "alamat": "Sleman"
+//        }
+//    ]
+//}
+\end{lstlisting}
 
 
 \section{Callbacks}
