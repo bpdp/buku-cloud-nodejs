@@ -31,7 +31,66 @@ Jika ingin memeriksa validitas dari data berformat JSON, pemrogram bisa mengguna
 
 \section{\textit{Event-Driven Programming} dan EventEmitter}
 
+\textit{Event-Driven Programming} (selanjutnya akan disebut EDP) atau sering juga disebut \textit{Event-Based Programming} merupakan teknik pemrograman yang menggunakan \textit{event} atau suatu kejadian tertentu sebagai pemicu munculnya suatu aksi serta aliran program. Contoh event misalnya adalah sebagai berikut:
+\begin{itemize}
+	\item Menu dipilih.
+	\item Tombol "Submit" di klik.
+	\item Server menerima permintaan dari klien.
+\end{itemize}
+Pada dasarnya ada beberapa bagian yang harus disiapkan dari paradigma dan teknik pemrograman ini:
+\begin{itemize}
+	\item \textit{main loop} atau suatu konstruksi utama program yang menunggu dan mengirimkan sinyal event.
+	\item definisi dari berbagai event yang mungkin muncul
+	\item definisi \textit{event-handler} untuk menangani event yang muncul dan dikirimkan oleh \textit{main loop}
+\end{itemize}
+Node.js merupakan peranti pengembangan yang menggunakan teknik pemrograman ini. Pada Node.js, EDP ini semua dikendalikan oleh kelas \textit{events.EventEmitter}. Jika ingin menggunakan kelas ini, gunakan \textit{require('events')}. Dalam terminologi Node.js, jika suatu event terjadi, maka dikatakan sebagai \textit{emits an event}, sehingga kelas yang digunakan untuk menangani itu disebut dengan events.EventEmitter. Pada dasarnya banyak event yang digunakan oleh berbagai kelas lain di Node.js. Contoh kecil dari penggunaan itu diantaranya adalah \textit{net.Server} yang meng-\textit{emit} event "connection", "listening", "close", dan "error".
 
+Untuk memahami mekanisme ini, pahami dua kode sumber berikut:
+\begin{itemize}
+	\item server.js: mengaktifkan server http (diambil dari manual Node.js
+	\item server-on-error.js: mencoba mengaktifkan server pada host dan port yang sama dengan server.js. Aktivasi ini akan menyebabkan Node.js meng-\textit{emit} event 'error' karena host dan port sudah digunakan di server.js.
+\end{itemize}
+File server.js dijalankan lebih dulu, setelah itu baru menjalankan server-on-error.js.
+
+\lstset{language=JavaScript,caption=server.js}
+\begin{lstlisting}
+var http = require('http');
+http.createServer(function (req, res) {
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+\end{lstlisting}
+
+\lstset{language=JavaScript,caption=server-on-error.js}
+\begin{lstlisting}
+var net = require('net');
+
+var server = net.createServer(function(sock) {
+
+	// Event dan event-handler
+	// 'data' => jika ada data yang dikirimkan dari klien
+	sock.on('data', function(data) {
+		console.log('data ' + sock.remoteAddress + ': ' + data);
+	});
+
+	// 'close' => jika koneksi ditutup
+	sock.on('close', function(data) {
+		console.log('koneksi ditutup');
+	});
+
+});
+
+server.listen(1337, function() {
+	console.log('Server aktif di 127.0.0.1:1337');
+});
+
+server.on('error', function (e) {
+	if (e.code == 'EADDRINUSE') {
+		console.log('Error: host dan port sudah digunakan.');
+	}
+});
+\end{lstlisting}
 
 \section{Asynchronous / Non-blocking IO dan \textit{Callback}}
 
