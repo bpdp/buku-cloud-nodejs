@@ -57,7 +57,15 @@ Tue Dec 11 14:40:21 [initandlisten] waiting for connections on
 port 27017
 \end{lstlisting}
 
-Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maupun menggunakan shell. \textit{Admin web console} bisa diakses menggunakan port 28017 seperti pada gambar~\ref{fig:mongowebadminconsole}
+Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maupun menggunakan shell. \textit{Admin web console} bisa diakses menggunakan port 28017 seperti pada gambar~\ref{fig:mongowebadminconsole}. Sementara itu, untuk mengakses server menggunakan shell, bisa digunakan perintah \textit{mongo} sebagai berikut:
+
+\lstset{language=bash,caption=Shell mongoDB (mongo)}
+\begin{lstlisting}
+$ mongo
+MongoDB shell version: 2.2.2
+connecting to: test
+> 
+\end{lstlisting}
 
   \begin{figure}
     \begin{center}
@@ -89,6 +97,88 @@ Tue Dec 11 15:16:38 dbexit: really exiting now
 \end{lstlisting}
 
 \section{Node.js dan MongoDB}
+
+\subsection{Node-gyp}
+
+Node-gyp merupakan \textit{native add-on build tool}, berfungsi untuk membantu proses kompilasi modul add-on native di Node.js. Node-gyp merupakan software bebas dan bisa diinstall menggunakan npm:
+
+\lstset{language=bash,caption=Instalasi node-gyp}
+\begin{lstlisting}
+$ npm install -g node-gyp
+npm http GET https://registry.npmjs.org/node-gyp
+npm http 200 https://registry.npmjs.org/node-gyp
+npm http GET https://registry.npmjs.org/glob
+npm http GET https://registry.npmjs.org/mkdirp
+npm http GET https://registry.npmjs.org/fstream
+npm http GET https://registry.npmjs.org/minimatch
+npm http GET https://registry.npmjs.org/graceful-fs
+npm http GET https://registry.npmjs.org/request
+npm http GET https://registry.npmjs.org/tar
+npm http GET https://registry.npmjs.org/semver
+npm http GET https://registry.npmjs.org/rimraf
+npm http GET https://registry.npmjs.org/which
+npm http GET https://registry.npmjs.org/osenv
+npm http GET https://registry.npmjs.org/npmlog
+npm http GET https://registry.npmjs.org/nopt
+npm http 304 https://registry.npmjs.org/glob
+npm http 304 https://registry.npmjs.org/minimatch
+npm http 304 https://registry.npmjs.org/mkdirp
+npm http 304 https://registry.npmjs.org/request
+npm http 304 https://registry.npmjs.org/graceful-fs
+npm http 304 https://registry.npmjs.org/semver
+npm http GET https://registry.npmjs.org/semver/-/semver-1.1.1.tgz
+npm http 200 https://registry.npmjs.org/fstream
+npm http 200 https://registry.npmjs.org/tar
+npm http GET https://registry.npmjs.org/tar/-/tar-0.1.14.tgz
+npm http 200 https://registry.npmjs.org/rimraf
+npm http 200 https://registry.npmjs.org/which
+npm http 304 https://registry.npmjs.org/nopt
+npm http 200 https://registry.npmjs.org/osenv
+npm http 200 https://registry.npmjs.org/npmlog
+npm http 200 https://registry.npmjs.org/semver/-/semver-1.1.1.tgz
+npm http 200 https://registry.npmjs.org/tar/-/tar-0.1.14.tgz
+npm http GET https://registry.npmjs.org/abbrev
+npm http GET https://registry.npmjs.org/sigmund
+npm http GET https://registry.npmjs.org/lru-cache
+npm http GET https://registry.npmjs.org/ansi
+npm http GET https://registry.npmjs.org/inherits
+npm http GET https://registry.npmjs.org/inherits
+npm http GET https://registry.npmjs.org/inherits
+npm http GET https://registry.npmjs.org/block-stream
+npm http 304 https://registry.npmjs.org/sigmund
+npm http 304 https://registry.npmjs.org/abbrev
+npm http 304 https://registry.npmjs.org/lru-cache
+npm http 304 https://registry.npmjs.org/inherits
+npm http 304 https://registry.npmjs.org/inherits
+npm http 304 https://registry.npmjs.org/inherits
+npm http 200 https://registry.npmjs.org/ansi
+npm http 200 https://registry.npmjs.org/block-stream
+/home/bpdp/software/nodejs/bin/node-gyp -> /home/bpdp/software/nodejs/lib/node_modules/node-gyp/bin/node-gyp.js
+node-gyp@0.8.1 /home/bpdp/software/nodejs/lib/node_modules/node-gyp
++-- graceful-fs@1.1.14
+|-- osenv@0.0.3
+|-- rimraf@2.0.2
+|-- mkdirp@0.3.4
+|-- which@1.0.5
+|-- semver@1.1.1
+|-- request@2.9.203
+|-- nopt@2.0.0 (abbrev@1.0.3)
+|-- minimatch@0.2.9 (sigmund@1.0.0, lru-cache@2.0.4)
+|-- glob@3.1.14 (inherits@1.0.0)
+|-- fstream@0.1.19 (inherits@1.0.0)
+|-- npmlog@0.0.2 (ansi@0.1.2)
++-- tar@0.1.14 (inherits@1.0.0, block-stream@0.0.6)
+\end{lstlisting}
+
+Node-gyp ini diinstall pada lokasi global. Pada materi ini, Node-gyp diperlukan untuk membangun \textit{driver} dari mongoDB sehingga mongoDB bisa diakses oleh Node.js. 
+
+\subsection{Driver Node.js untuk mongoDB}
+
+Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Beberapa solusi yang tersedia adalah:
+
+
+
+
 
 \section{Aplikasi Web Menggunakan Node.js dan MongoDB}
 
