@@ -57,24 +57,6 @@ Tue Dec 11 14:40:21 [initandlisten] waiting for connections on
 port 27017
 \end{lstlisting}
 
-Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maupun menggunakan shell. \textit{Admin web console} bisa diakses menggunakan port 28017 seperti pada gambar~\ref{fig:mongowebadminconsole}. Sementara itu, untuk mengakses server menggunakan shell, bisa digunakan perintah \textit{mongo} sebagai berikut:
-
-\lstset{language=bash,caption=Shell mongoDB (mongo)}
-\begin{lstlisting}
-$ mongo
-MongoDB shell version: 2.2.2
-connecting to: test
-> 
-\end{lstlisting}
-
-  \begin{figure}
-    \begin{center}
-      \includegraphics[scale=0.5]{images/mongodb-web-interface.jpg}
-    \end{center}
-    \caption{Admin web console untuk mongoDB}
-    \label{fig:mongowebadminconsole}
-  \end{figure}
-
 Untuk mengakhiri server, tekan \textit{Ctrl-C}, mongoDB akan mengakhiri server sebagai berikut:
 
 \lstset{language=bash,caption=Mengakhiri server MongoDB (mongod)}
@@ -95,6 +77,83 @@ Tue Dec 11 15:16:38 [interruptThread] closeAllFiles() finished
 Tue Dec 11 15:16:38 [interruptThread] shutdown: removing fs lock...
 Tue Dec 11 15:16:38 dbexit: really exiting now
 \end{lstlisting}
+
+\subsection{Klien dan Shell mongoDB}
+
+Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maupun menggunakan shell. \textit{Admin web console} bisa diakses menggunakan port 28017 seperti pada gambar~\ref{fig:mongowebadminconsole}. Sementara itu, untuk mengakses server menggunakan shell, bisa digunakan perintah \textit{mongo} sebagai berikut:
+
+\lstset{language=bash,caption=Shell mongoDB (mongo)}
+\begin{lstlisting}
+$ mongo
+MongoDB shell version: 2.2.2
+connecting to: test
+> 
+\end{lstlisting}
+
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.5]{images/mongodb-web-interface.jpg}
+    \end{center}
+    \caption{Admin web console untuk mongoDB}
+    \label{fig:mongowebadminconsole}
+  \end{figure}
+
+
+\subsection{Documents dan Collections}
+
+Konsep dasar yang harus dipahami dalam mongoDB sebagai \textit{document-oriented database} adalah \textit{documents} dan \textit{collections}. Sama halnya dengan basis data relasional, mongoDB menyimpan data dalam suatu basis data. Di dalam basis data tersebut terdapat \textit{collections} yang bisa diibaratkan seperti tabel dalam basis data relasional. \textit{Collections} digunakan untuk menyimpan dokumen (\textit{documents}). Dalam istilah basis data relasional, \textit{documents} adalah \textit{records}. Kerjakan latihan berikut untuk memahami pengertian dari \textit{documents} dan \textit{collections}.
+
+\lstset{language=bash,caption=Sesi dalam shell mongoDB}
+\begin{lstlisting}
+$ mongo
+MongoDB shell version: 2.2.2
+connecting to: test
+> db
+test
+> use mydb
+switched to db mydb
+> show dbs
+local	(empty)
+> emp1 = { name : "Zaky", address : "Griya Purwa Asri" }
+{ "name" : "Zaky", "address" : "Griya Purwa Asri" }
+> emp2 = { name : "Ahmad", address : "Purwomartani", email : "zakyahmadaditya@gmail.com" }
+{
+	"name" : "Ahmad",
+	"address" : "Purwomartani",
+	"email" : "zakyahmadaditya@gmail.com"
+}
+> emp3 = { name : "Aditya", address : "Kalasan", phone: "08787878787" }
+{ "name" : "Aditya", "address" : "Kalasan", "phone" : "08787878787" }
+> db.employees.insert( emp1 )
+> db.employees.insert( emp2 )
+> db.employees.insert( emp3 )
+> show dbs
+local	(empty)
+mydb	0.0625GB
+> db
+mydb
+> show collections
+employees
+system.indexes
+> db.employees.find()
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : "Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" : "Aditya", "address" : "Kalasan", "phone" : "08787878787" }
+> db.employees.find( {name : "Ahmad"} )
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+> db.employees.findOne()
+{
+	"_id" : ObjectId("50c74b63a7f83cba11e6b21e"),
+	"name" : "Zaky",
+	"address" : "Griya Purwa Asri"
+}
+> db.employees.find().limit(2)
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : "Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+> 
+\end{lstlisting}
+
+Basis data mongoDB hanya akan dibuat jika sudah dilakukan perintah untuk menyisipkan atau mengisikan data \textit{documents} ke dalam \textit{collections} seperti perintah di atas.
 
 \section{Node.js dan MongoDB}
 
@@ -209,6 +268,79 @@ mongodb@1.2.3 ../../../../../node_modules/mongodb
 +-- bson@0.1.5
 \end{lstlisting}
 
+Solusi lain yang bisa digunakan antara lain adalah:
+\begin{itemize}
+	\item Mongoose (\url{http://mongoosejs.com/})
+	\item Mongojs (\url{https://github.com/gett/mongojs})
+	\item Mongolia (\url{https://github.com/masylum/mongolia})
+	\item Mongoskin (\url{https://github.com/kissjs/node-mongoskin})
+\end{itemize}
+
+\subsection{Mengakses mongoDB dari Node.js}
+
+Dengan menggunakan \textit{collections} dan \textit{documents} di atas, kita akan mengakses data tersebut menggunakan Node.js. Untuk lebih menyederhanakan, kita akan menggunakan \textit{wrapper} dari mongoDB native driver, yaitu Mongojs. Install Mongojs lebih dahulu menggunakan npm:
+
+\lstset{language=bash,caption=Instalasi driver mongoDB}
+\begin{lstlisting}
+$ npm install mongojs
+npm http GET https://registry.npmjs.org/mongojs
+npm http 304 https://registry.npmjs.org/mongojs
+npm http GET https://registry.npmjs.org/common
+npm http 304 https://registry.npmjs.org/common
+mongojs@0.4.6 ../../../../../node_modules/mongojs
++-- common@0.2.1
+\end{lstlisting}
+
+Setelah itu, buat program sesuai dengan listing program berikut.
+
+\lstset{language=bash,caption=Mengakses mongoDB dari Node.js}
+\begin{lstlisting}
+var databaseUrl = "localhost/mydb";
+var collections = ["employees"];
+var db = require("mongojs").connect(databaseUrl, collections);
+
+// mencari pegawai bernama Aditya
+db.employees.find({name: "Aditya"}, function(err, employees) {
+  if( err || !employees) console.log("Tidak ada pegawai dengan nama Aditya");
+  else employees.forEach( function(emps) {
+    console.log(emps);
+  });
+});
+
+// menyimpan data pegawai baru: Bambang
+db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", sex: "male"}, function(err, saved) {
+  if( err || !saved ) console.log("Pegawai 'Bambang' gagal disimpan");
+  else console.log("Data pegawai 'Bambang' tersimpan");
+});
+
+// mengupdate data pegawai: Ahmad
+db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(err, updated) {
+  if( err || !updated ) console.log("Data 'Ahmad' gagal diperbaharui");
+  else console.log("Data 'Ahmad' berhasil diperbaharui");
+});
+
+// Hasil:
+//{ _id: 50c74b79a7f83cba11e6b220,
+//  name: 'Aditya',
+//  address: 'Kalasan',
+//  phone: '08787878787' }
+//Data pegawai 'Bambang' tersimpan
+//Data 'Ahmad' berhasil diperbaharui
+//
+// Hasil di db:
+//> db.employees.find()
+//{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : 
+//"Zaky", "address" : "Griya Purwa Asri" }
+//{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "address" :
+//"Finlandia", "email" : "zakyahmadaditya@gmail.com", "name" : "Ahmad" }
+//{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" :
+//"Aditya", "address" : "Kalasan", "phone" : "08787878787" }
+//{ "name" : "Bambang", "address" : "Yogyakarta", "password" : 
+//"ealhadalah", "sex" : "male", "_id" : 
+//ObjectId("50c75d43c111384846000001") }
+//> 
+//  
+\end{lstlisting}
 
 \section{Aplikasi Web Menggunakan Node.js dan MongoDB}
 
