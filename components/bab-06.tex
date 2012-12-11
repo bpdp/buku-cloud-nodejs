@@ -175,9 +175,39 @@ Node-gyp ini diinstall pada lokasi global. Pada materi ini, Node-gyp diperlukan 
 \subsection{Driver Node.js untuk mongoDB}
 
 Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Beberapa solusi yang tersedia adalah:
+\lstset{language=bash,caption=Instalasi driver mongoDB}
+\begin{lstlisting}
+$ npm install mongodb
+npm WARN package.json kintamani@0.1.0 No README.md file found!
+npm http GET https://registry.npmjs.org/mongodb
+npm http 304 https://registry.npmjs.org/mongodb
+npm http GET https://registry.npmjs.org/bson/0.1.5
+npm http 304 https://registry.npmjs.org/bson/0.1.5
 
+> bson@0.1.5 install /home/bpdp/node_modules/mongodb/node_modules/bson
+> node install.js || (exit 0)
 
-
+================================================================================
+=                                                                              =
+=  Attempting to build bson c++ extension                                      =
+=   Windows: no build will be attempted as binaries are prepackaged            =
+=   Unix: on failure the package will still install without the C++ extension  =
+=                                                                              =
+================================================================================
+node-gyp clean
+node-gyp configure build
+gyp http GET http://nodejs.org/dist/v0.8.15/node-v0.8.15.tar.gz
+gyp http 200 http://nodejs.org/dist/v0.8.15/node-v0.8.15.tar.gz
+make[1]: Entering directory `/home/bpdp/node_modules/mongodb/node_modules/bson/build'
+  CXX(target) Release/obj.target/bson/ext/bson.o
+  SOLINK_MODULE(target) Release/obj.target/bson.node
+  SOLINK_MODULE(target) Release/obj.target/bson.node: Finished
+  COPY Release/bson.node
+make[1]: Leaving directory `/home/bpdp/node_modules/mongodb/node_modules/bson/build'
+child process exited with code 0
+mongodb@1.2.3 ../../../../../node_modules/mongodb
++-- bson@0.1.5
+\end{lstlisting}
 
 
 \section{Aplikasi Web Menggunakan Node.js dan MongoDB}
