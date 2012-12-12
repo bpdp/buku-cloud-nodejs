@@ -55,7 +55,9 @@ Perintah diatas akan memasang versi terakhir dari paket pustaka foo. Selain itu 
 
 \subsection{Struktur Instalasi Paket Node.js}
 
-Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textit{node\_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textit{/usr/lib/node\_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar. Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut:
+Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textit{node\_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textit{/usr/lib/node\_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar. 
+
+Jika berada pada direktori \$HOME, maka paket-paket npm tersebut akan terinstall di \$HOME/.npm, sedangkan jika kita berada di luar direktori \$HOME, maka paket-paket tersebut akan terinstall di \$CWD/node\_modules (\$CWD = \textit{Current Working Directory} - direktori aktif saat ini). Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut:
 
 \lstset{language=bash,caption=Argumen npm untuk melihat daftar paket terpasang}
 \begin{lstlisting}
