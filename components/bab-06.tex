@@ -344,7 +344,7 @@ db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(e
 
 \section{Aplikasi Web Menggunakan Node.js dan MongoDB}
 
-Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, buat kerangka aplikasi di subdirektori tersebut sebagai berikut:
+Contoh aplikasi web berikut hanya digunakan untuk mengambil data dari mongoDB kemudian menampilkannya di web. Data diambil dari basis data mongoDB yang sudah dibuat sebelumnya (mydb). Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, buat kerangka aplikasi di subdirektori tersebut sebagai berikut:
 
 \lstset{language=bash,caption=Mengakses mongoDB dari Node.js}
 \begin{lstlisting}
@@ -372,4 +372,65 @@ $ express
      $ node app
 \end{lstlisting}
 
+Berikut ini adalah beberapa perubahan yang dilakukan untuk rerangka aplikasi yang dihasilkan dari perintah \textit{express} tersebut.
+
+\begin{itemize}
+	\item \textbf{app.js}
+		\begin{itemize}
+			\item Ganti \textbf{user = require('./routes/user')} menjadi \textbf{employee = require('./routes/employee')}. 
+			\item Ganti \textbf{app.get('/users', user.list);} menjadi \textbf{app.get('/employees', employee.list);}.
+		\end{itemize}
+	\item \textbf{package.json}
+		\begin{itemize}
+			\item Ganti \textbf{"name": "application-name",} menjadi \textbf{"name": "show-employees",}.
+			\item Ganti baris \textbf{"jade": "*"} menjadi \textbf{"jade": "*",<baris baru>"mongojs": "latest"}.
+		\end{itemize}
+	\item \textbf{routes/index.js}: ganti \textbf{res.render('index', \{ title: 'Express' \});} menjadi \textbf{res.render('index', \{ title: 'Contoh Express+mongoDB' \});}.
+	\item Hapus file \textbf{routes/user.js}.
+\end{itemize}
+
+Selain itu, ada beberapa tambahan file (routes/employee.js dan views/employee.jade} dan perubahan yang cukup signifikan pada file views/index.jade.
+
+\lstset{language=JavaScript,caption=routes/employee.js}
+\begin{lstlisting}
+/*
+ * GET employees listing.
+ */
+
+var databaseUrl = "localhost/mydb";
+var collections = ["employees"];
+var db = require("mongojs").connect(databaseUrl, collections);
+
+exports.list = function(req, res){
+
+	// mencari dan menampilkan semua pegawai
+	db.employees.find(function(err, employees) {
+  	res.render('employee', {listOfEmployee: employees, title: 'Daftar pegawai'});
+	});
+
+};
+\end{lstlisting}
+
+\lstset{language=plain,caption=views/employee.jade}
+\begin{lstlisting}
+extends layout
+
+block content
+	h1= title
+	p #{title}
+
+	each employee in listOfEmployee
+		p #{employee.name}
+\end{lstlisting}
+
+\lstset{language=plain,caption=views/index.jade}
+\begin{lstlisting}
+extends layout
+
+block content
+	h1= title
+	p 
+		|	Selamat datang di #{title}. Aplikasi ini hanya sekedar contoh aplikasi web dengan mongoDB sebagai backend. Untuk saat ini hanya tersedia fasilitas untuk melihat 
+		a(href="/employees") daftar pegawai.
+\end{lstlisting}
 
