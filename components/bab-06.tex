@@ -344,3 +344,32 @@ db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(e
 
 \section{Aplikasi Web Menggunakan Node.js dan MongoDB}
 
+Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, buat kerangka aplikasi di subdirektori tersebut sebagai berikut:
+
+\lstset{language=bash,caption=Mengakses mongoDB dari Node.js}
+\begin{lstlisting}
+$ express 
+
+   create : .
+   create : ./package.json
+   create : ./app.js
+   create : ./public
+   create : ./public/images
+   create : ./public/stylesheets
+   create : ./public/stylesheets/style.css
+   create : ./routes
+   create : ./routes/index.js
+   create : ./routes/user.js
+   create : ./views
+   create : ./views/layout.jade
+   create : ./views/index.jade
+   create : ./public/javascripts
+
+   install dependencies:
+     $ cd . && npm install
+
+   run the app:
+     $ node app
+\end{lstlisting}
+
+
