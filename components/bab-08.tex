@@ -1,5 +1,93 @@
 \chapter{Real-time Web Menggunakan Socket.io}
 
-\section{}
+\section{Apa itu Real-time Web?}
 
+\section{Teknologi Pendukung Real-time Web}
+
+\subsection{\textit{Pull Technology}}
+
+\subsection{Comet dan \textit{Push Technology}}
+
+\subsubsection{SSE (\textit{Server-Sent Events})}
+
+\subsubsection{Bayeux Protocol}
+
+\subsubsection{BOSH Protocol}
+
+\subsection{WebSocket}
+
+
+\section{Socket.io}
+
+\subsection{Apa itu Socket.io?}
+
+\textit{Socket.io} adalah pustaka JavaScript yang merupakan implementasi dari protokol WebSocket serta berbagai improvisasi lain yang diperlukan untuk real-time web (\textit{heartbeats, timeouts}, dan \textit{disconnection}). Protokol transport yang didukung adalah sebagai berikut:
+\begin{itemize}
+\item WebSocket
+\item Adobe Flash Socket
+\item AJAX long polling
+\item AJAX multipart streaming
+\item Forever Iframe
+\item JSONP Polling
+\end{itemize}
+Pustaka ini terdiri atas pustaka untuk sisi klien (browser) dan server (menggunakan Node.js). Browser yang didukung adalah:
+\begin{itemize}
+\item Internet Explorer 5.5+ (desktop)
+\item Safari 3+ (desktop)
+\item Google Chrome 4+ (desktop)
+\item Firefox 3+ (desktop)
+\item Opera 10.61+ (desktop)
+\item iPhone Safari (mobile)
+\item iPad Safari (mobile)
+\item Android WebKit (mobile)
+\item WebOs WebKit (mobile)
+\end{itemize}
+
+\subsection{Instalasi Socket.io}
+
+\lstset{language=Bash,caption=Instalasi Socket.io}
+\begin{lstlisting}
+npm install socket.io
+npm http GET https://registry.npmjs.org/socket.io
+npm http 304 https://registry.npmjs.org/socket.io
+npm http GET https://registry.npmjs.org/redis/0.7.3
+npm http GET https://registry.npmjs.org/socket.io-client/0.9.11
+npm http GET https://registry.npmjs.org/base64id/0.1.0
+npm http GET https://registry.npmjs.org/policyfile/0.0.4
+npm http 304 https://registry.npmjs.org/policyfile/0.0.4
+npm http 304 https://registry.npmjs.org/redis/0.7.3
+npm http 304 https://registry.npmjs.org/socket.io-client/0.9.11
+npm http 304 https://registry.npmjs.org/base64id/0.1.0
+npm http GET https://registry.npmjs.org/ws
+npm http GET https://registry.npmjs.org/uglify-js/1.2.5
+npm http GET https://registry.npmjs.org/active-x-obfuscator/0.0.1
+npm http GET https://registry.npmjs.org/xmlhttprequest/1.4.2
+npm http 304 https://registry.npmjs.org/uglify-js/1.2.5
+npm http 304 https://registry.npmjs.org/ws
+npm http 304 https://registry.npmjs.org/xmlhttprequest/1.4.2
+npm http 304 https://registry.npmjs.org/active-x-obfuscator/0.0.1
+npm http GET https://registry.npmjs.org/zeparser/0.0.5
+npm http GET https://registry.npmjs.org/options
+npm http GET https://registry.npmjs.org/commander
+npm http GET https://registry.npmjs.org/tinycolor
+npm http 304 https://registry.npmjs.org/zeparser/0.0.5
+npm http 304 https://registry.npmjs.org/options
+npm http 304 https://registry.npmjs.org/tinycolor
+npm http 304 https://registry.npmjs.org/commander
+
+> ws@0.4.24 install /home/bpdp/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws
+> node install.js
+
+[ws v0.4.24] Attempting to compile blazing fast native extensions.
+[ws v0.4.24] Native code compile failed (but the module will still work):
+[ws v0.4.24] The native extensions are faster, but not required.
+[ws v0.4.24] On Windows, native extensions require Visual Studio and Python.
+[ws v0.4.24] On Unix, native extensions require Python, make and a C++ compiler.
+[ws v0.4.24] Start npm with --ws:verbose to show compilation output (if any).
+socket.io@0.9.13 ../../../../../../node_modules/socket.io
++-- base64id@0.1.0
+|-- policyfile@0.0.4
+|-- redis@0.7.3
++-- socket.io-client@0.9.11 (xmlhttprequest@1.4.2, uglify-js@1.2.5, active-x-obfuscator@0.0.1, ws@0.4.24)
+\end{lstlisting}
 
