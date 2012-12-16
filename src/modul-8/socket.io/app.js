@@ -3,8 +3,7 @@ var express = require('express')
   	, routes = require('./routes')
 	  , http = require('http')
 		, server = http.createServer(app)
-	  , io = require('socket.io').listen(server)
-  	, path = require('path');
+	  , io = require('socket.io').listen(server);
 
 server.listen(80);
 
@@ -22,9 +21,9 @@ app.configure(function(){
 app.get('/', routes.index);
 
 io.sockets.on('connection', function (socket) {
-	socket.emit('news', { hello: 'world' });
-	socket.on('my other event', function (data) {
-		console.log(data.my);
+	socket.emit('kirim ke browser', { 
+		kalimatDariServer: 'Kalimat ini dikirim dari server' });
+	socket.on('dari browser', function (data) {
+		console.log(data.kalimatDariBrowser);
 	});
 });
-

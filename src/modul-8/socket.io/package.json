@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "express": "latest",
-   "jade": "*",
-   "socket.io": "latest",
-  "socket.io-client": "latest"
+    "jade": "*",
+    "socket.io": "latest",
+    "socket.io-client": "latest"
   }
 }

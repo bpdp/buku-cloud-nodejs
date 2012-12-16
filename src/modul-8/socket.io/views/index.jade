@@ -2,12 +2,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p #{title}
   script(src="/javascripts/socket.io.js")
   script
     var socket = io.connect('http://localhost');
-    socket.on('news', function (data) {
-      document.write(data.hello);
-      socket.emit('my other event', { my: 'data' });
+    socket.on('kirim ke browser', function (data) {
+      document.getElementById("container").innerHTML=
+        "<p>" + data.kalimatDariServer + "</p>";
+      socket.emit('dari browser', { 
+        kalimatDariBrowser: 'Kalimat ini dikirim dari browser' });
     });
-
+  #container
+    p #{title}
