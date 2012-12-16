@@ -16,6 +16,20 @@
 
 \subsection{WebSocket}
 
+\section{Server-Sent Events}
+
+Untuk menggunakan SSE, browser yang digunakan sudah harus mendukung. Dukungan terhadap SSE bisa dilihat pada URL \url{http://caniuse.com/eventsource}.
+\lstset{language=Bash,caption=Instalasi sse}
+\begin{lstlisting}
+npm install nsse
+npm http GET https://registry.npmjs.org/nsse
+npm http 200 https://registry.npmjs.org/nsse
+npm http GET https://registry.npmjs.org/nsse/-/nsse-0.0.0.tgz
+npm http 200 https://registry.npmjs.org/nsse/-/nsse-0.0.0.tgz
+nsse@0.0.0 ../../../../../../node_modules/nsse
+\end{lstlisting}
+
+
 
 \section{Socket.io}
 

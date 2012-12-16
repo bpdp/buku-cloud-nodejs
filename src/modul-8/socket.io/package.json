@@ -1,0 +1,15 @@
+{
+  "name": "socket.io-expressjs",
+  "version": "0.0.1",
+  "author": "Bambang Purnomosidi D. P.",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "latest",
+   "jade": "*",
+   "socket.io": "latest",
+  "socket.io-client": "latest"
+  }
+}
