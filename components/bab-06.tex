@@ -342,7 +342,7 @@ db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(e
 //  
 \end{lstlisting}
 
-\section{Aplikasi Web Menggunakan Node.js dan MongoDB}
+\section{Aplikasi Web Menggunakan Node.js dan mongoDB}
 
 Contoh aplikasi web berikut hanya digunakan untuk mengambil data dari mongoDB kemudian menampilkannya di web. Data diambil dari basis data mongoDB yang sudah dibuat sebelumnya (mydb). Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, buat kerangka aplikasi di subdirektori tersebut sebagai berikut:
 
@@ -374,22 +374,73 @@ $ express
 
 Berikut ini adalah beberapa perubahan yang dilakukan untuk rerangka aplikasi yang dihasilkan dari perintah \textit{express} tersebut.
 
-\begin{itemize}
-	\item \textbf{app.js}
-		\begin{itemize}
-			\item Ganti \textbf{user = require('./routes/user')} menjadi \textbf{employee = require('./routes/employee')}. 
-			\item Ganti \textbf{app.get('/users', user.list);} menjadi \textbf{app.get('/employees', employee.list);}.
-		\end{itemize}
-	\item \textbf{package.json}
-		\begin{itemize}
-			\item Ganti \textbf{"name": "application-name",} menjadi \textbf{"name": "show-employees",}.
-			\item Ganti baris \textbf{"jade": "*"} menjadi \textbf{"jade": "*",<baris baru>"mongojs": "latest"}.
-		\end{itemize}
-	\item \textbf{routes/index.js}: ganti \textbf{res.render('index', \{ title: 'Express' \});} menjadi \textbf{res.render('index', \{ title: 'Contoh Express+mongoDB' \});}.
-	\item Hapus file \textbf{routes/user.js}.
-\end{itemize}
+\lstset{language=JavaScript,caption=app.js}
+\begin{lstlisting}
+/**
+ * Module dependencies.
+ */
 
-Selain itu, ada beberapa tambahan file (routes/employee.js dan views/employee.jade} dan perubahan yang cukup signifikan pada file views/index.jade.
+var express = require('express')
+  , routes = require('./routes')
+  , employee = require('./routes/employee')
+  , http = require('http')
+  , path = require('path');
+
+var app = express();
+
+app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});
+
+app.configure('development', function(){
+  app.use(express.errorHandler());
+});
+
+app.get('/', routes.index);
+app.get('/employees', employee.list);
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+\end{lstlisting}
+
+\lstset{language=JavaScript,caption=package.json}
+\begin{lstlisting}
+{
+  "name": "show-employees",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.4",
+    "jade": "*",
+    "mongojs": "latest"
+  }
+}
+\end{listing}
+
+\lstset{language=JavaScript,caption=routes/index.js}
+\begin{lstlisting}
+/*
+ * GET home page.
+ */
+
+exports.index = function(req, res){
+  res.render('index', { title: 'Contoh Express+mongoDB' });
+};
+\end{lstlisting}
+
+Selain itu, ada beberapa tambahan file (routes/employee.js dan views/employee.jade), penghapusan file (routes/user.js), dan perubahan yang cukup signifikan pada file \textit{views/index.jade}.
 
 \lstset{language=JavaScript,caption=routes/employee.js}
 \begin{lstlisting}
@@ -411,7 +462,7 @@ exports.list = function(req, res){
 };
 \end{lstlisting}
 
-\lstset{language=plain,caption=views/employee.jade}
+\lstset{language=html,caption=views/employee.jade}
 \begin{lstlisting}
 extends layout
 
@@ -423,7 +474,7 @@ block content
 		p #{employee.name}
 \end{lstlisting}
 
-\lstset{language=plain,caption=views/index.jade}
+\lstset{language=html,caption=views/index.jade}
 \begin{lstlisting}
 extends layout
 
