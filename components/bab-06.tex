@@ -136,11 +136,15 @@ mydb
 employees
 system.indexes
 > db.employees.find()
-{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : "Griya Purwa Asri" }
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
-{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" : "Aditya", "address" : "Kalasan", "phone" : "08787878787" }
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
+	"Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" : "Aditya", "address" : 
+	"Kalasan", "phone" : "08787878787" }
 > db.employees.find( {name : "Ahmad"} )
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
 > db.employees.findOne()
 {
 	"_id" : ObjectId("50c74b63a7f83cba11e6b21e"),
@@ -148,8 +152,10 @@ system.indexes
 	"address" : "Griya Purwa Asri"
 }
 > db.employees.find().limit(2)
-{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : "Griya Purwa Asri" }
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : "Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
+	"Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
 > 
 \end{lstlisting}
 
@@ -212,7 +218,8 @@ npm http 304 https://registry.npmjs.org/inherits
 npm http 304 https://registry.npmjs.org/inherits
 npm http 200 https://registry.npmjs.org/ansi
 npm http 200 https://registry.npmjs.org/block-stream
-/home/bpdp/software/nodejs/bin/node-gyp -> /home/bpdp/software/nodejs/lib/node_modules/node-gyp/bin/node-gyp.js
+/home/bpdp/software/nodejs/bin/node-gyp -> /home/bpdp/software/nodejs/lib/node_modules/
+	node-gyp/bin/node-gyp.js
 node-gyp@0.8.1 /home/bpdp/software/nodejs/lib/node_modules/node-gyp
 +-- graceful-fs@1.1.14
 |-- osenv@0.0.3
@@ -308,13 +315,15 @@ db.employees.find({name: "Aditya"}, function(err, employees) {
 });
 
 // menyimpan data pegawai baru: Bambang
-db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", sex: "male"}, function(err, saved) {
+db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", 
+	sex: "male"}, function(err, saved) {
   if( err || !saved ) console.log("Pegawai 'Bambang' gagal disimpan");
   else console.log("Data pegawai 'Bambang' tersimpan");
 });
 
 // mengupdate data pegawai: Ahmad
-db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(err, updated) {
+db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, 
+	function(err, updated) {
   if( err || !updated ) console.log("Data 'Ahmad' gagal diperbaharui");
   else console.log("Data 'Ahmad' berhasil diperbaharui");
 });
@@ -481,7 +490,9 @@ extends layout
 block content
 	h1= title
 	p 
-		|	Selamat datang di #{title}. Aplikasi ini hanya sekedar contoh aplikasi web dengan mongoDB sebagai backend. Untuk saat ini hanya tersedia fasilitas untuk melihat 
+		|	Selamat datang di #{title}. Aplikasi ini hanya sekedar contoh 
+			aplikasi web dengan mongoDB sebagai backend. Untuk saat ini hanya 
+			tersedia fasilitas untuk melihat 
 		a(href="/employees") daftar pegawai.
 \end{lstlisting}
 
