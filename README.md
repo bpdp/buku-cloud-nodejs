@@ -1,5 +1,10 @@
+Status
+======
+
+Tanggal 23 Desember 2012 - **buku selesai lengkap**. Edit hanya dilakukan jika ada Errata (termasuk rilis versi baru dari software-software yang digunakan).
+
 Selamat datang!
----------------
+===============
 
 Repo ini merupakan kode sumber dari buku bebas untuk workshop **Pengambangan Aplikasi Cloud Menggunakan Node.js**. Pada awalnya saya merancang dan menulis buku ini untuk keperluan internal pelatihan Cloud Computing di [STMIK AKAKOM Yogyakarta](http://www.akakom.ac.id), tapi kemudian saya putuskan untuk memberi lisensi [CC-BY-SA](http://freedomdefined.org/Licenses/CC-BY-SA) pada buku ini untuk mempromosikan kultur kebebasan berkarya yang positif dan meningkatkan aksesibilitas informasi / pengetahuan bagi rakyat Indonesia. 
 
@@ -9,10 +14,10 @@ Jika anda mempunyai LaTeX, koma-script, dan "make", ada 3 perintah yang sudah sa
 * make: membuat file PDF
 * make clean-without-pdf: membersihkan berbagai file yang tidak diperlukan lagi (file PDF tetap tidak dihapus)
 * make clean-all: membersihkan semua file yang tidak diperlukan
-* make view: menampilkan file PDF hasil proses menggunakan "epdfview" (jika anda menggunakan PDF viewer lain, misalnya xpdf, Adobe Acrobat Reader, evince, dll, silahkan diganti sesuai dengan nama command-line executable-nya.)
+* make view: menampilkan file PDF hasil proses menggunakan "epdfview" (jika anda menggunakan PDF viewer lain, misalnya xpdf, Adobe Acrobat Reader, evince, dll, silahkan diganti isi **Makefile** sesuai dengan nama command-line executable-nya).
 
 Penulis
--------
+=======
 
 Buku ini ditulis oleh Bambang Purnomosidi D. P. Info tentang saya bisa diperoleh di [situs pribadi saya](http://bpdp.name). Saat ini saya menjadi dosen di [STMIK AKAKOM](http://www.akakom.ac.id) dan masih menjadi mahasiswa S3 di [Jurusan Teknik Elektro dan Teknologi Informasi - JTETI, UGM](http://pasca.te.ugm.ac.id).
 
