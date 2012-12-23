@@ -2,7 +2,7 @@
 
 \section{Apa itu Real-time Web?}
 
-Real-time Web menunjukkan suatu pola interaksi aplikasi Web yang memungkinkan kedua sisi saling mengirimkan data saat terjadi perubahan, jadi tidak seperti pola interaksi yang menghendaki pemakai untuk me-\textit{refresh} browser jika menginginkan data / informasi / \textit{update} terbaru dari sisi server. Contoh dari real-time Web adalah Facebook dan Twitter. Pemakai akan mendapatkan \textit{update} secara langsung saat terjadi perubahan (komentar baru, pesan masuk, permintaan pertemanan, \textit{retweet}, dan lain-lain), tanpa perlu me-\textit{refresh} halaman.
+\index{Real-time Web}Real-time Web menunjukkan suatu pola interaksi aplikasi Web yang memungkinkan kedua sisi saling mengirimkan data saat terjadi perubahan, jadi tidak seperti pola interaksi yang menghendaki pemakai untuk me-\textit{refresh} browser jika menginginkan data / informasi / \textit{update} terbaru dari sisi server. Contoh dari real-time Web adalah Facebook dan Twitter. Pemakai akan mendapatkan \textit{update} secara langsung saat terjadi perubahan (komentar baru, pesan masuk, permintaan pertemanan, \textit{retweet}, dan lain-lain), tanpa perlu me-\textit{refresh} halaman.
 
 \section{Teknologi Pendukung Real-time Web}
 
@@ -10,7 +10,7 @@ Real-time Web merupakan hal yang relatif kompleks. Terdapat beberapa teknologi y
 
 \subsection{\textit{Ajax Technology}}
 
-Teknologi Ajax (kadang juga ditulis AJAX, singkatan dari \textit{Asynchronous JavaScript and XML} adalah sekumpulan teknologi yang pertama kali dicetuskan oleh Jesse James Garrett. Ajax memungkinkan browser untuk mengirim data dan mengambil data dari server secara \textit{asynchronous} (di latar belakang) tanpa mengganggu keseluruhan tampilan halaman Web. Kumpulan teknologi yang digunakan adalah:
+\index{AJAX}Teknologi Ajax (kadang juga ditulis AJAX, singkatan dari \textit{Asynchronous JavaScript and XML} adalah sekumpulan teknologi yang pertama kali dicetuskan oleh Jesse James Garrett. Ajax memungkinkan browser untuk mengirim data dan mengambil data dari server secara \textit{asynchronous} (di latar belakang) tanpa mengganggu keseluruhan tampilan halaman Web. Kumpulan teknologi yang digunakan adalah:
 \begin{itemize}
 	\item (X)HTML dan CSS untuk presentasi halaman Web
 	\item DOM (\textit{Document Object Model}) untuk menampilkan data secara dinamis
@@ -21,15 +21,15 @@ Teknologi Ajax (kadang juga ditulis AJAX, singkatan dari \textit{Asynchronous Ja
 
 \subsection{Comet dan \textit{Push Technology}}
 
-Comet merupakan istilah payung yang merangkum berbagai teknologi \textit{push}, yaitu teknologi yang memungkinkan server untuk mengirimkan data ke browser tanpa diminta oleh browser.
+\index{Comet}Comet merupakan istilah payung yang merangkum berbagai teknologi \textit{push}, yaitu teknologi yang memungkinkan server untuk mengirimkan data ke browser tanpa diminta oleh browser.
 
 \subsubsection{SSE (\textit{Server-Sent Events})}
 
-SSE merupakan bagian dari spesifikasi standar HTML5 (bisa diakses di \url{http://dev.w3.org/html5/eventsource/}. Spesifikasi ini memungkinkan server untuk mem-\textit{push} data ke halaman Web menggunakan protokol HTTP. Meski masih dalam pengembangan, tetapi beberapa browser sudah mendukung (misalnya Google Chrome / Chromium) serta Safari. Beberapa peranti pengembangan di sisi server juga sudah mendukung spesifikasi ini. Pada Node.js, pemrogram bisa menggunakan paket sse, nsse, atau EventSource.
+\index{Server-Sent Events}SSE merupakan bagian dari spesifikasi standar HTML5 (bisa diakses di \url{http://dev.w3.org/html5/eventsource/}. Spesifikasi ini memungkinkan server untuk mem-\textit{push} data ke halaman Web menggunakan protokol HTTP. Meski masih dalam pengembangan, tetapi beberapa browser sudah mendukung (misalnya Google Chrome / Chromium) serta Safari. Beberapa peranti pengembangan di sisi server juga sudah mendukung spesifikasi ini. Pada Node.js, pemrogram bisa menggunakan paket sse, nsse, atau EventSource.
 
 \subsubsection{Bayeux Protocol}
 
-Protokol ini dikembangkan oleh \textit{the Dojo Foundation} yang mengembangkan software Dojo Toolkit. Protokol ini digunakan sebagai transport untuk pesan-pesan asynchronous melalui HTTP dengan latensi yang rendah antara klien dengan server. Pesan-pesan tersebut di-rute-kan melalui channel-channel yang diberi nama dan bisa dikirimkan ke:
+\index{Bayeux Protocol}Protokol ini dikembangkan oleh \textit{the Dojo Foundation} yang mengembangkan software Dojo Toolkit. Protokol ini digunakan sebagai transport untuk pesan-pesan asynchronous melalui HTTP dengan latensi yang rendah antara klien dengan server. Pesan-pesan tersebut di-rute-kan melalui channel-channel yang diberi nama dan bisa dikirimkan ke:
 \begin{itemize}
 	\item server ke klien
 	\item klien ke server
@@ -40,11 +40,11 @@ Spesifikasi lengkap dari protokol ini bisa dilihat di \url{http://svn.cometd.com
 
 \subsubsection{BOSH Protocol}
 
-BOSH (Bidirectional-streams Over Synchronous HTTP) adalah protokol transport yang mengemulasi stream dua arah antara dua entitas (misalnya antara klien dengan server) dengan menggunakan banyak HTTP req/resp yang synchronous tanpa memerlukan polling yang sering atau respon yang terpotong-potong. Spesifikasi ini dikembangkan oleh komunitas serta yayasan XMPP dan bisa dilihat secara lengkap di \url{http://xmpp.org/extensions/xep-0124.html}
+\index{BOSH}BOSH (Bidirectional-streams Over Synchronous HTTP) adalah protokol transport yang mengemulasi stream dua arah antara dua entitas (misalnya antara klien dengan server) dengan menggunakan banyak HTTP req/resp yang synchronous tanpa memerlukan polling yang sering atau respon yang terpotong-potong. Spesifikasi ini dikembangkan oleh komunitas serta yayasan XMPP dan bisa dilihat secara lengkap di \url{http://xmpp.org/extensions/xep-0124.html}
 
 \subsection{WebSocket}
 
-WebSocket merupakan teknologi Web yang menyediakan saluran komunikasi full duplex pada satu koneksi TCP. Protokol WebSocket distandarkan oleh IETF di RFC 6455 sedangkap API (\textit{Application Programming Interface}) dikembangkan dan distandarkan oleh W3C sebagai bagian dari HTML5. Komunikasi antara klien dengan server dilaksanakan menggunakan TCP dengan nomor port 80.
+\index{WebSocket}WebSocket merupakan teknologi Web yang menyediakan saluran komunikasi full duplex pada satu koneksi TCP. Protokol WebSocket distandarkan oleh IETF di RFC 6455 sedangkap API (\textit{Application Programming Interface}) dikembangkan dan distandarkan oleh W3C sebagai bagian dari HTML5. Komunikasi antara klien dengan server dilaksanakan menggunakan TCP dengan nomor port 80.
 
 WebSocket diimplementasikan di sisi server dan klien dan memungkinkan adanya interaksi yang lebih real-time daripada teknologi push karena protokol dan API ini diimplementasikan dan bisa digunakan di sisi klien maupun server. Browser yang sudah mendukung protokol dan API WebSocket ini adalah Chrome, Firefox, Safari, Opera, dan Internet Explorer. 
 
@@ -54,7 +54,7 @@ Perkembangan dari WebSocket bisa dilihat dan diikuti di \url{http://www.websocke
 
 \subsection{Apa itu Socket.io?}
 
-\textit{Socket.io} adalah pustaka JavaScript yang merupakan implementasi dari protokol WebSocket serta berbagai improvisasi lain yang diperlukan untuk real-time web (\textit{heartbeats, timeouts}, dan \textit{disconnection}). Protokol transport yang didukung adalah sebagai berikut:
+\index{Socket.io}\textit{Socket.io} adalah pustaka JavaScript yang merupakan implementasi dari protokol WebSocket serta berbagai improvisasi lain yang diperlukan untuk real-time web (\textit{heartbeats, timeouts}, dan \textit{disconnection}). Protokol transport yang didukung adalah sebagai berikut:
 \begin{itemize}
 \item WebSocket
 \item Adobe Flash Socket

@@ -2,7 +2,7 @@
 
 \section{REPL}
 
-REPL adalah lingkungan pemrograman interaktif, tempat developer bisa mengetikkan program per baris dan langsung mengeksekusi hasilnya. Biasanya ini digunakan untuk menguji perintah-perintah yang cukup dijalankan pada satu baris atau satu blok segmen kode sumber saja. Karena fungsinya itu, maka istilah yang digunakan adalah REPL (read-eval-print-loop), yaitu loop atau perulangan baca perintah - evaluasi perintah - tampilkan hasil. REPL sering juga disebut sebagai \textit{interactive top level} atau \textit{language shell}. ``Tradisi'' ini sudah dimulai sejak jaman LISP di mesin UNIX di era awal pengembangan \textit{development tools}. Saat ini hampir semua \textit{interpreter/compiler} mempunyai REPL, misalnya Python, Ruby, Scala, PHP, berbagai interpreter/compiler LISP, dan tidak ketinggalan Node.js. 
+\index{REPL}REPL adalah lingkungan pemrograman interaktif, tempat developer bisa mengetikkan program per baris dan langsung mengeksekusi hasilnya. Biasanya ini digunakan untuk menguji perintah-perintah yang cukup dijalankan pada satu baris atau satu blok segmen kode sumber saja. Karena fungsinya itu, maka istilah yang digunakan adalah REPL (read-eval-print-loop), yaitu loop atau perulangan baca perintah - evaluasi perintah - tampilkan hasil. REPL sering juga disebut sebagai \textit{interactive top level} atau \textit{language shell}. ``Tradisi'' ini sudah dimulai sejak jaman LISP di mesin UNIX di era awal pengembangan \textit{development tools}. Saat ini hampir semua \textit{interpreter/compiler} mempunyai REPL, misalnya Python, Ruby, Scala, PHP, berbagai interpreter/compiler LISP, dan tidak ketinggalan Node.js. 
 
 \subsection{Mengaktifkan REPL}
 
@@ -77,13 +77,13 @@ console.log("Selamat datang di Node.js")
 
 \section{Dasar-dasar JavaScript di Node.js}
 
-Node.js merupakan sistem peranti lunak yang merupakan implementasi dari bahasa pemrograman JavaScript. Spesifikasi JavaScript yang diimplementasikan merupakan spesifikasi resmi dari ECMAScript serta CommonJS (\url{http://commonjs.org}). Dengan demikian, jika anda sudah pernah mempelajari JavaScript sebelumnya, tata bahasa dari perintah yang dipahami oleh Node.js masih tetap sama dengan JavaScript. 
+Node.js merupakan sistem peranti lunak yang merupakan implementasi dari bahasa pemrograman JavaScript. Spesifikasi JavaScript yang diimplementasikan merupakan spesifikasi resmi dari \index{ECMAScript}ECMAScript serta \index{CommonJS}CommonJS (\url{http://commonjs.org}). Dengan demikian, jika anda sudah pernah mempelajari JavaScript sebelumnya, tata bahasa dari perintah yang dipahami oleh Node.js masih tetap sama dengan JavaScript. 
 
 \subsection{Membaca \textit{Masukan} dari Stream / Masukan Standar (stdin)}
 
 Untuk lebih memahami dasar-dasar JavaScript serta penerapannya di Node.js, seringkali kita perlu melakukan simulasi pertanyaan - proses - keluaran jawaban. Proses akan kita pelajari seiring dengan materi-materi berikutnya, sementara untuk keluaran, kita bisa menggunakan \textbf{console.log}. Bagian ini akan menjelaskan sedikit tentang masukan.
 
-Perintah untuk memberi masukan di Node.js sudah tersedia pada pustaka API \textit{Readline}\footnote{Lengkapnya bisa diakses di \url{http://nodejs.org/api/readline.html}}. Pola dari masukan ini adalah sebagai berikut:
+\index{Readline}Perintah untuk memberi masukan di Node.js sudah tersedia pada pustaka API \textit{Readline}\footnote{Lengkapnya bisa diakses di \url{http://nodejs.org/api/readline.html}}. Pola dari masukan ini adalah sebagai berikut:
 \begin{itemize}
   \item me-\textit{require} pustaka Readline
   \item membuat \textit{interface} untuk masukan dan keluaran
@@ -136,7 +136,7 @@ Thank you for your valuable feedback: awesome!
 
 \subsection{Nilai/Value dan Tipe Data}
 
-Program dalam JavaScript akan berhubungan dengan data atau nilai. Setiap nilai mempunyai tipe tertentu. JavaScript mengenali berbagai tipe berikut ini:
+\index{Tipe data}Program dalam JavaScript akan berhubungan dengan data atau nilai. Setiap nilai mempunyai tipe tertentu. JavaScript mengenali berbagai tipe berikut ini:
 \begin{itemize}
   \item Angka: bulat (misalnya 4) atau pecahan (misalnya 3.75)
   \item \textit{Boolean}: nilai benar (true) dan salah (false)
@@ -145,7 +145,7 @@ Program dalam JavaScript akan berhubungan dengan data atau nilai. Setiap nilai m
   \item \textit{undefined}
 \end{itemize}
 
-JavaScript adalah bahasa pemrograman yang mengijinkan pemrogram untuk tidak mendefinisikan tipe data pada saat deklarasi, atau sering juga disebut sebagai \textit{dynamically typed language}:
+\index{Dynamically typed}JavaScript adalah bahasa pemrograman yang mengijinkan pemrogram untuk tidak mendefinisikan tipe data pada saat deklarasi, atau sering juga disebut sebagai \textit{dynamically typed language}:
 
 \lstset{language=JavaScript,caption=Fitur \textit{dynamically typed language}}
 \begin{lstlisting}
@@ -171,7 +171,7 @@ Pada contoh di atas, kita bisa melihat bahwa data akan dikonversi secara otomati
 
 \subsection{Variabel}
 
-Variabel adalah suatu nama yang didefinisikan untuk menampung suatu nilai. Nama ini akan digunakan sebagai referensi yang akan menunjukkan ke nilai yang ditampungnya. Nama variabel disebut dengan \textit{identifier} / pengenal. Ada beberapa syarat pemberian nama \textit{identifier} di JavaScript: 
+\index{Variabel}Variabel adalah suatu nama yang didefinisikan untuk menampung suatu nilai. Nama ini akan digunakan sebagai referensi yang akan menunjukkan ke nilai yang ditampungnya. Nama variabel disebut \index{Identifier}dengan \textit{identifier} / pengenal. Ada beberapa syarat pemberian nama \textit{identifier} di JavaScript: 
 \begin{itemize}
   \item Dimulai dengan huruf, \textit{underscore} (\_), atau tanda dollar (\$).
   \item Karakter berikutnya bisa berupa angka, selain ketentuan pertama di atas.
@@ -181,7 +181,7 @@ Konvensi yang digunakan oleh pemrogram JavaScript terkait dengan penamaan ini ad
 
 \subsection{Konstanta}
 
-Konstanta mirip dengan variabel, hanya saja sifatnya \textit{read-only}, tidak bisa diubah-ubah setelah ditetapkan. Untuk menetapkan konstanta di JavaScript, digunakan kata kunci \textit{const}. Contoh: 
+\index{Konstanta}Konstanta mirip dengan variabel, hanya saja sifatnya \textit{read-only}, tidak bisa diubah-ubah setelah ditetapkan. Untuk menetapkan konstanta di JavaScript, digunakan kata kunci \textit{const}. Contoh: 
 
 \lstset{language=JavaScript,caption=Contoh konstanta dalam JavaScript}
 \begin{lstlisting}
@@ -194,7 +194,7 @@ Konvensi penamaan konstanta adalah menggunakan huruf besar semua. Bagian ini (sa
 
 \subsubsection{Pengertian Fungsi}
 
-Fungsi merupakan subprogram atau suatu bagian dari keseluruhan program yang ditujukan untuk mengerjakan suatu pekerjaan tertentu dan (biasanya) menghasilkan suatu nilai kembalian. Subprogram ini relatif independen terhadap bagian-bagian lain sehingga memenuhi kaidah "bisa-digunakan-kembali" atau \textit{reusable} pada beberapa program yang memerlukan fungsionalitasnya. Fungsi dalam ilmu komputer sering kali juga disebut dengan \textit{prcedure, routine}, atau \textit{method}.
+\index{Fungsi}Fungsi merupakan subprogram atau suatu bagian dari keseluruhan program yang ditujukan untuk mengerjakan suatu pekerjaan tertentu dan (biasanya) menghasilkan suatu nilai kembalian. Subprogram ini relatif independen terhadap bagian-bagian lain sehingga memenuhi kaidah "bisa-digunakan-kembali" atau \textit{reusable} pada beberapa program yang memerlukan fungsionalitasnya. Fungsi dalam ilmu komputer sering kali juga disebut dengan \textit{prcedure, routine}, atau \textit{method}.
 
 \subsubsection{Definisi Fungsi}
 
@@ -248,7 +248,7 @@ undefined
 
 \subsubsection{Fungsi Anonim}
 
-Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan literal \textit{function}.
+\index{Fungsi Anonim}Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan literal \textit{function}.
 
 \lstset{language=JavaScript,caption=Fungsi anonim}
 \begin{lstlisting}
@@ -259,7 +259,7 @@ console.log(pangkat(10));
 
 \subsubsection{Fungsi Rekursif}
 
-Fungsi rekursif adalah fungsi yang memanggil dirinya sendiri. Contoh dari aplikasi fungsi rekursif adalah pada penghitungan faktorial berikut:
+\index{Fungsi rekursif}Fungsi rekursif adalah fungsi yang memanggil dirinya sendiri. Contoh dari aplikasi fungsi rekursif adalah pada penghitungan faktorial berikut:
 
 \lstset{language=JavaScript,caption=Fungsi rekursif untuk menghitung faktorial}
 \begin{lstlisting}
@@ -273,7 +273,7 @@ function factorial(n){
 
 \subsubsection{Fungsi di dalam Fungsi / \textit{Nested Functions}}
 
-Saat mendefinisikan fungsi, di dalam fungsi tersebut pemrogram bisa mendefinisikan fungsi lainnya. Meskipun demikian, fungsi yang terletak dalam suatu definisi fungsi tidak bisa diakses dari luar fungsi tersebut dan hanya tersedia untuk fungsi yang didefinisikan.
+\index{Nested functions}Saat mendefinisikan fungsi, di dalam fungsi tersebut pemrogram bisa mendefinisikan fungsi lainnya. Meskipun demikian, fungsi yang terletak dalam suatu definisi fungsi tidak bisa diakses dari luar fungsi tersebut dan hanya tersedia untuk fungsi yang didefinisikan.
 
 \lstset{language=JavaScript,caption=Fungsi di dalam Fungsi}
 \begin{lstlisting}
@@ -310,11 +310,11 @@ tambahkan();
 
 \subsection{Literal}
 
-Literal digunakan untuk merepresentasikan nilai dalam JavaScript. Ada beberapa tipe literal.
+\index{Literal}Literal digunakan untuk merepresentasikan nilai dalam JavaScript. Ada beberapa tipe literal.
 
 \subsubsection{Literal Array}
 
-Array atau variabel berindeks adalah penampung untuk obyek yang menyerupai \textit{list} atau daftar. Obyek array juga menyediakan berbagai fungsi dan metode untuk mengolah anggota yang terdapat dalam daftar tersebut (terutama untuk operasi \textit{traversal} dan permutasi. Listing berikut menunjukkan beberapa operasi untuk literal array.
+\index{Array}Array atau variabel berindeks adalah penampung untuk obyek yang menyerupai \textit{list} atau daftar. Obyek array juga menyediakan berbagai fungsi dan metode untuk mengolah anggota yang terdapat dalam daftar tersebut (terutama untuk operasi \textit{traversal} dan permutasi. Listing berikut menunjukkan beberapa operasi untuk literal array.
 
 \lstset{language=JavaScript,caption=Array di JavaScript}
 \begin{lstlisting}
@@ -342,11 +342,11 @@ console.log(multiArray[1][2]);
 
 \subsubsection{Literal Boolean}
 
-Literal boolean menunjukkan nilai benar (true) atau salah (false).
+\index{Boolean}Literal boolean menunjukkan nilai benar (true) atau salah (false).
 
 \subsubsection{Literal Integer}
 
-Literal integer digunakan untuk mengekspresikan nilai bilangan bulat. Nilai bulangan bulat dalam JavaScript bisa dalam bentuk:
+\index{Integer}Literal integer digunakan untuk mengekspresikan nilai bilangan bulat. Nilai bulangan bulat dalam JavaScript bisa dalam bentuk:
 \begin{itemize}
   \item decimal (basis 10): digit tanpa awalan nol.
   \item octal (basis 8): digit diawali dengan 1 angka nol.\footnote{pada ECMA-262, bilangan octal ini sudah tidak digunakan lagi.}
@@ -355,16 +355,16 @@ Literal integer digunakan untuk mengekspresikan nilai bilangan bulat. Nilai bula
 
 \subsubsection{Literal Floating-point}
 
-Literal ini digunakan untuk mengekspresikan nilai bilangan pecahan, misalnya 0.4343 atau bisa juga menggunakan E/e (nilai eksponensial), misalnya 
+\index{Floating-point}Literal ini digunakan untuk mengekspresikan nilai bilangan pecahan, misalnya 0.4343 atau bisa juga menggunakan E/e (nilai eksponensial), misalnya 
 -3.1E12.
 
 \subsubsection{Literal Obyek}
 
-Literal ini akan dibahas di bab yang menjelaskan tentang paradigma pemrograman berorientasi obyek di JavaScript.
+\index{Obyek}Literal ini akan dibahas di bab yang menjelaskan tentang paradigma pemrograman berorientasi obyek di JavaScript.
 
 \subsubsection{Literal String}
 
-Literal string mengekspresikan suatu nilai dalam bentuk sederetan karakter dan berada dalam tanda petik (ganda/``'' maupun tunggal/''). Contoh:
+\index{String}Literal string mengekspresikan suatu nilai dalam bentuk sederetan karakter dan berada dalam tanda petik (ganda/``'' maupun tunggal/''). Contoh:
 \begin{itemize}
    \item ``Kembali ke halaman utama''
    \item 'Lisensi'
@@ -394,7 +394,7 @@ Backslash sendiri sering digunakan sebagai \textit{escape character}, misalnya `
 
 \subsection{Struktur Data dan Representasi JSON}
 
-JSON (\textit{JavaScript Object Notation}) adalah subset dari JavaScript dan merupakan struktur data native di JavaScript. Bentuk dari representasi struktur data JSON adalah sebagai berikut\footnote{\url{http://en.wikipedia.org/wiki/JSON}}:
+\index{JSON}JSON (\textit{JavaScript Object Notation}) adalah subset dari JavaScript dan merupakan struktur data native di JavaScript. Bentuk dari representasi struktur data JSON adalah sebagai berikut\footnote{\url{http://en.wikipedia.org/wiki/JSON}}:
 
 \lstset{language=JavaScript,caption=Representasi \textit{JSON}}
 \begin{lstlisting}
@@ -430,11 +430,11 @@ Dari representasi di atas, kita bisa membaca:
 
 \subsection{Aliran Kendali}
 
-Alur program dikendalikan melalui pernyataan-pernyataan untuk aliran kendali. Ada beberapa pernyataan aliran kendali yang akan dibahas.
+\index{Aliran kendali}Alur program dikendalikan melalui pernyataan-pernyataan untuk aliran kendali. Ada beberapa pernyataan aliran kendali yang akan dibahas.
 
 \subsubsection{Pernyataan Kondisi \textit{if .. else if .. else}}
 
-Pernyataan ini digunakan untuk mengerjakan atau tidak mengerjakan suatu bagian atau blok program berdasarkan hasil evaluasi kondisi tertentu.
+\index{if}Pernyataan ini digunakan untuk mengerjakan atau tidak mengerjakan suatu bagian atau blok program berdasarkan hasil evaluasi kondisi tertentu.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{if .. else if .. else}}
 \begin{lstlisting}
@@ -475,7 +475,7 @@ rl.question("Masukkan angka nilai: ", function(answer) {
 
 \subsubsection{Pernyataan \textit{switch}}
 
-Pernyataan ini digunakan untuk mengevaluasi suatu ekspresi dan membandingkan sama atau tidaknya dengan suatu label tertentu di dalam struktur pernyataan switch, serta mengeksekusi perintah-perintah sesuai dengan label yang cocok.
+\index{switch}Pernyataan ini digunakan untuk mengevaluasi suatu ekspresi dan membandingkan sama atau tidaknya dengan suatu label tertentu di dalam struktur pernyataan switch, serta mengeksekusi perintah-perintah sesuai dengan label yang cocok.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{if .. else if .. else}}
 \begin{lstlisting}
@@ -518,7 +518,7 @@ rl.question("Masukkan angka pilihan anda: ", function(answer) {
 
 \subsubsection{\textit{Looping}}
 
-Looping atau sering juga disebut ``kalang'' adalah konstruksi program yang digunakan untuk melakukan suatu blok perintah secara berulang-ulang.
+\index{Looping}Looping atau sering juga disebut ``kalang'' adalah konstruksi program yang digunakan untuk melakukan suatu blok perintah secara berulang-ulang.
 
 \textbf{for}
 
@@ -662,7 +662,7 @@ topLabel:
 
 \subsection{Penanganan Error}
 
-JavaScript mendukung pernyataan \textit{try .. catch .. finally} serta \textit{throw} untuk menangani error. Meskipun demikian, banyak hal yang tidak sesuai dengan konstruksi ini karena sifat JavaScript yang \textit{asynchronous}. Untuk kasus asynchrous, pemrogram lebih disarankan menggunakan \textit{function callback}.
+\index{Penanganan error}JavaScript mendukung pernyataan \textit{try .. catch .. finally} serta \textit{throw} untuk menangani error. Meskipun demikian, banyak hal yang tidak sesuai dengan konstruksi ini karena sifat JavaScript yang \textit{asynchronous}. Untuk kasus asynchrous, pemrogram lebih disarankan menggunakan \textit{function callback}.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
 \begin{lstlisting}

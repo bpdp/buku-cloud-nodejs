@@ -2,11 +2,11 @@
 
 \section{Apa itu Basis Data NoSQL?}
 
-Pada awalnya, istilah NoSQL digunakan oleh Carlo Strozzi untuk menyebut nama software basis data yang dibuat olehnya. Software basis data tersebut tidak mengikuti standar SQL, sehingga dia menyebut software tersebut dengan "NoSQL"\footnote{\url{http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql/Home\%20Page}}. Setelah itu, istilah NoSQL dipopulerkan oleh Eric Evans untuk menyebut jenis software basis data yang tidak menggunakan standar SQL. Dalam perkembangan berikutnya, NoSQL ini lebih diarahkan pada "Not Only SQL" dan digunakan untuk kategorisasi basis data \textit{non-relational} (misalnya OODBMS, Graph Database, Document-oriented, dan lain-lain). Meski ada usaha untuk menstandarkan bahasa \textit{query} untuk NoSQL (UnQL - \textit{Unstructured Query Language}), sampai saat ini usaha tersebut tidak menghasilkan sesuatu hal yang disepakati bersama karena dunia NoSQL memang kompleks sekali. Untuk melihat daftar dari basis data NoSQL, anda bisa melihat ke \url{http://nosql-databases.org}.
+\index{NOSQL}Pada awalnya, istilah NoSQL digunakan oleh Carlo Strozzi untuk menyebut nama software basis data yang dibuat olehnya. Software basis data tersebut tidak mengikuti standar SQL, sehingga dia menyebut software tersebut dengan "NoSQL"\footnote{\url{http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql/Home\%20Page}}. Setelah itu, istilah NoSQL dipopulerkan oleh Eric Evans untuk menyebut jenis software basis data yang tidak menggunakan standar SQL. Dalam perkembangan berikutnya, NoSQL ini lebih diarahkan pada "Not Only SQL" dan digunakan untuk kategorisasi basis data \textit{non-relational} (misalnya OODBMS, Graph Database, Document-oriented, dan lain-lain). Meski ada usaha untuk menstandarkan bahasa \textit{query} untuk NoSQL (UnQL - \textit{Unstructured Query Language}), sampai saat ini usaha tersebut tidak menghasilkan sesuatu hal yang disepakati bersama karena dunia NoSQL memang kompleks sekali. Untuk melihat daftar dari basis data NoSQL, anda bisa melihat ke \url{http://nosql-databases.org}.
 
 \section{Mengenal mongoDB dan Fitur-fiturnya}
 
-mongoDB adalah salah satu software NoSQL yang termasuk dalam kategori \textit{Document Store} / \textit{Document-Oriented Database}, yaitu data disimpan dalam bentuk dokumen. Suatu dokumen bisa diibaratkan seperti suatu \textit{record} dalam basis data relasional dan isi dari masing-masing dokumen tersebut bisa berbeda-beda dan ada pula yang sama. Hal ini berbeda dengan basis data relasional yang menetapkan keseragaman kolom serta tipe data dengan data yang NULL jika tidak terdapat data. mongoDB menyimpan data dalam bentuk dokumen dengan menggunakan format JSON. Berikut adalah fitur dari mongoDB:
+\index{mongoDB}mongoDB adalah salah satu software NoSQL yang termasuk dalam kategori \textit{Document Store} / \textit{Document-Oriented Database}, yaitu data disimpan dalam bentuk dokumen. Suatu dokumen bisa diibaratkan seperti suatu \textit{record} dalam basis data relasional dan isi dari masing-masing dokumen tersebut bisa berbeda-beda dan ada pula yang sama. Hal ini berbeda dengan basis data relasional yang menetapkan keseragaman kolom serta tipe data dengan data yang NULL jika tidak terdapat data. mongoDB menyimpan data dalam bentuk dokumen dengan menggunakan format JSON. Berikut adalah fitur dari mongoDB:
 \begin{itemize}
 	\item menggunakan format JSON dalam penyimpanan data
 	\item mendukung indeks
@@ -165,7 +165,7 @@ Basis data mongoDB hanya akan dibuat jika sudah dilakukan perintah untuk menyisi
 
 \subsection{Node-gyp}
 
-Node-gyp merupakan \textit{native add-on build tool}, berfungsi untuk membantu proses kompilasi modul add-on native di Node.js. Node-gyp merupakan software bebas dan bisa diinstall menggunakan npm:
+\index{Node-gyp}Node-gyp merupakan \textit{native add-on build tool}, berfungsi untuk membantu proses kompilasi modul add-on native di Node.js. Node-gyp merupakan software bebas dan bisa diinstall menggunakan npm:
 
 \lstset{language=bash,caption=Instalasi node-gyp}
 \begin{lstlisting}
@@ -240,7 +240,7 @@ Node-gyp ini diinstall pada lokasi global. Pada materi ini, Node-gyp diperlukan 
 
 \subsection{Driver Node.js untuk mongoDB}
 
-Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Beberapa solusi yang tersedia adalah:
+\index{mongoDB!Driver}Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Beberapa solusi yang tersedia adalah:
 \lstset{language=bash,caption=Instalasi driver mongoDB}
 \begin{lstlisting}
 $ npm install mongodb
@@ -495,4 +495,3 @@ block content
 			tersedia fasilitas untuk melihat 
 		a(href="/employees") daftar pegawai.
 \end{lstlisting}
-

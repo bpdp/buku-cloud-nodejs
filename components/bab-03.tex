@@ -8,7 +8,7 @@ JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada 
 
 \subsection{Ekspresi Lambda}
 
-Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa ditautkan (\textit{bound}) ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
+\index{Ekspresi Lambda}Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa ditautkan (\textit{bound}) ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
 
 \lstset{language=JavaScript,caption=Ekspresi Lambda di JavaScript}
 \begin{lstlisting}
@@ -41,7 +41,7 @@ console.log('4^3: ' + applyOperation(4, 3, function(a,b) {return Math.pow(a, b)}
 
 \subsection{Higher-order Function}
 
-\textit{Higher-order function} (sering disebut juga sebagai \textit{functor} adalah suatu fungsi yang setidak-tidaknya menggunakan satu atau lebih fungsi lain sebagai parameter dari fungsi, atau menghasilkan fungsi sebagai nilai kembalian. 
+\index{Higher-order Function}\textit{Higher-order function} (sering disebut juga sebagai \textit{functor} adalah suatu fungsi yang setidak-tidaknya menggunakan satu atau lebih fungsi lain sebagai parameter dari fungsi, atau menghasilkan fungsi sebagai nilai kembalian. 
 
 \lstset{language=JavaScript,caption=Higher-order Function di JavaScript}
 \begin{lstlisting}
@@ -72,7 +72,7 @@ forEach(["satu", "dua", "tiga"], makeUpperCase);
 
 \subsection{Closure}
 
-Suatu \textit{closure} merupakan definisi suatu fungsi bersama-sama dengan lingkungannya. Lingkungan tersebut terdiri atas fungsi internal serta berbagai variabel lokal yang masih tetap tersedia saat fungsi utama / closure tersebut selesai dieksekusi. 
+\index{Closure}Suatu \textit{closure} merupakan definisi suatu fungsi bersama-sama dengan lingkungannya. Lingkungan tersebut terdiri atas fungsi internal serta berbagai variabel lokal yang masih tetap tersedia saat fungsi utama / closure tersebut selesai dieksekusi. 
 
 \lstset{language=JavaScript,caption=Closure di JavaScript}
 \begin{lstlisting}
@@ -93,7 +93,7 @@ console.log(add10(2)); // 12
 
 \subsection{Currying}
 
-\textit{Currying} memungkinkan pemrogram untuk membuat suatu fungsi dengan cara menggunakan fungsi yang sudah tersedia secara parsial, artinya tidak perlu menggunakan semua argumen dari fungsi yang sudah tersedia tersebut.
+\index{Currying}\textit{Currying} memungkinkan pemrogram untuk membuat suatu fungsi dengan cara menggunakan fungsi yang sudah tersedia secara parsial, artinya tidak perlu menggunakan semua argumen dari fungsi yang sudah tersedia tersebut.
 
 \lstset{language=JavaScript,caption=Currying di JavaScript}
 \begin{lstlisting}
@@ -131,7 +131,7 @@ console.log(addTen(20)); //30
 
 \subsection{Pengertian}
 
-Pemrograman Berorientasi Obyek (selanjutnya akan disingkat PBO) adalah suatu paradigma pemrograman yang memandang bahwa pemecahan masalah pemrograman akan dilakukan melalui definisi berbagai kelas kemudian membuat berbagai obyek berdasarkan kelas yng dibuat tersebut dan setelah itu mendefinisikan interaksi antar obyek tersebut dalam memecahkan masalah pemrograman. Obyek bisa saling berinteraksi karena setiap obyek mempunyai properti (sifat / karakteristik) dan \textit{method} untuk mengerjakan suatu pekerjaan tertentu. Jadi, bisa dikatakan bahwa paradigma ini menggunakan cara pandang yang manusiawi dalam penyelesaian masalah.
+\index{PBO}Pemrograman Berorientasi Obyek (selanjutnya akan disingkat PBO) adalah suatu paradigma pemrograman yang memandang bahwa pemecahan masalah pemrograman akan dilakukan melalui definisi berbagai kelas kemudian membuat berbagai obyek berdasarkan kelas yng dibuat tersebut dan setelah itu mendefinisikan interaksi antar obyek tersebut dalam memecahkan masalah pemrograman. Obyek bisa saling berinteraksi karena setiap obyek mempunyai properti (sifat / karakteristik) dan \textit{method} untuk mengerjakan suatu pekerjaan tertentu. Jadi, bisa dikatakan bahwa paradigma ini menggunakan cara pandang yang manusiawi dalam penyelesaian masalah.
 
 Dengan demikian, inti dari PBO sebenarnya terletak pada kemampuan untuk mengabstraksikan berbagai obyek ke dalam kelas (yang terdiri atas properti serta method). Paradigma PBO biasanya juga mencakup \textit{inheritance} atau pewarisan (sehingga terbentuk skema yang terdiri atas \textit{superclass} dan \textit{subclass}). Ciri lainnya adalah \textit{polymorphism} dan \textit{encapsulation} / pengkapsulan.
 
@@ -139,7 +139,7 @@ JavaScript adalah bahasa pemrograman yang mendukung PBO dan merupakan implementa
 
 \subsection{Definisi Obyek}
 
-Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. Sementara itu, Kelas.prototype.namaMethod digunakan untuk mendefinisikan method dengan nama method namaMethod pada kelas Kelas. Perhatikan contoh pada listing berikut.
+\index{Obyek}Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. Sementara itu, Kelas.prototype.namaMethod digunakan untuk mendefinisikan method dengan nama method namaMethod pada kelas Kelas. Perhatikan contoh pada listing berikut.
 
 \lstset{language=JavaScript,caption=Definisi obyek di JavaScript}
 \begin{lstlisting}
@@ -176,7 +176,7 @@ console.log("Nama domain halDua = " + halDua.getDomainName());
 
 \subsection{\textit{Inheritance} / Pewarisan}
 
-Pewarisan di JavaScript bisa dicapai menggunakan \textit{prototype}. Listing program berikut memperlihatkan bagaimana pewarisan diimplementasikan di JavaScript.
+\index{Pewarisan}Pewarisan di JavaScript bisa dicapai menggunakan \textit{prototype}. Listing program berikut memperlihatkan bagaimana pewarisan diimplementasikan di JavaScript.
 
 \lstset{language=JavaScript,caption=Pewarisan di PBO JavaScript}
 \begin{lstlisting}

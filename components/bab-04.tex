@@ -2,7 +2,7 @@
 
 \section{Apakah npm Itu?}
 
-Node.js memungkinkan developer untuk mengembangkan aplikasi secara modular dengan memisahkan berbagai komponen \textit{reusable code} ke dalam pustaka (\textit{library}). Berbagai pustaka tersebut bisa diperoleh di \url{http://npmjs.org}. Node.js menyediakan perintah \textit{npm} untuk mengelola paket pustaka di repositori tersebut. Untuk menggunakan utilitas ini, pemrogram harus terkoneksi dengan Internet.
+\index{npm}Node.js memungkinkan developer untuk mengembangkan aplikasi secara modular dengan memisahkan berbagai komponen \textit{reusable code} ke dalam pustaka (\textit{library}). Berbagai pustaka tersebut bisa diperoleh di \url{http://npmjs.org}. Node.js menyediakan perintah \textit{npm} untuk mengelola paket pustaka di repositori tersebut. Untuk menggunakan utilitas ini, pemrogram harus terkoneksi dengan Internet.
 
 \section{Menggunakan npm}
 
@@ -44,7 +44,7 @@ Pada bagian berikut, kita akan membahas lebih lanjut penggunaan perintah \textit
 
 \subsection{Instalasi Paket}
 
-npm sebenarnya bukan merupakan singkatan dari \textit{Node Package Manager}, meskipun seringkali orang menterjemahkan dengan singkatan tersebut dan npm seharusnya ditulis dalam huruf kecil semua seperti yang dijelaskan pada FAQ (\textit{Frequently Asked Questions})\footnote{\url{https://npmjs.org/doc/faq.html}}. npm merupakan bilah alat berbasis baris perintah, dijalankan melalui shell atau \textit{command prompt}. Sama seperti kebanyakan bilah alat berbasis baris perintah lain, npm memiliki struktur perintah \textit{npm perintah argumen}. Installasi paket pustaka dilakukan dengan perintah berikut :
+\index{npm!install paket}npm sebenarnya bukan merupakan singkatan dari \textit{Node Package Manager}, meskipun seringkali orang menterjemahkan dengan singkatan tersebut dan npm seharusnya ditulis dalam huruf kecil semua seperti yang dijelaskan pada FAQ (\textit{Frequently Asked Questions})\footnote{\url{https://npmjs.org/doc/faq.html}}. npm merupakan bilah alat berbasis baris perintah, dijalankan melalui shell atau \textit{command prompt}. Sama seperti kebanyakan bilah alat berbasis baris perintah lain, npm memiliki struktur perintah \textit{npm perintah argumen}. Installasi paket pustaka dilakukan dengan perintah berikut :
 
 \lstset{language=bash,caption=Cara install paket menggunakan npm}
 \begin{lstlisting}
@@ -55,7 +55,7 @@ Perintah diatas akan memasang versi terakhir dari paket pustaka foo. Selain itu 
 
 \subsection{Struktur Instalasi Paket Node.js}
 
-Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textit{node\_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textit{/usr/lib/node\_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar. 
+\index{npm!Struktur paket}Dalam installasi paket pustaka, berkas-berkas akan terletak dalam folder lokal aplikasi \textit{node\_modules}. Pada mode installasi paket pustaka global (dengan -g atau --global dibelakang baris perintah), paket pustaka akan dipasang pada \textit{/usr/lib/node\_modules} (dengan lokasi installasi Node.js standar). Mode global memungkinkan paket pustaka digunakan tanpa memasang paket pustaka pada setiap folder lokal aplikasi. Mode global ini juga membutuhkan hak administrasi lebih (sudo atau root) dari pengguna agar dapat menulis pada lokasi standar. 
 
 Jika berada pada direktori \$HOME, maka paket-paket npm tersebut akan terinstall di \$HOME/.npm, sedangkan jika kita berada di luar direktori \$HOME, maka paket-paket tersebut akan terinstall di \$CWD/node\_modules (\$CWD = \textit{Current Working Directory} - direktori aktif saat ini). Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut:
 
@@ -76,7 +76,7 @@ Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global,
 
 \subsection{Menghapus Paket / \textit{Uninstall}}
 
-Menghapus paket pustaka menggunakan npm pada dasarnya hampir sama dengan saat memasang paket, namun dengan perintah \textit{uninstall}. Berikut perintah lengkapnya.
+\index{npm!Hapus paket}Menghapus paket pustaka menggunakan npm pada dasarnya hampir sama dengan saat memasang paket, namun dengan perintah \textit{uninstall}. Berikut perintah lengkapnya.
 
 \lstset{language=bash,caption=Perintah menghapus paket di npm}
 \begin{lstlisting}
@@ -87,7 +87,7 @@ Paket pustaka foo dalam lokal aplikasi akan dihapus, jika menggunakan hak admini
 
 \subsection{Mencari Paket}
 
-Untuk mencari paket, gunakan argumen \textit{search} dan nama atau bagian dari nama paket yang dicari. Contoh berikut ini akan mencari paket dengan kata kunci 'sha512' (tampilan berikut merupakan tampilan yang terpotong):
+\index{npm!Cari paket}Untuk mencari paket, gunakan argumen \textit{search} dan nama atau bagian dari nama paket yang dicari. Contoh berikut ini akan mencari paket dengan kata kunci 'sha512' (tampilan berikut merupakan tampilan yang terpotong):
 
 \lstset{language=bash,caption=Perintah menghapus paket di npm}
 \begin{lstlisting}
@@ -103,7 +103,7 @@ Setelah menemukan paketnya, pemrogram bisa menginstall langsung ataupun melihat 
 
 \subsection{Menampilkan Informasi Paket}
 
-Setelah mengetahui nama paket, pemrogram bisa memperoleh informasi lebih lanjut dalam format JSON menggunakan parameter \textit{view}. Contoh dibawah ini menampilkan rincian dalam format JSON dari paket \textit{arango.client}:
+\index{npm!Info paket}Setelah mengetahui nama paket, pemrogram bisa memperoleh informasi lebih lanjut dalam format JSON menggunakan parameter \textit{view}. Contoh dibawah ini menampilkan rincian dalam format JSON dari paket \textit{arango.client}:
 
 \lstset{language=bash,caption=Menampilkan rincian suatu paket dalam format JSON}
 \begin{lstlisting}
@@ -155,7 +155,7 @@ npm http 304 https://registry.npmjs.org/arango.client
 
 \subsection{Memperbaharui Paket}
 
-Jika terdapat versi baru, kita bisa memperbaharui secara otomatis menggunakan argumen \textit{update} berikut ini:
+\index{npm!Update paket}Jika terdapat versi baru, kita bisa memperbaharui secara otomatis menggunakan argumen \textit{update} berikut ini:
 
 \lstset{language=bash,caption=Memperbaharui paket lokal}
 \begin{lstlisting}
@@ -166,4 +166,3 @@ npm update
 \begin{lstlisting}
 npm update -g
 \end{lstlisting}
-
