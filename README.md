@@ -1,7 +1,8 @@
 Status
 ======
 
-Tanggal 23 Desember 2012 - **buku selesai lengkap**. Edit hanya dilakukan jika ada Errata (termasuk rilis versi baru dari software-software yang digunakan).
+* 23 Desember 2012 - **buku selesai lengkap**. Edit hanya dilakukan jika ada Errata (termasuk rilis versi baru dari software-software yang digunakan). 
+* 26 Desember 2012 - File .pdf tersedia. Jika anda tidak mempunyai LaTeX untuk memproses kode sumber ini, silahkan langsung download PDF-nya di [SlideShare](http://www.slideshare.net/bpdp/pengembangan-aplikasi-cloud-computing-menggunakan-nodejs).
 
 Selamat datang!
 ===============
