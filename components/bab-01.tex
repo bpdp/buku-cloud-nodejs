@@ -71,7 +71,7 @@ Jika pengembangan aplikasi dilakukan oleh tim, maka perlu adanya software untuk 
 
 \subsection{Pendaftaran}
 
-Untuk menggunakan fasilitas dari CF, kita akan mendaftar lebih dahulu di URL \url{https://mycloudfoundry.com/signup} sepert yang terlihat pada Gambar~\ref{fig:cfsignup}.
+Untuk menggunakan fasilitas dari CF, kita akan mendaftar lebih dahulu di URL \url{https://my.cloudfoundry.com/signup} sepert yang terlihat pada Gambar~\ref{fig:cfsignup}.
 
 \begin{figure}[t]
     \begin{center}
@@ -106,57 +106,99 @@ Setelah itu, CF akan mengirimkan pemberitahuan bahwa proses pendaftaran selesai 
 \lstset{language=bash,caption=Instalasi vmc}
 \begin{lstlisting}
 $ gem search vmc --remote | grep "\bvmc\s" 
-vmc (0.4.7) 
+vmc (0.5.0) 
 $ gem install vmc 
-Fetching: json_pure-1.6.7.gem (100%)
-Fetching: interact-0.5.1.gem (100%)
-Fetching: multipart-post-1.1.5.gem (100%)
-Fetching: multi_json-1.4.0.gem (100%)
+Fetching: json_pure-1.7.7.gem (100%)
+WARNING:  You don't have /home/bpdp/.gem/ruby/1.9.1/bin in your PATH,
+	  gem executables will not run.
+Fetching: multi_json-1.7.1.gem (100%)
+Fetching: interact-0.5.2.gem (100%)
+Fetching: multipart-post-1.2.0.gem (100%)
 Fetching: rubyzip-0.9.9.gem (100%)
-Fetching: cfoundry-0.4.17.gem (100%)
+Fetching: cf-uaa-lib-1.3.10.gem (100%)
+Fetching: cfoundry-0.5.2.gem (100%)
 Fetching: clouseau-0.0.2.gem (100%)
-Fetching: mothership-0.3.5.gem (100%)
-Fetching: manifests-vmc-plugin-0.4.19.gem (100%)
-Fetching: tunnel-dummy-vmc-plugin-0.0.2.gem (100%)
-Fetching: vmc-0.4.7.gem (100%)
-Successfully installed json_pure-1.6.7
-Successfully installed interact-0.5.1
-Successfully installed multipart-post-1.1.5
-Successfully installed multi_json-1.4.0
+Fetching: mothership-0.5.1.gem (100%)
+Fetching: manifests-vmc-plugin-0.6.2.gem (100%)
+Fetching: addressable-2.3.3.gem (100%)
+Fetching: caldecott-client-0.0.2.gem (100%)
+Fetching: mime-types-1.21.gem (100%)
+Fetching: rest-client-1.6.7.gem (100%)
+Fetching: uuidtools-2.1.3.gem (100%)
+Fetching: tunnel-vmc-plugin-0.2.2.gem (100%)
+Fetching: vmc-0.5.0.gem (100%)
+Successfully installed json_pure-1.7.7
+Successfully installed multi_json-1.7.1
+Successfully installed interact-0.5.2
+Successfully installed multipart-post-1.2.0
 Successfully installed rubyzip-0.9.9
-Successfully installed cfoundry-0.4.17
+Successfully installed cf-uaa-lib-1.3.10
+Successfully installed cfoundry-0.5.2
 Successfully installed clouseau-0.0.2
-Successfully installed mothership-0.3.5
-Successfully installed manifests-vmc-plugin-0.4.19
-Successfully installed tunnel-dummy-vmc-plugin-0.0.2
-Successfully installed vmc-0.4.7
-11 gems installed
-Installing ri documentation for json_pure-1.6.7...
-Installing ri documentation for interact-0.5.1...
-Installing ri documentation for multipart-post-1.1.5...
-Installing ri documentation for multi_json-1.4.0...
+Successfully installed mothership-0.5.1
+Successfully installed manifests-vmc-plugin-0.6.2
+Successfully installed addressable-2.3.3
+Successfully installed caldecott-client-0.0.2
+Successfully installed mime-types-1.21
+Successfully installed rest-client-1.6.7
+Successfully installed uuidtools-2.1.3
+Successfully installed tunnel-vmc-plugin-0.2.2
+Successfully installed vmc-0.5.0
+17 gems installed
+Installing ri documentation for json_pure-1.7.7...
+Installing ri documentation for multi_json-1.7.1...
+Installing ri documentation for interact-0.5.2...
+Installing ri documentation for multipart-post-1.2.0...
 Installing ri documentation for rubyzip-0.9.9...
-Installing ri documentation for cfoundry-0.4.17...
+Installing ri documentation for cf-uaa-lib-1.3.10...
+Installing ri documentation for cfoundry-0.5.2...
 Installing ri documentation for clouseau-0.0.2...
-Installing ri documentation for mothership-0.3.5...
-Installing ri documentation for manifests-vmc-plugin-0.4.19...
-Installing ri documentation for tunnel-dummy-vmc-plugin-0.0.2...
-Installing ri documentation for vmc-0.4.7...
-Installing RDoc documentation for json_pure-1.6.7...
-Installing RDoc documentation for interact-0.5.1...
-Installing RDoc documentation for multipart-post-1.1.5...
-Installing RDoc documentation for multi_json-1.4.0...
+Installing ri documentation for mothership-0.5.1...
+Installing ri documentation for manifests-vmc-plugin-0.6.2...
+Installing ri documentation for addressable-2.3.3...
+Installing ri documentation for caldecott-client-0.0.2...
+Installing ri documentation for mime-types-1.21...
+Installing ri documentation for rest-client-1.6.7...
+Installing ri documentation for uuidtools-2.1.3...
+Installing ri documentation for tunnel-vmc-plugin-0.2.2...
+Installing ri documentation for vmc-0.5.0...
+Installing RDoc documentation for json_pure-1.7.7...
+Installing RDoc documentation for multi_json-1.7.1...
+Installing RDoc documentation for interact-0.5.2...
+Installing RDoc documentation for multipart-post-1.2.0...
 Installing RDoc documentation for rubyzip-0.9.9...
-Installing RDoc documentation for cfoundry-0.4.17...
+Installing RDoc documentation for cf-uaa-lib-1.3.10...
+Installing RDoc documentation for cfoundry-0.5.2...
 Installing RDoc documentation for clouseau-0.0.2...
-Installing RDoc documentation for mothership-0.3.5...
-Installing RDoc documentation for manifests-vmc-plugin-0.4.19...
-Installing RDoc documentation for tunnel-dummy-vmc-plugin-0.0.2...
-Installing RDoc documentation for vmc-0.4.7...
+Installing RDoc documentation for mothership-0.5.1...
+Installing RDoc documentation for manifests-vmc-plugin-0.6.2...
+Installing RDoc documentation for addressable-2.3.3...
+Installing RDoc documentation for caldecott-client-0.0.2...
+Installing RDoc documentation for mime-types-1.21...
+Installing RDoc documentation for rest-client-1.6.7...
+Installing RDoc documentation for uuidtools-2.1.3...
+Installing RDoc documentation for tunnel-vmc-plugin-0.2.2...
+Installing RDoc documentation for vmc-0.5.0...
 $
 \end{lstlisting}
 
-Hasil dari instalasi tersebut adalah sebagai berikut:
+Pesan peringatan berikut ini:
+
+\lstset{language=bash,caption=Peringatan setting PATH untuk vmc}
+\begin{lstlisting}
+WARNING:  You don't have /home/bpdp/.gem/ruby/1.9.1/bin in your PATH,
+	  gem executables will not run.
+\end{lstlisting}
+
+terjadi karena path untuk \textit{executable script} Ruby yang diinstall oleh vmc belum ditambahkan ke variabel lingkungan PATH. Edit file $HOME/.bashrc dan tambahkan baris berikut\footnote{Catatan: "/home/bpdp/" adalah direktori \$HOME saya, silahkan sesuaikan dengan tempat anda}:
+\lstset{language=bash,caption=Peringatan setting PATH untuk vmc}
+\begin{lstlisting}
+export PATH=$PATH:/home/bpdp/.gem/ruby/1.9.1/bin
+\end{lstlisting}
+
+Setelah itu, ketikkan di shell prompt Bash: \textit{source ~/.bashrc}\footnote{Ini hanya untuk keperluan saat ini saja, setelah ini tidak perlu lagi karena setiap login sudah akan dibaca oleh Bash}.
+
+Hasil dari instalasi vmc adalah sebagai berikut:
 
 \lstset{language=bash,caption=Hasil gem yang terinstall}
 \begin{lstlisting}
@@ -164,31 +206,30 @@ $ gem list
 
 *** LOCAL GEMS ***
 
+addressable (2.3.3)
 bigdecimal (1.1.0)
-cfoundry (0.4.17)
+caldecott-client (0.0.2)
+cf-uaa-lib (1.3.10)
+cfoundry (0.5.2)
 clouseau (0.0.2)
-interact (0.5.1)
+interact (0.5.2)
 io-console (0.3)
-json (1.5.4)
-json_pure (1.6.7)
-manifests-vmc-plugin (0.4.19)
+json (1.5.5)
+json_pure (1.7.7)
+manifests-vmc-plugin (0.6.2)
+mime-types (1.21)
 minitest (2.5.1)
-mothership (0.3.5)
-multi_json (1.4.0)
-multipart-post (1.1.5)
+mothership (0.5.1)
+multi_json (1.7.1)
+multipart-post (1.2.0)
 rake (0.9.2.2)
-rdoc (3.9.4)
+rdoc (3.9.5)
+rest-client (1.6.7)
 rubyzip (0.9.9)
-tunnel-dummy-vmc-plugin (0.0.2)
-vmc (0.4.7)
+tunnel-vmc-plugin (0.2.2)
+uuidtools (2.1.3)
+vmc (0.5.0)
 $ 
-\end{lstlisting}
-
-Setelah itu, tambahkan baris berikut di \textit{\$HOME/.bashrc} (catatan: "/home/bpdp/" adalah direktori \$HOME saya, silahkan sesuaikan dengan tempat anda):
-
-\lstset{language=bash,caption=Mengaktifkan direktori "bin" hasil instalasi gem}
-\begin{lstlisting}
-export PATH=$PATH:/home/bpdp/.gem/ruby/1.9.1/bin
 \end{lstlisting}
 
 Periksa dengan menjalankan opsi help dari vmc:
@@ -196,70 +237,67 @@ Periksa dengan menjalankan opsi help dari vmc:
 \lstset{language=bash,caption=Hasil opsi help dari vmc}
 \begin{lstlisting}
 $ vmc help 
-Showing basic command set. Pass --all to list all commands.
+Showing basic command set. Run with 'help --all' to list all commands.
 
 Getting Started
-  login [USERNAME]	Authenticate with the target
-  target [URL]    	Set or display the target cloud, organization, and space
-  logout          	Log out from the target
-  info            	Display information on the current target, user, etc.
+  target [URL] 	Set or display the target cloud, organization, and space
+  logout       	Log out from the target
+  login [EMAIL]	Authenticate with the target
+  info         	Display information on the current target, user, etc.
 
 Applications
-  apps     	List your applications
   app [APP]	Show app information
+  apps     	List your applications
 
   Management
     start APPS...  	Start an application
     delete APPS... 	Delete an application
     push [NAME]    	Push an application, syncing changes if it exists
-    stop APPS...   	Stop an application
     restart APPS...	Stop and start an application
+    stop APPS...   	Stop an application
 
 Services
-  service INSTANCE	Show service instance information
-  services        	List your service instances
+  service SERVICE	Show service information
+  services       	List your service
 
   Management
-    create-service [SERVICE] [NAME]	Create a service
-    bind-service SERVICE APP       	Bind a service to an application
-    unbind-service SERVICE APP     	Unbind a service from an application
-    delete-service [INSTANCE]      	Delete a service
-    tunnel [INSTANCE] [CLIENT]     	Tells you to install tunnel-vmc-plugin
+    delete-service [SERVICE]        	Delete a service
+    bind-service [SERVICE] [APP]    	Bind a service to an application
+    create-service [OFFERING] [NAME]	Create a service
+    unbind-service [SERVICE] [APP]  	Unbind a service from an application
+    tunnel [INSTANCE] [CLIENT]      	Create a local tunnel to a service.
 
 Organizations
-  create-org [NAME]        	Create an organization
-  orgs                     	List available organizations
-  delete-org [ORGANIZATION]	Delete an organization
   org [ORGANIZATION]       	Show organization information
+  delete-org [ORGANIZATION]	Delete an organization
+  orgs                     	List available organizations
+  create-org [NAME]        	Create an organization
 
 Spaces
-  create-space [NAME] [ORGANIZATION]	Create a space in an organization
-  space [SPACE]                     	Show space information
   delete-space SPACES...            	Delete a space and its contents
   spaces [ORGANIZATION]             	List spaces in an organization
+  create-space [NAME] [ORGANIZATION]	Create a space in an organization
+  space [SPACE]                     	Show space information
 
 Routes
-  create-route [URL]  	Create a route
-  delete-route [ROUTE]	Delete a route
-  routes              	List routes in a space
+  routes	List routes in a space
 
 Domains
-  create-domain NAME    	Create a domain
-  delete-domain [DOMAIN]	Delete a domain
-  add-domain NAME       	Add a domain to a space
-  remove-domain [DOMAIN]	Remove a domain from a space
-  domains [SPACE]       	List domains in a space
+  domains [SPACE]    	List domains in a space
+  map-domain NAME    	Map a domain to an organization or space
+  unmap-domain DOMAIN	Unmap a domain from an organization or space
 
 Options:
       --[no-]color       Use colorful output
       --[no-]script      Shortcut for --quiet and --force
+      --debug            Print full stack trace (instead of crash log)
   -V, --verbose          Print extra information
   -f, --[no-]force       Skip interaction when possible
-  -h, --help             Show command usage & instructions
+  -h, --help             Show command usage
   -m, --manifest FILE    Path to manifest file to use
   -q, --[no-]quiet       Simplify output format
-  -t, --trace            Show API requests and responses
-  -u, --proxy EMAIL      Act as another user (admin only)
+  -t, --trace            Show API traffic
+  -u, --proxy EMAIL      Run this command as another user (admin)
   -v, --version          Print version number
 $ 
 \end{lstlisting}
@@ -271,7 +309,7 @@ Pada dasarnya, yang diperlukan hanyalah mengubah target ke server cloud dari CF 
 \lstset{language=bash,caption=Mengubah target server - belum ada konfigurasi}
 \begin{lstlisting}
 $ vmc target 
-Errno::ENOENT: No such file or directory - /home/bpdp/.vmc/target
+NoMethodError: undefined method `target' for nil:NilClass
 For more information, see ~/.vmc/crash
 $
 \end{lstlisting}
@@ -281,9 +319,7 @@ Error di atas terjadi karena file konfigurasi belum dibuat. File konfigurasi ter
 \lstset{language=bash,caption=Mengubah target server - setelah konfigurasi}
 \begin{lstlisting}
 $ vmc target 
- 
 target: https://api.cloudfoundry.com
-
 $ 
 \end{lstlisting}
 
@@ -334,15 +370,14 @@ sinatra
 spring       
 standalone   
 
-service      version   provider   description                          
-mongodb      2.0       core       MongoDB NoSQL store                  
-mysql        5.1       core       MySQL database service               
-postgresql   9.0       core       PostgreSQL database service (vFabric)
-rabbitmq     2.4       core       RabbitMQ message queue               
-redis        2.4       core       Redis key-value store service        
-redis        2.2       core       Redis key-value store service        
-redis        2.6       core       Redis key-value store service    
-
+service      version   provider   description                  
+mongodb      2.0       core       MongoDB NoSQL database       
+mysql        5.1       core       MySQL database               
+postgresql   9.0       core       PostgreSQL database (vFabric)
+rabbitmq     2.4       core       RabbitMQ message queue       
+redis        2.4       core       Redis key-value store        
+redis        2.6       core       Redis key-value store        
+redis        2.2       core       Redis key-value store 
 $ 
 \end{lstlisting}
 
@@ -355,6 +390,7 @@ New Password> **************
 
 Verify Password> **************
 
+Your password strength is: good
 Changing password... OK
 $
 \end{lstlisting}
@@ -372,7 +408,7 @@ Langkah instalasi berikut ini adalah langkah untuk instalasi tanpa manajemen pak
 $ ls -la
 ...
 ...
--rw-r--r--  1 bpdp users 4406113 Dec 13 06:16 node-v0.8.16-linux-x86.tar.gz
+-rw-r--r-- 1 bpdp bpdp 4477561 Mar 11 07:51 node-v0.10.0-linux-x86.tar.gz
 ...
 ...
 $ 
@@ -384,13 +420,13 @@ $
 \begin{lstlisting}
 $ cd 
 $ cd software
-$ tar -xzvf ~/master/nodejs/node-v0.8.16-linux-x86.tar.gz
-$ ln -s node-v0.8.16-linux-x86 nodejs
+$ tar -xzvf ~/master/nodejs/node-v0.10.0-linux-x86.tar.gz
+$ ln -s node-v0.10.0-linux-x86 nodejs
 $ ls -la
 ....
 ....
-lrwxrwxrwx   1 bpdp users    22 Dec 14 23:45 nodejs -> node-v0.8.16-linux-x86
-drwxr-xr-x   6 bpdp users  4096 Dec 13 06:16 node-v0.8.16-linux-x86
+lrwxrwxrwx  1 bpdp bpdp   22 Mar 13 00:56 nodejs -> node-v0.10.0-linux-x86
+drwxr-xr-x  5 bpdp bpdp 4096 Mar 11 07:51 node-v0.10.0-linux-x86
 ....
 ....
 $ 
@@ -467,7 +503,7 @@ $ express
    create : ./package.json
    create : ./app.js
    create : ./public
-   create : ./public/images
+   create : ./public/javascripts
    create : ./routes
    create : ./routes/index.js
    create : ./routes/user.js
@@ -476,7 +512,7 @@ $ express
    create : ./views
    create : ./views/layout.jade
    create : ./views/index.jade
-   create : ./public/javascripts
+   create : ./public/images
 
    install dependencies:
      $ cd . && npm install
@@ -499,7 +535,7 @@ Pada rerangka aplikasi tersebut, terdapat file \textit{package.json} untuk mende
 		"start": "node app"
 	},
   "dependencies":{ 
-    "express": "3.0.6".
+    "express": "3.1.0".
 		"jade": "*"
   } 
 } 
@@ -573,7 +609,7 @@ Framework> node
 2: node06
 3: node08
 4: other
-Runtime> 3
+Runtime> 1
 
 1: 64M
 2: 128M
@@ -604,7 +640,8 @@ Save configuration?> n
 Uploading hello-express... OK
 Starting hello-express... OK
 Checking hello-express... OK
-
+  1/1 instances: 1 running
+OK
 $ 
 \end{lstlisting}
 
