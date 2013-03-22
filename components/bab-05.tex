@@ -47,7 +47,7 @@ Pada dasarnya ada beberapa bagian yang harus disiapkan dari paradigma dan teknik
 
 Untuk memahami mekanisme ini, pahami dua kode sumber berikut:
 \begin{itemize}
-	\item server.js: mengaktifkan server http (diambil dari manual Node.js
+	\item server.js: mengaktifkan server http (diambil dari manual Node.js)
 	\item server-on-error.js: mencoba mengaktifkan server pada host dan port yang sama dengan server.js. Aktivasi ini akan menyebabkan Node.js meng-\textit{emit} event 'error' karena host dan port sudah digunakan di server.js.
 \end{itemize}
 File server.js dijalankan lebih dulu, setelah itu baru menjalankan server-on-error.js.

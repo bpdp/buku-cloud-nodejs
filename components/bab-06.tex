@@ -27,55 +27,63 @@ $ pwd
 /home/bpdp/mongodb
 $ mkdir data
 $ mongod --rest --dbpath ./data
-Tue Dec 11 14:40:20 
-Tue Dec 11 14:40:20 warning: 32-bit servers don't have journaling 
+Fri Mar 22 10:15:35 
+Fri Mar 22 10:15:35 warning: 32-bit servers don't have journaling 
 enabled by default. Please use --journal if you want durability.
-Tue Dec 11 14:40:20 
-Tue Dec 11 14:40:20 [initandlisten] MongoDB starting : pid=24381 
-port=27017 dbpath=./data 32-bit host=bpdp-arch
-Tue Dec 11 14:40:20 [initandlisten] 
-Tue Dec 11 14:40:20 [initandlisten] ** NOTE: when using MongoDB 
-32 bit, you are limited to about 2 gigabytes of data
-Tue Dec 11 14:40:20 [initandlisten] **       see 
+Fri Mar 22 10:15:35 
+Fri Mar 22 10:15:35 [initandlisten] MongoDB starting : pid=8601 
+port=27017 dbpath=./data/ 32-bit host=bpdp-arch
+Fri Mar 22 10:15:35 [initandlisten] 
+Fri Mar 22 10:15:35 [initandlisten] ** NOTE: when using MongoDB 32 
+bit, you are limited to about 2 gigabytes of data
+Fri Mar 22 10:15:35 [initandlisten] **       see 
 http://blog.mongodb.org/post/137788967/32-bit-limitations
-Tue Dec 11 14:40:20 [initandlisten] **       with --journal, the 
-limit is lower
-Tue Dec 11 14:40:20 [initandlisten] 
-Tue Dec 11 14:40:20 [initandlisten] db version v2.2.2, pdfile 
+Fri Mar 22 10:15:35 [initandlisten] **       with --journal, 
+the limit is lower
+Fri Mar 22 10:15:35 [initandlisten] 
+Fri Mar 22 10:15:35 [initandlisten] db version v2.2.3, pdfile 
 version 4.5
-Tue Dec 11 14:40:20 [initandlisten] git version: nogitversion
-Tue Dec 11 14:40:20 [initandlisten] build info: Linux felix 
-3.6.7-1-ARCH #1 SMP PREEMPT Sun Nov 18 10:11:22 CET 2012 i686 
-BOOST_LIB_VERSION=1_50
-Tue Dec 11 14:40:20 [initandlisten] options: { dbpath: "./data", rest: true}
-Tue Dec 11 14:40:20 [initandlisten] Unable to check for journal 
-files due to: boost::filesystem::directory_iterator::construct: 
-No such file or directory: "./data/journal"
-Tue Dec 11 14:40:21 [websvr] admin web console waiting for 
-connections on port 28017
-Tue Dec 11 14:40:21 [initandlisten] waiting for connections on 
+Fri Mar 22 10:15:35 [initandlisten] git version: nogitversion
+Fri Mar 22 10:15:35 [initandlisten] build info: Linux fyan 3.7.5-1-ARCH 
+#1 SMP PREEMPT Mon Jan 28 10:03:32 CET 2013 i686 BOOST_LIB_VERSION=1_52
+Fri Mar 22 10:15:35 [initandlisten] options: { dbpath: "./data/", 
+rest: true }
+Fri Mar 22 10:15:35 [initandlisten] Unable to check for journal files 
+due to: boost::filesystem::directory_iterator::construct: No such file 
+or directory: "./data/journal"
+Fri Mar 22 10:15:35 [websvr] admin web console waiting for connections 
+on port 28017
+Fri Mar 22 10:15:35 [initandlisten] waiting for connections on 
 port 27017
+
 \end{lstlisting}
 
 Untuk mengakhiri server, tekan \textit{Ctrl-C}, mongoDB akan mengakhiri server sebagai berikut:
 
 \lstset{language=bash,caption=Mengakhiri server MongoDB (mongod)}
 \begin{lstlisting}
-^CTue Dec 11 15:16:38 got signal 2 (Interrupt), will terminate after current cmd ends
-Tue Dec 11 15:16:38 [interruptThread] now exiting
-Tue Dec 11 15:16:38 dbexit: 
-Tue Dec 11 15:16:38 [interruptThread] shutdown: going to close listening sockets...
-Tue Dec 11 15:16:38 [interruptThread] closing listening socket: 5
-Tue Dec 11 15:16:38 [interruptThread] closing listening socket: 6
-Tue Dec 11 15:16:38 [interruptThread] closing listening socket: 7
-Tue Dec 11 15:16:38 [interruptThread] removing socket file: /tmp/mongodb-27017.sock
-Tue Dec 11 15:16:38 [interruptThread] shutdown: going to flush diaglog...
-Tue Dec 11 15:16:38 [interruptThread] shutdown: going to close sockets...
-Tue Dec 11 15:16:38 [interruptThread] shutdown: waiting for fs preallocator...
-Tue Dec 11 15:16:38 [interruptThread] shutdown: closing all files...
-Tue Dec 11 15:16:38 [interruptThread] closeAllFiles() finished
-Tue Dec 11 15:16:38 [interruptThread] shutdown: removing fs lock...
-Tue Dec 11 15:16:38 dbexit: really exiting now
+^CFri Mar 22 10:17:59 got signal 2 (Interrupt), will terminate 
+after current cmd ends
+Fri Mar 22 10:17:59 [interruptThread] now exiting
+Fri Mar 22 10:17:59 dbexit: 
+Fri Mar 22 10:17:59 [interruptThread] shutdown: going to close 
+listening sockets...
+Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 5
+Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 6
+Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 7
+Fri Mar 22 10:17:59 [interruptThread] removing socket file: 
+/tmp/mongodb-27017.sock
+Fri Mar 22 10:17:59 [interruptThread] shutdown: going to flush 
+diaglog...
+Fri Mar 22 10:17:59 [interruptThread] shutdown: going to close 
+sockets...
+Fri Mar 22 10:17:59 [interruptThread] shutdown: waiting for fs 
+preallocator...
+Fri Mar 22 10:17:59 [interruptThread] shutdown: closing all files...
+Fri Mar 22 10:17:59 [interruptThread] closeAllFiles() finished
+Fri Mar 22 10:17:59 [interruptThread] shutdown: removing fs lock...
+Fri Mar 22 10:17:59 dbexit: really exiting now
+$
 \end{lstlisting}
 
 \subsection{Klien dan Shell mongoDB}
@@ -85,7 +93,7 @@ Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maup
 \lstset{language=bash,caption=Shell mongoDB (mongo)}
 \begin{lstlisting}
 $ mongo
-MongoDB shell version: 2.2.2
+MongoDB shell version: 2.2.3
 connecting to: test
 > 
 \end{lstlisting}
@@ -106,7 +114,7 @@ Konsep dasar yang harus dipahami dalam mongoDB sebagai \textit{document-oriented
 \lstset{language=bash,caption=Sesi dalam shell mongoDB}
 \begin{lstlisting}
 $ mongo
-MongoDB shell version: 2.2.2
+MongoDB shell version: 2.2.3
 connecting to: test
 > db
 test
@@ -180,37 +188,21 @@ Node-gyp ini diinstall pada lokasi global. Pada materi ini, Node-gyp diperlukan 
 \lstset{language=bash,caption=Instalasi driver mongoDB}
 \begin{lstlisting}
 $ npm install mongodb
-npm WARN package.json application-name@0.0.1 No README.md file found!
 npm http GET https://registry.npmjs.org/mongodb
 npm http 200 https://registry.npmjs.org/mongodb
-npm http GET https://registry.npmjs.org/mongodb/-/mongodb-1.2.7.tgz
-npm http 200 https://registry.npmjs.org/mongodb/-/mongodb-1.2.7.tgz
-npm http GET https://registry.npmjs.org/bson/0.1.5
-npm http 304 https://registry.npmjs.org/bson/0.1.5
+npm http GET https://registry.npmjs.org/mongodb/-/mongodb-1.2.14.tgz
+npm http 200 https://registry.npmjs.org/mongodb/-/mongodb-1.2.14.tgz
+npm http GET https://registry.npmjs.org/bson/0.1.8
+npm http 200 https://registry.npmjs.org/bson/0.1.8
+npm http GET https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
 
-> bson@0.1.5 install /home/bpdp/tmp/hello/node_modules/mongodb/node_modules/bson
-> node install.js || (exit 0)
+> bson@0.1.8 install /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/images/node_modules/mongodb/node_modules/bson
+> (node-gyp rebuild 2> builderror.log) || (exit 0)
 
-================================================================================
-=                                                                              =
-=  Attempting to build bson c++ extension                                      =
-=   Windows: no build will be attempted as binaries are prepackaged            =
-=   Unix: on failure the package will still install without the C++ extension  =
-=                                                                              =
-================================================================================
-node-gyp clean
-node-gyp configure build
-gyp http GET http://nodejs.org/dist/v0.8.16/node-v0.8.16.tar.gz
-gyp http 200 http://nodejs.org/dist/v0.8.16/node-v0.8.16.tar.gz
-make[1]: Entering directory `/home/bpdp/node_modules/mongodb/node_modules/bson/build'
-  CXX(target) Release/obj.target/bson/ext/bson.o
-  SOLINK_MODULE(target) Release/obj.target/bson.node
-  SOLINK_MODULE(target) Release/obj.target/bson.node: Finished
-  COPY Release/bson.node
-make[1]: Leaving directory `/home/bpdp/node_modules/mongodb/node_modules/bson/build'
-child process exited with code 0
-mongodb@1.2.7 ../../../../../node_modules/mongodb
-+-- bson@0.1.5
+mongodb@1.2.14 node_modules/mongodb
++-- bson@0.1.8
+$
 \end{lstlisting}
 
 Solusi lain yang bisa digunakan antara lain adalah:
@@ -229,11 +221,21 @@ Dengan menggunakan \textit{collections} dan \textit{documents} di atas, kita aka
 \begin{lstlisting}
 $ npm install mongojs
 npm http GET https://registry.npmjs.org/mongojs
-npm http 304 https://registry.npmjs.org/mongojs
-npm http GET https://registry.npmjs.org/common
-npm http 304 https://registry.npmjs.org/common
-mongojs@0.4.6 ../../../../../node_modules/mongojs
-+-- common@0.2.1
+npm http 200 https://registry.npmjs.org/mongojs
+npm http GET https://registry.npmjs.org/mongojs/-/mongojs-0.7.2.tgz
+npm http 200 https://registry.npmjs.org/mongojs/-/mongojs-0.7.2.tgz
+npm http GET https://registry.npmjs.org/thunky
+npm http GET https://registry.npmjs.org/readable-stream
+npm http 200 https://registry.npmjs.org/thunky
+npm http GET https://registry.npmjs.org/thunky/-/thunky-0.1.0.tgz
+npm http 200 https://registry.npmjs.org/thunky/-/thunky-0.1.0.tgz
+npm http 200 https://registry.npmjs.org/readable-stream
+npm http GET https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.2.tgz
+npm http 200 https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.2.tgz
+mongojs@0.7.2 node_modules/mongojs
++-- thunky@0.1.0
++-- readable-stream@1.0.2
+$
 \end{lstlisting}
 
 Setelah itu, buat program sesuai dengan listing program berikut.
@@ -301,22 +303,24 @@ $ express
    create : ./package.json
    create : ./app.js
    create : ./public
-   create : ./public/images
-   create : ./public/stylesheets
-   create : ./public/stylesheets/style.css
+   create : ./public/javascripts
    create : ./routes
    create : ./routes/index.js
    create : ./routes/user.js
+   create : ./public/images
    create : ./views
    create : ./views/layout.jade
    create : ./views/index.jade
-   create : ./public/javascripts
+   create : ./public/stylesheets
+   create : ./public/stylesheets/style.css
 
    install dependencies:
      $ cd . && npm install
 
    run the app:
      $ node app
+
+$
 \end{lstlisting}
 
 Berikut ini adalah beberapa perubahan yang dilakukan untuk rerangka aplikasi yang dihasilkan dari perintah \textit{express} tersebut.
@@ -369,7 +373,7 @@ http.createServer(app).listen(app.get('port'), function(){
     "start": "node app"
   },
   "dependencies": {
-    "express": "3.0.6",
+    "express": "3.1.0",
     "jade": "*",
     "mongojs": "latest"
   }

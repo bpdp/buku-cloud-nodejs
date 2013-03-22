@@ -18,13 +18,13 @@ where <command> is one of:
     add-user, adduser, apihelp, author, bin, bugs, c, cache,
     completion, config, ddp, dedupe, deprecate, docs, edit,
     explore, faq, find, find-dupes, get, help, help-search,
-    home, i, info, init, install, isntall, la, link, list, ll,
-    ln, login, ls, outdated, owner, pack, prefix, prune,
-    publish, r, rb, rebuild, remove, restart, rm, root,
+    home, i, info, init, install, isntall, issues, la, link,
+    list, ll, ln, login, ls, outdated, owner, pack, prefix,
+    prune, publish, r, rb, rebuild, remove, restart, rm, root,
     run-script, s, se, search, set, show, shrinkwrap, star,
-    start, stop, submodule, tag, test, tst, un, uninstall,
-    unlink, unpublish, unstar, up, update, version, view,
-    whoami
+    stars, start, stop, submodule, tag, test, tst, un,
+    uninstall, unlink, unpublish, unstar, up, update, version,
+    view, whoami
 
 npm <cmd> -h     quick help on <cmd>
 npm -l           display full usage info
@@ -37,7 +37,7 @@ Specify configs in the ini-formatted file:
 or on the command line via: npm <command> --key value
 Config info can be viewed via: npm help config
 
-npm@1.1.70 /home/bpdp/software/node-v0.8.16-linux-x86/lib/node_modules/npm
+npm@1.2.14 /home/bpdp/software/node-v0.10.0-linux-x86/lib/node_modules/npm
 \end{lstlisting}
 
 Pada bagian berikut, kita akan membahas lebih lanjut penggunaan perintah \textit{npm} tersebut.
@@ -64,15 +64,50 @@ Jika berada pada direktori \$HOME, maka paket-paket npm tersebut akan terinstall
 $ npm ls
 \end{lstlisting}
 
-Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global, perintah diatas juga akan menampilkan paket dependensi dalam struktur pohon. Gambar~\ref{fig:npmls} berikut menampilkan contoh struktur instalasi dari aplikasi yang sudah kita buat menggunakan ExpressJS (lihat bab 1):
+Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global, perintah diatas juga akan menampilkan paket dependensi dalam struktur pohon. Jika kita belum menginstall paket-paket yang diperlukan, akan muncul peringatan. Berikut ini adalah contoh peringatan dari paket-paket yang belum terinstall di aplikasi hello-express saat mengerjakan perintah ``npm ls'' di direktori tempat aplikasi tersebut berada (lihat bab 1):
 
-  \begin{figure}
-    \begin{center}
-      \includegraphics[scale=0.5]{images/npmls.jpg}
-    \end{center}
-    \caption{Hasil perintah npm ls}
-    \label{fig:npmls}
-  \end{figure}
+\lstset{language=bash,caption=npm ls pada aplikasi yang paket-paketnya belum terinstall}
+\begin{lstlisting}
+$ npm ls
+npm WARN package.json hello-node@0.0.1 No README.md file found!
+hello-node@0.0.1 /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-1/hello
++-- UNMET DEPENDENCY express 3.1.0
++-- UNMET DEPENDENCY jade *
+
+npm ERR! missing: express@3.1.0, required by hello-node@0.0.1
+npm ERR! missing: jade@*, required by hello-node@0.0.1
+npm ERR! not ok code 0
+&
+\end{lstlisting}
+
+Jika sudah terinstall, perintah ``npm ls'' akan menampilkan struktur dari paket yang telah terinstall dalam bentuk struktur pohon:
+\lstset{language=bash,caption=npm ls pada aplikasi yang paket-paketnya sudah terinstall}
+\begin{lstlisting}
+$ npm ls
+npm WARN package.json hello-node@0.0.1 No README.md file found!
+hello-node@0.0.1 /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-1/hello
++-- express@3.1.0
+| +-- buffer-crc32@0.1.1
+| |-- commander@0.6.1
+| +-- connect@2.7.2
+| | +-- bytes@0.1.0
+| | |-- formidable@1.0.11
+| | |-- pause@0.0.1
+| | +-- qs@0.5.1
+| +-- cookie@0.0.5
+| +-- cookie-signature@0.0.1
+| +-- debug@0.7.2
+| +-- fresh@0.1.0
+| +-- methods@0.0.1
+| +-- mkdirp@0.3.3
+| +-- range-parser@0.0.4
+| +-- send@0.1.0
+|   +-- mime@1.2.6
++-- jade@0.28.2
+  +-- commander@0.6.1
+  +-- mkdirp@0.3.5
+$
+\end{lstlisting}
 
 \subsection{Menghapus Paket / \textit{Uninstall}}
 
@@ -92,10 +127,12 @@ Paket pustaka foo dalam lokal aplikasi akan dihapus, jika menggunakan hak admini
 \lstset{language=bash,caption=Perintah menghapus paket di npm}
 \begin{lstlisting}
 $ npm search sha512
+npm WARN Building the local index for the first time, please be patient
 npm http GET https://registry.npmjs.org/-/all/since?stale=...
 npm http 200 https://registry.npmjs.org/-/all/since?stale=...
 NAME    DESCRIPTION                                       ...
 krypto  High-level crypto library, making the core crypto ...
+passhash  Easily and securely hash passwords with a variab...
 pwhash  Generate password hashes from the command line.   ...
 \end{lstlisting}
 

@@ -190,13 +190,13 @@ WARNING:  You don't have /home/bpdp/.gem/ruby/1.9.1/bin in your PATH,
 	  gem executables will not run.
 \end{lstlisting}
 
-terjadi karena path untuk \textit{executable script} Ruby yang diinstall oleh vmc belum ditambahkan ke variabel lingkungan PATH. Edit file $HOME/.bashrc dan tambahkan baris berikut\footnote{Catatan: "/home/bpdp/" adalah direktori \$HOME saya, silahkan sesuaikan dengan tempat anda}:
+terjadi karena path untuk \textit{executable script} Ruby yang diinstall oleh vmc belum ditambahkan ke variabel lingkungan PATH. Edit file \$HOME/.bashrc dan tambahkan baris berikut\footnote{Catatan: "/home/bpdp/" adalah direktori \$HOME saya, silahkan sesuaikan dengan tempat anda}:
 \lstset{language=bash,caption=Peringatan setting PATH untuk vmc}
 \begin{lstlisting}
 export PATH=$PATH:/home/bpdp/.gem/ruby/1.9.1/bin
 \end{lstlisting}
 
-Setelah itu, ketikkan di shell prompt Bash: \textit{source ~/.bashrc}\footnote{Ini hanya untuk keperluan saat ini saja, setelah ini tidak perlu lagi karena setiap login sudah akan dibaca oleh Bash}.
+Setelah itu, ketikkan di shell prompt Bash: \textit{source \~/.bashrc}\footnote{Ini hanya untuk keperluan saat ini saja, setelah ini tidak perlu lagi karena setiap login sudah akan dibaca oleh Bash}.
 
 Hasil dari instalasi vmc adalah sebagai berikut:
 

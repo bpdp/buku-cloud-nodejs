@@ -22,8 +22,8 @@ console.log("Alamat URL yang diakses oleh halDua = " + halDua.url);
 console.log("Nama domain halDua = " + halDua.getDomainName());
 
 // hasil:
-//Mengakses alamat http://nodejs.org
-//Mengakses alamat http://bpdp.name
-//Alamat URL yang diakses oleh halSatu = http://nodejs.org
-//Alamat URL yang diakses oleh halDua = http://bpdp.name
-//Nama domain halDua = bpdp.name
+// Mengakses alamat http://nodejs.org/api/http.html
+// Mengakses alamat http://bpdp.name/login?fromHome
+// Alamat URL yang diakses oleh halSatu = http://nodejs.org/api/http.html
+// Alamat URL yang diakses oleh halDua = http://bpdp.name/login?fromHome
+// Nama domain halDua = bpdp.name
