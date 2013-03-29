@@ -1,0 +1,12 @@
+$ vmc apps
+Getting applications... OK
+
+name              status    usage     runtime   url                                      
+hello-express     running   1 x 64M   node08    bpdp-hello-express.cloudfoundry.com      
+$ vmc push hello-express
+Uploading hello-express... OK
+Stopping hello-express... OK
+
+Starting hello-express... OK
+Checking hello-express... OK
+$ 

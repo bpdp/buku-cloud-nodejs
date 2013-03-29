@@ -1,0 +1,4 @@
+$ vmc target 
+NoMethodError: undefined method `target' for nil:NilClass
+For more information, see ~/.vmc/crash
+$

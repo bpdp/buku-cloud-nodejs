@@ -1,0 +1,38 @@
+$ vmc push
+Name> hello-noframework
+
+Instances> 1
+
+1: node
+2: other
+Framework> node
+
+1: node
+2: node06
+3: node08
+4: other
+Runtime> 3
+
+1: 64M
+2: 128M
+3: 256M
+4: 512M
+5: 1G
+Memory Limit> 64M
+
+Creating hello-noframework... OK
+
+1: hello-noframework.cloudfoundry.com
+2: none
+URL> hello-noframework.cloudfoundry.com
+
+Updating hello-noframework... OK
+
+Create services for application?> n
+
+Save configuration?> n
+
+Uploading hello-noframework... OK
+Starting hello-noframework... OK
+Checking hello-noframework... OK
+$

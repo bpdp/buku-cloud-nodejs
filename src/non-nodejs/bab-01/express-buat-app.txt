@@ -1,0 +1,26 @@
+$ mkdir hello 
+$ cd hello
+$ express 
+
+   create : .
+   create : ./package.json
+   create : ./app.js
+   create : ./public
+   create : ./public/javascripts
+   create : ./routes
+   create : ./routes/index.js
+   create : ./routes/user.js
+   create : ./public/stylesheets
+   create : ./public/stylesheets/style.css
+   create : ./views
+   create : ./views/layout.jade
+   create : ./views/index.jade
+   create : ./public/images
+
+   install dependencies:
+     $ cd . && npm install
+
+   run the app:
+     $ node app
+
+$

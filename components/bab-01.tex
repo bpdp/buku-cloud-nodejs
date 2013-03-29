@@ -104,296 +104,50 @@ Setelah itu, CF akan mengirimkan pemberitahuan bahwa proses pendaftaran selesai 
 \index{CloudFoundry!vmc}\textit{Command Line Utilities / CLU)} adalah software yang dijalankan melalui shell / \textit{command line / command prompt}. CLU untuk CF ini dibuat dengan menggunakan Ruby dan didistribusikan dalam bentuk \textit{gem} sehingga untuk instalasi ini diperlukan ruby dan rubygem. Berikut adalah perintah untuk instalasi vmc (CLU dari CF).
 
 \lstset{language=bash,caption=Instalasi vmc}
-\begin{lstlisting}
-$ gem search vmc --remote | grep "\bvmc\s" 
-vmc (0.5.0) 
-$ gem install vmc 
-Fetching: json_pure-1.7.7.gem (100%)
-WARNING:  You don't have /home/bpdp/.gem/ruby/1.9.1/bin in your PATH,
-	  gem executables will not run.
-Fetching: multi_json-1.7.1.gem (100%)
-Fetching: interact-0.5.2.gem (100%)
-Fetching: multipart-post-1.2.0.gem (100%)
-Fetching: rubyzip-0.9.9.gem (100%)
-Fetching: cf-uaa-lib-1.3.10.gem (100%)
-Fetching: cfoundry-0.5.2.gem (100%)
-Fetching: clouseau-0.0.2.gem (100%)
-Fetching: mothership-0.5.1.gem (100%)
-Fetching: manifests-vmc-plugin-0.6.2.gem (100%)
-Fetching: addressable-2.3.3.gem (100%)
-Fetching: caldecott-client-0.0.2.gem (100%)
-Fetching: mime-types-1.21.gem (100%)
-Fetching: rest-client-1.6.7.gem (100%)
-Fetching: uuidtools-2.1.3.gem (100%)
-Fetching: tunnel-vmc-plugin-0.2.2.gem (100%)
-Fetching: vmc-0.5.0.gem (100%)
-Successfully installed json_pure-1.7.7
-Successfully installed multi_json-1.7.1
-Successfully installed interact-0.5.2
-Successfully installed multipart-post-1.2.0
-Successfully installed rubyzip-0.9.9
-Successfully installed cf-uaa-lib-1.3.10
-Successfully installed cfoundry-0.5.2
-Successfully installed clouseau-0.0.2
-Successfully installed mothership-0.5.1
-Successfully installed manifests-vmc-plugin-0.6.2
-Successfully installed addressable-2.3.3
-Successfully installed caldecott-client-0.0.2
-Successfully installed mime-types-1.21
-Successfully installed rest-client-1.6.7
-Successfully installed uuidtools-2.1.3
-Successfully installed tunnel-vmc-plugin-0.2.2
-Successfully installed vmc-0.5.0
-17 gems installed
-Installing ri documentation for json_pure-1.7.7...
-Installing ri documentation for multi_json-1.7.1...
-Installing ri documentation for interact-0.5.2...
-Installing ri documentation for multipart-post-1.2.0...
-Installing ri documentation for rubyzip-0.9.9...
-Installing ri documentation for cf-uaa-lib-1.3.10...
-Installing ri documentation for cfoundry-0.5.2...
-Installing ri documentation for clouseau-0.0.2...
-Installing ri documentation for mothership-0.5.1...
-Installing ri documentation for manifests-vmc-plugin-0.6.2...
-Installing ri documentation for addressable-2.3.3...
-Installing ri documentation for caldecott-client-0.0.2...
-Installing ri documentation for mime-types-1.21...
-Installing ri documentation for rest-client-1.6.7...
-Installing ri documentation for uuidtools-2.1.3...
-Installing ri documentation for tunnel-vmc-plugin-0.2.2...
-Installing ri documentation for vmc-0.5.0...
-Installing RDoc documentation for json_pure-1.7.7...
-Installing RDoc documentation for multi_json-1.7.1...
-Installing RDoc documentation for interact-0.5.2...
-Installing RDoc documentation for multipart-post-1.2.0...
-Installing RDoc documentation for rubyzip-0.9.9...
-Installing RDoc documentation for cf-uaa-lib-1.3.10...
-Installing RDoc documentation for cfoundry-0.5.2...
-Installing RDoc documentation for clouseau-0.0.2...
-Installing RDoc documentation for mothership-0.5.1...
-Installing RDoc documentation for manifests-vmc-plugin-0.6.2...
-Installing RDoc documentation for addressable-2.3.3...
-Installing RDoc documentation for caldecott-client-0.0.2...
-Installing RDoc documentation for mime-types-1.21...
-Installing RDoc documentation for rest-client-1.6.7...
-Installing RDoc documentation for uuidtools-2.1.3...
-Installing RDoc documentation for tunnel-vmc-plugin-0.2.2...
-Installing RDoc documentation for vmc-0.5.0...
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/instalasi-vmc.txt}
 
 Pesan peringatan berikut ini:
 
 \lstset{language=bash,caption=Peringatan setting PATH untuk vmc}
-\begin{lstlisting}
-WARNING:  You don't have /home/bpdp/.gem/ruby/1.9.1/bin in your PATH,
-	  gem executables will not run.
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/peringatan-setting-path-vmc.txt}
 
 terjadi karena path untuk \textit{executable script} Ruby yang diinstall oleh vmc belum ditambahkan ke variabel lingkungan PATH. Edit file \$HOME/.bashrc dan tambahkan baris berikut\footnote{Catatan: "/home/bpdp/" adalah direktori \$HOME saya, silahkan sesuaikan dengan tempat anda}:
 \lstset{language=bash,caption=Peringatan setting PATH untuk vmc}
-\begin{lstlisting}
-export PATH=$PATH:/home/bpdp/.gem/ruby/1.9.1/bin
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/setting-path-vmc.txt}
 
 Setelah itu, ketikkan di shell prompt Bash: \textit{source \~/.bashrc}\footnote{Ini hanya untuk keperluan saat ini saja, setelah ini tidak perlu lagi karena setiap login sudah akan dibaca oleh Bash}.
 
 Hasil dari instalasi vmc adalah sebagai berikut:
 
 \lstset{language=bash,caption=Hasil gem yang terinstall}
-\begin{lstlisting}
-$ gem list 
-
-*** LOCAL GEMS ***
-
-addressable (2.3.3)
-bigdecimal (1.1.0)
-caldecott-client (0.0.2)
-cf-uaa-lib (1.3.10)
-cfoundry (0.5.2)
-clouseau (0.0.2)
-interact (0.5.2)
-io-console (0.3)
-json (1.5.5)
-json_pure (1.7.7)
-manifests-vmc-plugin (0.6.2)
-mime-types (1.21)
-minitest (2.5.1)
-mothership (0.5.1)
-multi_json (1.7.1)
-multipart-post (1.2.0)
-rake (0.9.2.2)
-rdoc (3.9.5)
-rest-client (1.6.7)
-rubyzip (0.9.9)
-tunnel-vmc-plugin (0.2.2)
-uuidtools (2.1.3)
-vmc (0.5.0)
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/gem-terinstall.txt}
 
 Periksa dengan menjalankan opsi help dari vmc:
 
 \lstset{language=bash,caption=Hasil opsi help dari vmc}
-\begin{lstlisting}
-$ vmc help 
-Showing basic command set. Run with 'help --all' to list all commands.
-
-Getting Started
-  target [URL] 	Set or display the target cloud, organization, and space
-  logout       	Log out from the target
-  login [EMAIL]	Authenticate with the target
-  info         	Display information on the current target, user, etc.
-
-Applications
-  app [APP]	Show app information
-  apps     	List your applications
-
-  Management
-    start APPS...  	Start an application
-    delete APPS... 	Delete an application
-    push [NAME]    	Push an application, syncing changes if it exists
-    restart APPS...	Stop and start an application
-    stop APPS...   	Stop an application
-
-Services
-  service SERVICE	Show service information
-  services       	List your service
-
-  Management
-    delete-service [SERVICE]        	Delete a service
-    bind-service [SERVICE] [APP]    	Bind a service to an application
-    create-service [OFFERING] [NAME]	Create a service
-    unbind-service [SERVICE] [APP]  	Unbind a service from an application
-    tunnel [INSTANCE] [CLIENT]      	Create a local tunnel to a service.
-
-Organizations
-  org [ORGANIZATION]       	Show organization information
-  delete-org [ORGANIZATION]	Delete an organization
-  orgs                     	List available organizations
-  create-org [NAME]        	Create an organization
-
-Spaces
-  delete-space SPACES...            	Delete a space and its contents
-  spaces [ORGANIZATION]             	List spaces in an organization
-  create-space [NAME] [ORGANIZATION]	Create a space in an organization
-  space [SPACE]                     	Show space information
-
-Routes
-  routes	List routes in a space
-
-Domains
-  domains [SPACE]    	List domains in a space
-  map-domain NAME    	Map a domain to an organization or space
-  unmap-domain DOMAIN	Unmap a domain from an organization or space
-
-Options:
-      --[no-]color       Use colorful output
-      --[no-]script      Shortcut for --quiet and --force
-      --debug            Print full stack trace (instead of crash log)
-  -V, --verbose          Print extra information
-  -f, --[no-]force       Skip interaction when possible
-  -h, --help             Show command usage
-  -m, --manifest FILE    Path to manifest file to use
-  -q, --[no-]quiet       Simplify output format
-  -t, --trace            Show API traffic
-  -u, --proxy EMAIL      Run this command as another user (admin)
-  -v, --version          Print version number
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/vmc-help.txt}
 
 \subsection{Konfigurasi di Server Cloud}
 
 Pada dasarnya, yang diperlukan hanyalah mengubah target ke server cloud dari CF dan kemudian mengubah password.
 
 \lstset{language=bash,caption=Mengubah target server - belum ada konfigurasi}
-\begin{lstlisting}
-$ vmc target 
-NoMethodError: undefined method `target' for nil:NilClass
-For more information, see ~/.vmc/crash
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/vmc-target-no-conf.txt}
 
 Error di atas terjadi karena file konfigurasi belum dibuat. File konfigurasi tersimpan di direktori \$HOME/.vmc. Mengubah target dilakukan dengan membuat file \textit{target} di direktori tersebut. Isi dari file target tersebut adalah server CloudFoundry, yaitu \textit{https://api.cloudfoundry.com}. Setelah itu, jika dieksekusi lagi, hasilnya adalah sebagai berikut:
 
 \lstset{language=bash,caption=Mengubah target server - setelah konfigurasi}
-\begin{lstlisting}
-$ vmc target 
-target: https://api.cloudfoundry.com
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/vmc-target-with-conf.txt}
 
 Setelah itu, setiap kali kita akan melakukan berbagai proses yang melibatkan server ini, kita harus melakukan proses login terlebih dahulu:
 
 \lstset{language=bash,caption=Login ke server}
-\begin{lstlisting}
-$ vmc login 
-target: https://api.cloudfoundry.com
-
-Email> bambangpdp@yahoo.com
-
-Password> ***************
-
-Authenticating... OK
-
-$ vmc info --all
-Getting runtimes... OK
-Getting frameworks... OK
-Getting services... OK
-
-VMware's Cloud Application Platform
-
-target: https://api.cloudfoundry.com
-  version: 0.999
-  support: http://support.cloudfoundry.com
-
-user: bambangpdp@yahoo.com
-
-runtime   description
-java      1.6.0_24   
-java7     1.7.0_04   
-node      0.4.12     
-node06    0.6.8      
-node08    0.8.2      
-ruby18    1.8.7p357  
-ruby19    1.9.2p180  
-
-framework    description
-grails       
-java_web     
-lift         
-node         
-play         
-rack         
-rails3       
-sinatra      
-spring       
-standalone   
-
-service      version   provider   description                  
-mongodb      2.0       core       MongoDB NoSQL database       
-mysql        5.1       core       MySQL database               
-postgresql   9.0       core       PostgreSQL database (vFabric)
-rabbitmq     2.4       core       RabbitMQ message queue       
-redis        2.4       core       Redis key-value store        
-redis        2.6       core       Redis key-value store        
-redis        2.2       core       Redis key-value store 
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/vmc-login-info.txt}
 
 Untuk mengubah password:
 
 \lstset{language=bash,caption=Mengubah password server}
-\begin{lstlisting}
-$ vmc passwd 
-New Password> **************
-
-Verify Password> **************
-
-Your password strength is: good
-Changing password... OK
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/vmc-ubah-password.txt}
 
 \subsection{Instalasi dan Konfigurasi Node.js di Komputer Lokal}
 
@@ -404,52 +158,17 @@ Langkah instalasi berikut ini adalah langkah untuk instalasi tanpa manajemen pak
   \item Ambil paket \textit{binary executable} dari \url{http://nodejs/download} atau langsung ke \url{http://nodejs.org/dist/}. Versi yang digunakan disini adalah 0.8.16. Download file tersebut, kemudian simpan di direktori tertentu (terserah anda, dibuku ini diletakkan di \$HOME/master/nodejs).
 
 \lstset{language=bash,caption=Hasil dari download Node.js}
-\begin{lstlisting}
-$ ls -la
-...
-...
--rw-r--r-- 1 bpdp bpdp 4477561 Mar 11 07:51 node-v0.10.0-linux-x86.tar.gz
-...
-...
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/hasil-download-nodejs.txt}
 
   \item Ekstrak ke direktori yang diinginkan. Node.js akan diinstall di direktori \$HOME/software:
 
 \lstset{language=bash,caption=Ekstraksi Node.js}
-\begin{lstlisting}
-$ cd 
-$ cd software
-$ tar -xzvf ~/master/nodejs/node-v0.10.0-linux-x86.tar.gz
-$ ln -s node-v0.10.0-linux-x86 nodejs
-$ ls -la
-....
-....
-lrwxrwxrwx  1 bpdp bpdp   22 Mar 13 00:56 nodejs -> node-v0.10.0-linux-x86
-drwxr-xr-x  5 bpdp bpdp 4096 Mar 11 07:51 node-v0.10.0-linux-x86
-....
-....
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/ekstraksi-nodejs.txt}
 
   \item Konfigurasi variabel lingkungan. Sebaiknya disimpan pada suatu file (pada buku ini, konfigurasi akan disimpan di \textit{\$HOME/environment/nodejs}):
 
 \lstset{language=bash,caption=Konfigurasi variabel lingkungan Node.js}
-\begin{lstlisting}
-NODEJS_HOME=/home/bpdp/software/nodejs
- 
-PATH=$PATH:$NODEJS_HOME/bin
-MANPATH=$MANPATH:$NODEJS_HOME/share/man
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$NODEJS_HOME/lib
-C_INCLUDE_PATH=$C_INCLUDE_PATH:$NODEJS_HOME/include
-CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$NODEJS_HOME/include
- 
-export PATH
-export MANPATH
-export LD_LIBRARY_PATH
-export C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/konfigurasi-var-lingkungan-nodejs.txt}
 
   \item Setiap akan menggunakan Node.js, yang diperlukan adalah men-source file konfigurasi tersebut: \textbf{source \~/environment/nodejs}.
 \end{itemize}
@@ -465,185 +184,35 @@ Pada pembahasan ini, akan diberikan contoh menggunakan dua kategori, yaitu denga
 \subsection{Menggunakan Framework ExpressJS}
 
 \lstset{language=bash,caption=Instalasi ExpressJS menggunakan npm}
-\begin{lstlisting}
-$ npm install -g express
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/instalasi-expressjs.txt}
 
 Jika berhasil, maka kita bisa menggunakan perintah \textit{express} untuk membuat rerangka aplikasi. Sintaksis penggunaan ExpressJS adalah sebagai berikut:
 
 \lstset{language=bash,caption=Perintah express}
-\begin{lstlisting}
-$ express --help
-
-  Usage: express [options]
-
-  Options:
-
-    -h, --help          output usage information
-    -V, --version       output the version number
-    -s, --sessions      add session support
-    -e, --ejs           add ejs engine support (defaults to jade)
-    -J, --jshtml        add jshtml engine support (defaults to jade)
-    -H, --hogan         add hogan.js engine support
-    -c, --css <engine>  add stylesheet <engine> support (less|stylus) (defaults to plain css)
-    -f, --force         force on non-empty directory
-
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/express-help.txt}
 
 Setelah itu, kita bisa membuat rerangka aplikasi ExpressJS dengan cara berikut:
 
 \lstset{language=bash,caption=Menggunakan express untuk membuat rerangka aplikasi}
-\begin{lstlisting}
-$ mkdir hello 
-$ cd hello
-$ express 
-
-   create : .
-   create : ./package.json
-   create : ./app.js
-   create : ./public
-   create : ./public/javascripts
-   create : ./routes
-   create : ./routes/index.js
-   create : ./routes/user.js
-   create : ./public/stylesheets
-   create : ./public/stylesheets/style.css
-   create : ./views
-   create : ./views/layout.jade
-   create : ./views/index.jade
-   create : ./public/images
-
-   install dependencies:
-     $ cd . && npm install
-
-   run the app:
-     $ node app
-
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/express-buat-app.txt}
 
 Pada rerangka aplikasi tersebut, terdapat file \textit{package.json} untuk mendefinisikan aplikasi serta dependensi-nya dan app.js yang merupakan file utama untuk dijalankan pada server.
 
 \lstset{language=Javascript,caption=package.json untuk ExpressJS}
-\begin{lstlisting}
-{ 
-  "name": "hello-node", 
-  "version": "0.0.1", 
-	"private": true,
-	"scripts": {
-		"start": "node app"
-	},
-  "dependencies":{ 
-    "express": "3.1.0".
-		"jade": "*"
-  } 
-} 
-\end{lstlisting}
+\lstinputlisting{src/modul-1/hello-vanilla/package.json}
 
-\lstset{language=Javascript,caption=app.js untuk ExpressJS}
-\begin{lstlisting}
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
-
-var app = express();
-
-app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
-
-app.get('/', routes.index);
-app.get('/users', user.list);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-\end{lstlisting}
+\lstset{language=Javascript,caption=app.js untuk ExpressJS}a
+\lstinputlisting{src/modul-1/hello-vanilla/app.js}
 
 Edit file \textit{routes/index.js} sebagai berikut:
 
 \lstset{language=Javascript,caption=Hasil edit routes/index.js}
-\begin{lstlisting}
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-  res.render('index', { title: 'Express app at CloudFoundry' });
-};
-\end{lstlisting}
+\lstinputlisting{src/modul-1/hello-vanilla/routes/index.js}
 
 Setelah itu, install modul-modul yang diperlukan dengan perintah \textit{npm install} pada direktori tersebut. npm akan membaca file package.json kemudian menginstall modul-modul sesuai dengan deskripsi pada \textit{dependencies}. Setelah diuji pada komputer lokal dengan perintah \textit{node app}, dan sukses bisa diakses di browser dengan alamat \textit{http://localhost:3000}, maka aplikasi tersebut bisa di-deploy di CloudFoundry. Proses deployment digambarkan sebagai berikut (anda sudah harus login menggunakan perintah \textit{vmc login} sebelumnya) dan berada di direktori tempat aplikasi tersebut berada:
 
 \lstset{language=bash,caption=Deployment aplikasi ExpressJS ke CF}
-\begin{lstlisting}
-$ vmc push
-Name> hello-express
-
-Instances> 1
-
-1: node
-2: other
-Framework> node
-
-1: node
-2: node06
-3: node08
-4: other
-Runtime> 1
-
-1: 64M
-2: 128M
-3: 256M
-4: 512M
-5: 1G
-Memory Limit> 64M
-
-Creating hello-express... OK
-
-1: hello-express.cloudfoundry.com
-2: none
-URL> hello-express.cloudfoundry.com
-
-Updating hello-express... FAILED
-The URI: "hello-express.cloudfoundry.com" has already been taken or reserved
-
-1: hello-express.cloudfoundry.com
-2: none
-URL> bpdp-hello-express.cloudfoundry.com
-
-Updating hello-express... OK
-
-Create services for application?> n
-
-Save configuration?> n
-
-Uploading hello-express... OK
-Starting hello-express... OK
-Checking hello-express... OK
-  1/1 instances: 1 running
-OK
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/deploy-express-cf.txt}
 
 Hasilnya terlihat pada tampilan browser di Gambar~\ref{fig:modul1-hello}
 
@@ -658,32 +227,10 @@ Hasilnya terlihat pada tampilan browser di Gambar~\ref{fig:modul1-hello}
 Aplikasi yang sudah dibuat seringkali diubah, oleh karena itu vmc juga menyediakan fasilitas untuk Mengupdate aplikasi. 
 
 \lstset{language=Javascript,caption=Update: menambahkan versi Node.js ke routes/index.js}
-\begin{lstlisting}
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-	var nv = process.version;
-  res.render('index', { title: 'Express app at CloudFoundry with Node.js ' + nv });
-};
-\end{lstlisting}
+\lstinputlisting{src/modul-1/hello/routes/index.js}
 
 \lstset{language=bash,caption=Mengupdate aplikasi di server}
-\begin{lstlisting}
-$ vmc apps
-Getting applications... OK
-
-name              status    usage     runtime   url                                      
-hello-express     running   1 x 64M   node08    bpdp-hello-express.cloudfoundry.com      
-$ vmc push hello-express
-Uploading hello-express... OK
-Stopping hello-express... OK
-
-Starting hello-express... OK
-Checking hello-express... OK
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/update-aplikasi-cf.txt}
 
 Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-update}
 
@@ -698,52 +245,13 @@ Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-update}
 Untuk menghapus aplikasi:
 
 \lstset{language=bash,caption=Menghapus aplikasi yang di-deploy di CF}
-\begin{lstlisting}
-$ vmc delete bpdp-m1-hellonoframework
-Really delete bpdp-m1-hellonoframework?> y
-
-Deleting bpdp-m1-hellonoframework... OK
-
-$ 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/delete-aplikasi-cf.txt}
 
 Pada saat deployment, kita juga bisa memilih versi Node.js (runtime) sebagai berikut:
 
 \lstset{language=bash,caption=Deployment ke CF dengan memilih runtime Node.js}
-\begin{lstlisting}
-$ vmc push --runtime=node08 
-Name> bpdp-hello-express06
+\lstinputlisting{src/non-nodejs/bab-01/deploy-pilih-runtime-cf.txt}
 
-Instances> 1
-
-1: node
-2: other
-Framework> node
-
-1: 64M
-2: 128M
-3: 256M
-4: 512M
-5: 1G
-Memory Limit> 64M
-
-Creating bpdp-hello-express06... OK
-
-1: bpdp-hello-express06.cloudfoundry.com
-2: none
-URL> bpdp-hello-express06.cloudfoundry.com
-
-Updating bpdp-hello-express06... OK
-
-Create services for application?> n
-
-Save configuration?> n
-
-Uploading bpdp-hello-express06... OK
-Starting bpdp-hello-express06... OK
-Checking bpdp-hello-express06... OK
-$
-\end{lstlisting}
 
 Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-ganti-runtime}
 
@@ -760,66 +268,12 @@ Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-ganti-runtime}
 Tanpa \textit{framework}, yang kita perlukan hanyalah langsung mem-\textit{push} file yang kita buat (dalam contoh ini adalah app.js):
 
 \lstset{language=Javascript,caption=app.js tanpa framework}
-\begin{lstlisting}
-
-var http = require('http'); 
-var url = require("url"); 
-
-http.createServer(function (req, res) { 
-
-    var pathname = url.parse(req.url).pathname; 
-
-    res.writeHead(200, {'Content-Type': 'text/html'}); 
-    res.write("Hello NodeJS <u>" + process.version + "</u>"); 
-    res.write("<br />Request for <b>" + pathname + "</b> received."); 
-    res.end(); 
-
-}).listen(1337);
-\end{lstlisting}
+\lstinputlisting{src/modul-1/hello-no-framework/app.js}
 
 Proses deployement adalah sebagai berikut:
 
 \lstset{language=bash,caption=Deployment app.js tanpa framework}
-\begin{lstlisting}
-$ vmc push
-Name> hello-noframework
-
-Instances> 1
-
-1: node
-2: other
-Framework> node
-
-1: node
-2: node06
-3: node08
-4: other
-Runtime> 3
-
-1: 64M
-2: 128M
-3: 256M
-4: 512M
-5: 1G
-Memory Limit> 64M
-
-Creating hello-noframework... OK
-
-1: hello-noframework.cloudfoundry.com
-2: none
-URL> hello-noframework.cloudfoundry.com
-
-Updating hello-noframework... OK
-
-Create services for application?> n
-
-Save configuration?> n
-
-Uploading hello-noframework... OK
-Starting hello-noframework... OK
-Checking hello-noframework... OK
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-01/deploy-appjs-no-framework.txt}
 
 Hasilnya bisa dilihat pada Gambar~\ref{fig:modul1-hello-no-framework}
 

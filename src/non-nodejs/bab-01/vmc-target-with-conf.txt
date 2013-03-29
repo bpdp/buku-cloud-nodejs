@@ -1,0 +1,3 @@
+$ vmc target 
+target: https://api.cloudfoundry.com
+$ 

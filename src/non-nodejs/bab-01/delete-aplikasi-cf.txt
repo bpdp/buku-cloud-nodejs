@@ -1,0 +1,6 @@
+$ vmc delete bpdp-m1-hellonoframework
+Really delete bpdp-m1-hellonoframework?> y
+
+Deleting bpdp-m1-hellonoframework... OK
+
+$ 

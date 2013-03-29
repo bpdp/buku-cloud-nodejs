@@ -1,0 +1,32 @@
+$ vmc push --runtime=node08 
+Name> bpdp-hello-express06
+
+Instances> 1
+
+1: node
+2: other
+Framework> node
+
+1: 64M
+2: 128M
+3: 256M
+4: 512M
+5: 1G
+Memory Limit> 64M
+
+Creating bpdp-hello-express06... OK
+
+1: bpdp-hello-express06.cloudfoundry.com
+2: none
+URL> bpdp-hello-express06.cloudfoundry.com
+
+Updating bpdp-hello-express06... OK
+
+Create services for application?> n
+
+Save configuration?> n
+
+Uploading bpdp-hello-express06... OK
+Starting bpdp-hello-express06... OK
+Checking bpdp-hello-express06... OK
+$

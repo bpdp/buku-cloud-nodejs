@@ -1,0 +1,64 @@
+$ vmc help 
+Showing basic command set. Run with 'help --all' to list all commands.
+
+Getting Started
+  target [URL] 	Set or display the target cloud, organization, and space
+  logout       	Log out from the target
+  login [EMAIL]	Authenticate with the target
+  info         	Display information on the current target, user, etc.
+
+Applications
+  app [APP]	Show app information
+  apps     	List your applications
+
+  Management
+    start APPS...  	Start an application
+    delete APPS... 	Delete an application
+    push [NAME]    	Push an application, syncing changes if it exists
+    restart APPS...	Stop and start an application
+    stop APPS...   	Stop an application
+
+Services
+  service SERVICE	Show service information
+  services       	List your service
+
+  Management
+    delete-service [SERVICE]        	Delete a service
+    bind-service [SERVICE] [APP]    	Bind a service to an application
+    create-service [OFFERING] [NAME]	Create a service
+    unbind-service [SERVICE] [APP]  	Unbind a service from an application
+    tunnel [INSTANCE] [CLIENT]      	Create a local tunnel to a service.
+
+Organizations
+  org [ORGANIZATION]       	Show organization information
+  delete-org [ORGANIZATION]	Delete an organization
+  orgs                     	List available organizations
+  create-org [NAME]        	Create an organization
+
+Spaces
+  delete-space SPACES...            	Delete a space and its contents
+  spaces [ORGANIZATION]             	List spaces in an organization
+  create-space [NAME] [ORGANIZATION]	Create a space in an organization
+  space [SPACE]                     	Show space information
+
+Routes
+  routes	List routes in a space
+
+Domains
+  domains [SPACE]    	List domains in a space
+  map-domain NAME    	Map a domain to an organization or space
+  unmap-domain DOMAIN	Unmap a domain from an organization or space
+
+Options:
+      --[no-]color       Use colorful output
+      --[no-]script      Shortcut for --quiet and --force
+      --debug            Print full stack trace (instead of crash log)
+  -V, --verbose          Print extra information
+  -f, --[no-]force       Skip interaction when possible
+  -h, --help             Show command usage
+  -m, --manifest FILE    Path to manifest file to use
+  -q, --[no-]quiet       Simplify output format
+  -t, --trace            Show API traffic
+  -u, --proxy EMAIL      Run this command as another user (admin)
+  -v, --version          Print version number
+$ 
