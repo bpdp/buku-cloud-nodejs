@@ -1,3 +1,15 @@
+var kondisi = false;
+if (kondisi) {
+	console.log('hanya dikerjakan jika kondisi bernilai benar/true');
+};
+// hasil: n/a, tidak ada hasilnya
+var kondisi = true;
+if (kondisi) {
+	console.log('hanya dikerjakan jika kondisi bernilai benar/true');
+};
+// hasil: hanya dikerjakan jika kondisi bernilai benar/true
+// Contoh berikut lebih kompleks, melibatkan input
+
 var readline = require('readline');
 
 var rl = readline.createInterface({
@@ -19,3 +31,8 @@ rl.question("Masukkan angka nilai: ", function(answer) {
   }
   rl.close();
 });
+
+// hasil:
+// hanya dikerjakan jika kondisi bernilai benar/true
+// Masukkan angka nilai: 50
+// Nilai: C

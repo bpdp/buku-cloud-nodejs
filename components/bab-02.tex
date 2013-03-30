@@ -9,17 +9,7 @@
 Untuk mengaktifkan REPL dari Node.js, \textit{executable command line program}-nya adalah \textbf{node}. Jika \textbf{node} dipanggil dengan argumen nama file JavaScript, maka file JavaScript tersebut akan dieksekusi, sementara jika tanpa argumen, akan masuke ke REPL:
 
 \lstset{language=bash,caption=Node.js REPL}
-\begin{lstlisting}
-$ node
-> .help
-.break	Sometimes you get stuck, this gets you out
-.clear	Alias for .break
-.exit	Exit the repl
-.help	Show repl options
-.load	Load JS from a file into the REPL session
-.save	Save all evaluated commands in this REPL session to a file
->
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/nodejs-repl.txt}
 
 Tanda ``\textbf{>}'' adalah tanda bahwa REPL Node.js siap untuk menerima perintah. Untuk melihat perintah-perintah REPL, bisa digunakan \textbf{.help}.
 
@@ -38,42 +28,13 @@ Pada sesi REPL, kita bisa memberikan perintah internal REPL maupun perintah-peri
 Contoh untuk \textbf{.load}:
 
 \lstset{language=JavaScript,caption=Contoh penggunaan .load dalam REPL}
-\begin{lstlisting}
-> .load /home/bpdp/kerjaan/src/javascript/nodejs/server.js
-> var http = require('http');
-undefined
-> http.createServer(function (req, res) {
-...     res.writeHead(200, {'Content-Type': 'text/plain'});
-...       res.end('Hello, world!\n');
-... }).listen(8124, "127.0.0.1");
-{ _connections: 0,
-  connections: [Getter/Setter],
-  allowHalfOpen: true,
-  _handle: null,
-  _events: 
-   { request: [Function],
-     connection: [Function: connectionListener] },
-  httpAllowHalfOpen: false }
-> console.log('Server running at http://127.0.0.1:8124/');
-Server running at http://127.0.0.1:8124/
-undefined
->
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/nodejs-repl-load.txt}
 
 Setelah keluar dari sesi REPL, maka port akan ditutup dan hasil eksekusi di atas akan dibatalkan. 
 
 Untuk menyimpan hasil sesi REPL menggunakan \textbf{.save}, jika tanpa menyebutkan direktori, maka akan disimpan di direktori aktif saat itu. Contoh:
 \lstset{language=bash,caption=Contoh penggunaan perintah .save di sesi REPL}
-\begin{lstlisting}
-$ node
-> console.log("Selamat datang di Node.js")
-Selamat datang di Node.js
-undefined
-> .save /home/bpdp/kerjaan/src/javascript/nodejs/hello.js
-Session saved to:/home/bpdp/kerjaan/src/javascript/nodejs/hello.js
-> [bpdp@bpdp-arch ~]$ cat /home/bpdp/kerjaan/src/javascript/nodejs/hello.js 
-console.log("Selamat datang di Node.js")
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/nodejs-repl-save.txt}
 
 \section{Dasar-dasar JavaScript di Node.js}
 
@@ -99,31 +60,7 @@ Untuk lebih memahami dasar-dasar JavaScript serta penerapannya di Node.js, serin
 Implementasi dari pola diatas bisa dilihat pada kode sumber berikut ini (diambil dari manual Node.js):
 
 \lstset{language=JavaScript,caption=readline.js: penggunaan pustaka Readline untuk masukan}
-\begin{lstlisting}
-var readline = require('readline');
-
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question("What do you think of node.js? ", function(answer) {
-  console.log("Thank you for your valuable feedback:", answer);
-
-  rl.close();
-});
-\end{lstlisting}
-
-Hasilnya adalah sebagai berikut:
-
-\lstset{language=bash,caption=Hasil eksekusi readline.js}
-\begin{lstlisting}
-[bpdp@bpdp-arch modul-2]$ node readline.js 
-What do you think of node.js? awesome!
-Thank you for your valuable feedback: awesome!
-[bpdp@bpdp-arch modul-2]$
-\end{lstlisting}
-
+\lstinputlisting{src/bab-02/readline.js}
 
 \begin{Sbox}
 \begin{minipage}{\textwidth}
@@ -148,11 +85,7 @@ Thank you for your valuable feedback: awesome!
 \index{Dynamically typed}JavaScript adalah bahasa pemrograman yang mengijinkan pemrogram untuk tidak mendefinisikan tipe data pada saat deklarasi, atau sering juga disebut sebagai \textit{dynamically typed language}:
 
 \lstset{language=JavaScript,caption=Fitur \textit{dynamically typed language}}
-\begin{lstlisting}
-var jumlahMahasiswa = 30
-console.log('Jumlah mahasiswa dalam satu kelas = ' + jumlahMahasiswa);
-// Jumlah mahasiswa dalam satu kelas = 30
-\end{lstlisting} 
+\lstinputlisting{src/bab-02/dynamic.js}
 
 Pada contoh di atas, kita bisa melihat bahwa data akan dikonversi secara otomatis pada saat program dieksekusi.
 
@@ -184,9 +117,7 @@ Konvensi yang digunakan oleh pemrogram JavaScript terkait dengan penamaan ini ad
 \index{Konstanta}Konstanta mirip dengan variabel, hanya saja sifatnya \textit{read-only}, tidak bisa diubah-ubah setelah ditetapkan. Untuk menetapkan konstanta di JavaScript, digunakan kata kunci \textit{const}. Contoh: 
 
 \lstset{language=JavaScript,caption=Contoh konstanta dalam JavaScript}
-\begin{lstlisting}
-const DEFAULT\_MENU = ``Home'';
-\end{lstlisting}
+\lstinputlisting{src/bab-02/const.js}
 
 Konvensi penamaan konstanta adalah menggunakan huruf besar semua. Bagian ini (sampai saat buku ini ditulis) hanya berlaku di Firefox dan Google Chrome - V8 (artinya berlaku juga untuk Node.js).
 
@@ -201,113 +132,38 @@ Konvensi penamaan konstanta adalah menggunakan huruf besar semua. Bagian ini (sa
 Definisi fungsi dari JavaScript di Node.js bisa dilakukan dengan sintaksis berikut ini:
 
 \lstset{language=JavaScript,caption=Sintaksis Fungsi dalam JavaScript}
-\begin{lstlisting}
-function namaFungsi(argumen1, argumen2, ... , argumentN) {
-  ..
-  JavaScript code ..
-  JavaScript code ..
-  JavaScript code ..
-  JavaScript code ..
-  ..
-}
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/sintaksis-fungsi.txt}
 
 Setelah dideklarasikan, fungsi tersebut bisa dipanggil dengan cara sebagai berikut:
 
 \lstset{language=JavaScript,caption=Pemanggilan Fungsi dalam JavaScript}
-\begin{lstlisting}
-..
-..
-  namaFungsi(argumen1, argumen2, ..., argumenN);
-..
-..
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/pemanggilan-fungsi.txt}
 
 Contoh dalam program serta pemanggilannya adalah sebagai berikut:
 
 \lstset{language=bash,caption=Contoh deklarasi fungsi dan pemanggilannya}
-\begin{lstlisting}
-$ node
-> function addX(angka) {
-... console.log(angka + 10);
-... }
-undefined
-> addX(20);
-30
-undefined
->
-> function add2Numbers(angka1, angka2) {
-... return angka1 + angka2;
-... }
-undefined
-> console.log("232 + 432 = " + add2Numbers(232, 432));
-232 + 432 = 664
-undefined
->
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-02/contoh-fungsi.txt}
 
 \subsubsection{Fungsi Anonim}
 
 \index{Fungsi Anonim}Fungsi anonim adalah fungsi tanpa nama, pemrogram tidak perlu memberikan nama ke fungsi. Biasanya fungsi anonimus ini hanya digunakan untuk fungsi yang dikerjakan pada suatu bagian program saja dan tidak dengan maksud untuk dijadikan komponen yang bisa dipakai di bagian lain dari program (biasanya untuk menangani \textit{event} atau \textit{callback}). Untuk mendeklarasikan fungsi ini, digunakan literal \textit{function}.
 
 \lstset{language=JavaScript,caption=Fungsi anonim}
-\begin{lstlisting}
-var pangkat = function(angka) {return angka * angka};
-console.log(pangkat(10));
-// output: 100
-\end{lstlisting}
+\lstinputlisting{src/bab-02/fungsiAnonim.js}
 
 \subsubsection{Fungsi Rekursif}
 
 \index{Fungsi rekursif}Fungsi rekursif adalah fungsi yang memanggil dirinya sendiri. Contoh dari aplikasi fungsi rekursif adalah pada penghitungan faktorial berikut:
 
 \lstset{language=JavaScript,caption=Fungsi rekursif untuk menghitung faktorial}
-\begin{lstlisting}
-function factorial(n){
-  if ((n == 0) || (n == 1))
-    return 1;
-  else
-    return (n * factorial(n - 1));
-}
-\end{lstlisting}
+\lstinputlisting{src/bab-02/fungsiRekursif.js}
 
 \subsubsection{Fungsi di dalam Fungsi / \textit{Nested Functions}}
 
 \index{Nested functions}Saat mendefinisikan fungsi, di dalam fungsi tersebut pemrogram bisa mendefinisikan fungsi lainnya. Meskipun demikian, fungsi yang terletak dalam suatu definisi fungsi tidak bisa diakses dari luar fungsi tersebut dan hanya tersedia untuk fungsi yang didefinisikan.
 
 \lstset{language=JavaScript,caption=Fungsi di dalam Fungsi}
-\begin{lstlisting}
-function induk() {
-	var awal = 0;
-	function tambahkan() {
-		awal++;
-	}
-	tambahkan();
-	tambahkan();
-	console.log('Nilai = ' + awal);
-}
-
-induk();
-tambahkan();
-
-// Hasil:
-// Nilai = 2
-//
-// /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-2/nested.js:12
-// tambahkan();
-// ^
-// ReferenceError: tambahkan is not defined
-// ReferenceError: tambahkan is not defined
-//     at Object.<anonymous> (/home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-2/nested.js:12:1)
-//     at Module._compile (module.js:456:26)
-//     at Object.Module._extensions..js (module.js:474:10)
-//     at Module.load (module.js:356:32)
-//     at Function.Module._load (module.js:312:12)
-//     at Function.Module.runMain (module.js:497:10)
-//     at startup (node.js:119:16)
-//     at node.js:903:3
-//
-\end{lstlisting}
+\lstinputlisting{src/bab-02/nested.js}
 
 \subsection{Literal}
 
@@ -318,28 +174,7 @@ tambahkan();
 \index{Array}Array atau variabel berindeks adalah penampung untuk obyek yang menyerupai \textit{list} atau daftar. Obyek array juga menyediakan berbagai fungsi dan metode untuk mengolah anggota yang terdapat dalam daftar tersebut (terutama untuk operasi \textit{traversal} dan permutasi. Listing berikut menunjukkan beberapa operasi untuk literal array.
 
 \lstset{language=JavaScript,caption=Array di JavaScript}
-\begin{lstlisting}
-var arrMembers = ['one','two',,'three',];
-// sengaja ada koma di bagian akhir
-console.log(arrMembers[0]);
-// hasil: one
-console.log(arrMembers[2]);
-// hasil: undefined
-console.log(arrMembers[3]);
-// hasil: three
-console.log(arrMembers[4]);
-// hasil: undefined - karena tidak ada
-console.log(arrMembers.length);
-// hasil: 4
-var multiArray = [
-  ['0-0','0-1','0-2'],
-  ['1-0','1-1','1-2'],
-  ['2-0','2-1','2-2']];
-console.log(multiArray[0][2]);
-// hasil: 0-2
-console.log(multiArray[1][2]);
-// hasil: 1-2
-\end{lstlisting}
+\lstinputlisting{src/bab-02/array.js}
 
 \subsubsection{Literal Boolean}
 
@@ -395,32 +230,10 @@ Backslash sendiri sering digunakan sebagai \textit{escape character}, misalnya `
 
 \subsection{Struktur Data dan Representasi JSON}
 
-\index{JSON}JSON (\textit{JavaScript Object Notation}) adalah subset dari JavaScript dan merupakan struktur data native di JavaScript. Bentuk dari representasi struktur data JSON adalah sebagai berikut\footnote{\url{http://en.wikipedia.org/wiki/JSON}}:
+\index{JSON}JSON (\textit{JavaScript Object Notation}) adalah subset dari JavaScript dan merupakan struktur data native di JavaScript. Bentuk dari representasi struktur data JSON adalah sebagai berikut\footnote{\url{http://en.wikipedia.org/wiki/JSON} dengan sedikit perubahan}:
 
 \lstset{language=JavaScript,caption=Representasi \textit{JSON}}
-\begin{lstlisting}
-{
-    "firstName": "John",
-    "lastName": "Smith",
-    "age": 25,
-    "address": {
-        "streetAddress": "21 2nd Street",
-        "city": "New York",
-        "state": "NY",
-        "postalCode": "10021"
-    },
-    "phoneNumber": [
-        {
-            "type": "home",
-            "number": "212 555-1234"
-        },
-        {
-            "type": "fax",
-            "number": "646 555-4567"
-        }
-    ]
-}
-\end{lstlisting}
+\lstinputlisting{src/bab-02/json.js}
 
 Dari representasi di atas, kita bisa membaca:
 \begin{itemize}
@@ -438,84 +251,14 @@ Dari representasi di atas, kita bisa membaca:
 \index{if}Pernyataan ini digunakan untuk mengerjakan atau tidak mengerjakan suatu bagian atau blok program berdasarkan hasil evaluasi kondisi tertentu.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{if .. else if .. else}}
-\begin{lstlisting}
-var kondisi = false;
-if (kondisi) {
-  console.log('hanya dikerjakan jika kondisi bernilai benar/true');
-};
-// hasil: n/a, tidak ada hasilnya
-var kondisi = true;
-if (kondisi) {
-  console.log('hanya dikerjakan jika kondisi bernilai benar/true');
-};
-// hasil: hanya dikerjakan jika kondisi bernilai benar/true
-//
-// Contoh berikut lebih kompleks, melibatkan input
-var readline = require('readline');
-
-var rl = readline.createInterface({
-    input: process.stdin,
-      output: process.stdout
-});
-
-rl.question("Masukkan angka nilai: ", function(answer) {
-  if (answer > 80) {
-    console.log("Nilai: A");
-  } else if (answer > 70) {
-    console.log("Nilai: B");
-  } else if (answer > 40) {
-    console.log("Nilai: C");
-  } else if (answer > 30) {
-    console.log("Nilai: D");
-  } else {
-    console.log("Tidak lulus");
-  }
-  rl.close();
-});
-\end{lstlisting}
+\lstinputlisting{src/bab-02/if.js}
 
 \subsubsection{Pernyataan \textit{switch}}
 
 \index{switch}Pernyataan ini digunakan untuk mengevaluasi suatu ekspresi dan membandingkan sama atau tidaknya dengan suatu label tertentu di dalam struktur pernyataan switch, serta mengeksekusi perintah-perintah sesuai dengan label yang cocok.
 
-\lstset{language=JavaScript,caption=Pernyataan \textit{if .. else if .. else}}
-\begin{lstlisting}
-var readline = require('readline');
-
-var rl = readline.createInterface({
-    input: process.stdin,
-      output: process.stdout
-});
-
-console.log("Menu");
-console.log("====");
-console.log("1. Mengisi data");
-console.log("2. Mengedit data");
-console.log("3. Menghapus data");
-console.log("4. Mencari data");
-rl.question("Masukkan angka pilihan anda: ", function(answer) {
-  console.log("Pilihan anda: " + answer);
-  switch (answer) {
-    case "1":
-      console.log("Anda memilih menu pengisian data");
-      break;
-    case "2":
-      console.log("Anda memilih menu pengeditan data");
-      break;
-    case "3":
-      console.log("Anda memilih menu penghapusan data");
-      break;
-    case "4":
-      console.log("Anda memilih menu pencarian data");
-      break;
-    default:
-      console.log("Anda tidak memilih salah satu dari menu di atas");
-      break;
-  }
-  rl.close();
-});
-\end{lstlisting}
-
+\lstset{language=JavaScript,caption=Pernyataan \textit{Contoh penggunaan ``switch''}}
+\lstinputlisting{src/bab-02/switch.js}
 
 \subsubsection{\textit{Looping}}
 
@@ -524,88 +267,26 @@ rl.question("Masukkan angka pilihan anda: ", function(answer) {
 \textbf{for}
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{for}}
-\begin{lstlisting}
-for (var i = 0; i < 9; i++) {
-  console.log(i);
-}
-// hasil:
-//0
-//1
-//2
-//3
-//4
-//5
-//6
-//7
-//8
-\end{lstlisting}
+\lstinputlisting{src/bab-02/for.js}
 
 Pernyataan ``for'' juga bisa digunakan untuk mengakses data yang tersimpam dalam struktur data JavaScript (JSON).
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{for .. in}}
-\begin{lstlisting}
-var data = {a:1, b:2, c:3};
-
-for (var iterasi in data) {
-  console.log("Nilai dari iterasi " + iterasi + " adalah: " + data[iterasi]);
-}
-// hasil:
-//Nilai dari iterasi a adalah: 1
-//Nilai dari iterasi b adalah: 2
-//Nilai dari iterasi c adalah: 3
-\end{lstlisting}
+\lstinputlisting{src/bab-02/forIn.js}
 
 \textbf{do .. while}
 
 Pernyataan ini digunakan untuk mengerjakan suatu blok program selama suatu kondisi bernilai benar dengan jumlah minimal pengerjaan sebanyak 1 kali.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{do .. while}}
-\begin{lstlisting}
-var i = 0;
-do {
-  i += 2;
-  console.log(i);
-} while (i < 20);
-// hasil:
-//2
-//4
-//6
-//8
-//10
-//12
-//14
-//16
-//18
-//20
-\end{lstlisting}
+\lstinputlisting{src/bab-02/doWhile.js}
 
 \textbf{while}
 
 Seperti \textit{do .. while}, pernyataan ini digunakan untuk mengerjakan suatu blok program secara berulang-ulang selama kondisi bernilai benar. Meskipun demikian, bisa saja blok program tersebut tidak pernah dikerjakan jika pada saat awal expresi dievaluasi sudah bernilai \textit{false}.
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{while}}
-\begin{lstlisting}
-var n = 0;
-var x = 0;
-
-while (n < 5) {
-  n ++;
-  x += n;
-  console.log("Nilai n = " + n);
-  console.log("Nilai x = " + x);
-}
-// hasil:
-//Nilai n = 1
-//Nilai x = 1
-//Nilai n = 2
-//Nilai x = 3
-//Nilai n = 3
-//Nilai x = 6
-//Nilai n = 4
-//Nilai x = 10
-//Nilai n = 5
-//Nilai x = 15
-\end{lstlisting}
+\lstinputlisting{src/bab-02/while.js}
 
 \textbf{label, break, dan continue}
 
@@ -617,80 +298,19 @@ Bagian ini digunakan dalam \textit{looping} dan \textit{switch}.
 \end{itemize}
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{break} dan \textit{continue}}
-\begin{lstlisting}
-var n = 0;
-var x = 0;
-
-while (n < 5) {
-  n ++;
-  x += n;
-
-  if (x%2 == 0) {
-    continue;
-  };
-
-  if (x>10) {
-    break;
-  };
-
-  console.log("Nilai n = " + n);
-  console.log("Nilai x = " + x);
-
-};
-// hasil:
-//Nilai n = 1
-//Nilai x = 1
-//Nilai n = 2
-//Nilai x = 3
-\end{lstlisting}
+\lstinputlisting{src/bab-02/breakContinue.js}
 
 \lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
-\begin{lstlisting}
-topLabel:
-  for(var k = 0; k < 10; k++){
-    for(var m = 0; m < 20; m++){
-      if(m == 5){
-        console.log("Nilai k = " + k);
-        console.log("Nilai m = " + m);
-        break topLabel;
-      }
-    }
-  }
-// hasil: 
-//Nilai k = 0
-//Nilai m = 5
-\end{lstlisting}
+\lstinputlisting{src/bab-02/breakWithLabel.js}
 
 \subsection{Penanganan Error}
 
 \index{Penanganan error}JavaScript mendukung pernyataan \textit{try .. catch .. finally} serta \textit{throw} untuk menangani error. Meskipun demikian, banyak hal yang tidak sesuai dengan konstruksi ini karena sifat JavaScript yang \textit{asynchronous}. Untuk kasus asynchrous, pemrogram lebih disarankan menggunakan \textit{function callback}.
 
-\lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
-\begin{lstlisting}
-try {
-  gakAdaFungsiIni();
-} catch (e) {
-  console.log ("Error: " + e.message);
-} finally {
-  console.log ("Ini adalah semacam bagian untuk 'pembersihan',"); 
-  console.log ("akan dikerjakan, apapun yang terjadi");
-};
-//hasil:
-//Error: gakAdaFungsiIni is not defined
-//Ini adalah semacam bagian untuk 'pembersihan', 
-//akan dikerjakan, apapun yang terjadi
-\end{lstlisting}
+\lstset{language=JavaScript,caption=Pernyataan \textit{try catch finally}}
+\lstinputlisting{src/bab-02/try.js}
 
 Jika diperlukan, kita bisa mendefinisikan sendiri error dengan menggunakan pernyataan \textit{throw}.
 
-\lstset{language=JavaScript,caption=Pernyataan \textit{break} dengan label}
-\begin{lstlisting}
-try {
-  var a = 1/0;
-  throw "Pembagian oleh angka 0";
-} catch (e) {
-  console.log ("Error: " + e);
-};
-// hasil:
-//Error: Pembagian oleh angka 0
-\end{lstlisting}
+\lstset{language=JavaScript,caption=Pernyataan \textit{try catch throw}}
+\lstinputlisting{src/bab-02/throw.js}

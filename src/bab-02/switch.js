@@ -32,3 +32,25 @@ rl.question("Masukkan angka pilihan anda: ", function(answer) {
   }
   rl.close();
 });
+
+// hasil:
+// $ node switch.js 
+// Menu
+// ====
+// 1. Mengisi data
+// 2. Mengedit data
+// 3. Menghapus data
+// 4. Mencari data
+// Masukkan angka pilihan anda: 10
+// Pilihan anda: 10
+// Anda tidak memilih salah satu dari menu di atas
+// $ node switch.js 
+// Menu
+// ====
+// 1. Mengisi data
+// 2. Mengedit data
+// 3. Menghapus data
+// 4. Mencari data
+// Masukkan angka pilihan anda: 2
+// Pilihan anda: 2
+// Anda memilih menu pengeditan data

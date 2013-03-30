@@ -1,0 +1,8 @@
+function namaFungsi(argumen1, argumen2, ... , argumentN) {
+  ..
+  JavaScript code ..
+  JavaScript code ..
+  JavaScript code ..
+  JavaScript code ..
+  ..
+}

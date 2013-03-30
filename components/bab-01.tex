@@ -199,47 +199,47 @@ Setelah itu, kita bisa membuat rerangka aplikasi ExpressJS dengan cara berikut:
 Pada rerangka aplikasi tersebut, terdapat file \textit{package.json} untuk mendefinisikan aplikasi serta dependensi-nya dan app.js yang merupakan file utama untuk dijalankan pada server.
 
 \lstset{language=Javascript,caption=package.json untuk ExpressJS}
-\lstinputlisting{src/modul-1/hello-vanilla/package.json}
+\lstinputlisting{src/bab-01/hello-vanilla/package.json}
 
 \lstset{language=Javascript,caption=app.js untuk ExpressJS}a
-\lstinputlisting{src/modul-1/hello-vanilla/app.js}
+\lstinputlisting{src/bab-01/hello-vanilla/app.js}
 
 Edit file \textit{routes/index.js} sebagai berikut:
 
 \lstset{language=Javascript,caption=Hasil edit routes/index.js}
-\lstinputlisting{src/modul-1/hello-vanilla/routes/index.js}
+\lstinputlisting{src/bab-01/hello-vanilla/routes/index.js}
 
 Setelah itu, install modul-modul yang diperlukan dengan perintah \textit{npm install} pada direktori tersebut. npm akan membaca file package.json kemudian menginstall modul-modul sesuai dengan deskripsi pada \textit{dependencies}. Setelah diuji pada komputer lokal dengan perintah \textit{node app}, dan sukses bisa diakses di browser dengan alamat \textit{http://localhost:3000}, maka aplikasi tersebut bisa di-deploy di CloudFoundry. Proses deployment digambarkan sebagai berikut (anda sudah harus login menggunakan perintah \textit{vmc login} sebelumnya) dan berada di direktori tempat aplikasi tersebut berada:
 
 \lstset{language=bash,caption=Deployment aplikasi ExpressJS ke CF}
 \lstinputlisting{src/non-nodejs/bab-01/deploy-express-cf.txt}
 
-Hasilnya terlihat pada tampilan browser di Gambar~\ref{fig:modul1-hello}
+Hasilnya terlihat pada tampilan browser di Gambar~\ref{fig:bab-01-hello}
 
   \begin{figure}
     \begin{center}
       \includegraphics[scale=0.5]{images/bpdp-hello-express.jpg}
     \end{center}
     \caption{Hasil push ke server}
-    \label{fig:modul1-hello}
+    \label{fig:bab-01-hello}
   \end{figure}
 
 Aplikasi yang sudah dibuat seringkali diubah, oleh karena itu vmc juga menyediakan fasilitas untuk Mengupdate aplikasi. 
 
 \lstset{language=Javascript,caption=Update: menambahkan versi Node.js ke routes/index.js}
-\lstinputlisting{src/modul-1/hello/routes/index.js}
+\lstinputlisting{src/bab-01/hello/routes/index.js}
 
 \lstset{language=bash,caption=Mengupdate aplikasi di server}
 \lstinputlisting{src/non-nodejs/bab-01/update-aplikasi-cf.txt}
 
-Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-update}
+Hasilnya bisa dilihat di Gambar~\ref{fig:bab-01-hello-update}
 
   \begin{figure}
     \begin{center}
       \includegraphics[scale=0.5]{images/bpdp-hello-express-update.jpg}
     \end{center}
     \caption{Hasil update dengan menyertakan versi Node.js}
-    \label{fig:modul1-hello-update}
+    \label{fig:bab-01-hello-update}
   \end{figure}
 
 Untuk menghapus aplikasi:
@@ -253,14 +253,14 @@ Pada saat deployment, kita juga bisa memilih versi Node.js (runtime) sebagai ber
 \lstinputlisting{src/non-nodejs/bab-01/deploy-pilih-runtime-cf.txt}
 
 
-Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-ganti-runtime}
+Hasilnya bisa dilihat di Gambar~\ref{fig:bab-01-hello-ganti-runtime}
 
   \begin{figure}
     \begin{center}
       \includegraphics[scale=0.5]{images/bpdp-express-hello-update06.jpg}
     \end{center}
     \caption{Deployement menggunakan versi runtime tertentu}
-    \label{fig:modul1-hello-ganti-runtime}
+    \label{fig:bab-01-hello-ganti-runtime}
   \end{figure}
 
 \subsection{Tanpa Framework}
@@ -268,19 +268,19 @@ Hasilnya bisa dilihat di Gambar~\ref{fig:modul1-hello-ganti-runtime}
 Tanpa \textit{framework}, yang kita perlukan hanyalah langsung mem-\textit{push} file yang kita buat (dalam contoh ini adalah app.js):
 
 \lstset{language=Javascript,caption=app.js tanpa framework}
-\lstinputlisting{src/modul-1/hello-no-framework/app.js}
+\lstinputlisting{src/bab-01/hello-no-framework/app.js}
 
 Proses deployement adalah sebagai berikut:
 
 \lstset{language=bash,caption=Deployment app.js tanpa framework}
 \lstinputlisting{src/non-nodejs/bab-01/deploy-appjs-no-framework.txt}
 
-Hasilnya bisa dilihat pada Gambar~\ref{fig:modul1-hello-no-framework}
+Hasilnya bisa dilihat pada Gambar~\ref{fig:bab-01-hello-no-framework}
 
   \begin{figure}
     \begin{center}
       \includegraphics[scale=0.5]{images/hello-noframework.jpg}
     \end{center}
     \caption{Hasil deployement app.js tanpa framework}
-    \label{fig:modul1-hello-no-framework}
+    \label{fig:bab-01-hello-no-framework}
   \end{figure}

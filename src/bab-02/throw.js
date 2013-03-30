@@ -4,3 +4,6 @@ try {
 } catch (e) {
   console.log ("Error: " + e);
 };
+
+// hasil:
+// Error: Pembagian oleh angka 0

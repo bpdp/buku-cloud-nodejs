@@ -1,0 +1,17 @@
+$ node
+> function addX(angka) {
+... console.log(angka + 10);
+... }
+undefined
+> addX(20);
+30
+undefined
+>
+> function add2Numbers(angka1, angka2) {
+... return angka1 + angka2;
+... }
+undefined
+> console.log("232 + 432 = " + add2Numbers(232, 432));
+232 + 432 = 664
+undefined
+>

@@ -5,3 +5,7 @@ try {
 } finally {
   console.log ("Ini adalah semacam bagian untuk 'pembersihan', akan dikerjakan, apapun yang terjadi");
 };
+
+// hasil:
+// Error: gakAdaFungsiIni is not defined
+// Ini adalah semacam bagian untuk 'pembersihan', akan dikerjakan, apapun yang terjadi

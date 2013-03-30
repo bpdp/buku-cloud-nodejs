@@ -1,0 +1,5 @@
+..
+..
+  namaFungsi(argumen1, argumen2, ..., argumenN);
+..
+..
