@@ -1,7 +1,7 @@
 Tentang
 -------
 
-Repo ini berisi source code untuk menampilkan hello + versi dari Node.js di server. Sebelum mengupload atau menjalankan aplikasi ini di setiap modul, update dulu modul yang diperlukan:
+Bagian ini berisi kode sumber untuk semua pembahasan di buku ini. Direktori non-nodejs adalah direktori untuk menyimpan tampilan-tampilan teks yang diperlukan dalam buku ini. Beberapa bagian mungkin perlu mengupdate dan menginstall modul sebelum bisa dijalankan. Jika perlu, masuk ke direktori yang diinginkan kemudian:
 
 $ npm update
 
