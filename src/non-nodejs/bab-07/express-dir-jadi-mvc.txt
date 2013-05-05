@@ -1,0 +1,20 @@
+$ tree .
+.
++-- app.js
+|-- controllers
+|   +-- index.js
+|   +-- user.js
+|-- models
+|   +-- db.js
+|-- package.json
+|-- public
+|   +-- images
+|   |-- javascripts
+|   +-- stylesheets
+|       +-- style.css
++-- views
+    +-- index.jade
+    +-- layout.jade
+
+7 directories, 8 files
+$

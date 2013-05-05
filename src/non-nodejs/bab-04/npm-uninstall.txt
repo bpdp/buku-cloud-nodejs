@@ -1,0 +1,5 @@
+$ npm uninstall namapaket
+--> uninstall namapaket di $CWD/node_modules
+    atau
+$ npm uninstall namapaket -g
+--> uninstall paket di dir global

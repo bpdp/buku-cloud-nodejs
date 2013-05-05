@@ -1,0 +1,27 @@
+^CSun May  5 22:52:52.344 [signalProcessingThread] got 
+    signal 2 (Interrupt), will terminate after current cmd ends
+Sun May  5 22:52:52.345 [signalProcessingThread] now exiting
+Sun May  5 22:52:52.345 dbexit: 
+Sun May  5 22:52:52.345 [signalProcessingThread] shutdown: 
+    going to close listening sockets...
+Sun May  5 22:52:52.345 [signalProcessingThread] closing 
+    listening socket: 7
+Sun May  5 22:52:52.345 [signalProcessingThread] closing 
+    listening socket: 8
+Sun May  5 22:52:52.345 [signalProcessingThread] closing 
+    listening socket: 9
+Sun May  5 22:52:52.345 [signalProcessingThread] removing 
+    socket file: /tmp/mongodb-27017.sock
+Sun May  5 22:52:52.345 [signalProcessingThread] shutdown: 
+    going to flush diaglog...
+Sun May  5 22:52:52.345 [signalProcessingThread] shutdown: 
+    going to close sockets...
+Sun May  5 22:52:52.345 [signalProcessingThread] shutdown: 
+    waiting for fs preallocator...
+Sun May  5 22:52:52.345 [signalProcessingThread] shutdown: 
+    closing all files...
+Sun May  5 22:52:52.345 [signalProcessingThread] closeAllFiles() 
+    finished
+Sun May  5 22:52:52.346 [signalProcessingThread] shutdown: 
+    removing fs lock...
+Sun May  5 22:52:52.346 dbexit: really exiting now

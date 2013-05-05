@@ -1,0 +1,5 @@
+$ npm ls 
+--> untuk melihat pada $CWD
+    atau
+$ npm ls -g
+--> untuk melihat pada direktori global

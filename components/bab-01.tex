@@ -151,11 +151,11 @@ Untuk mengubah password:
 
 \subsection{Instalasi dan Konfigurasi Node.js di Komputer Lokal}
 
-Node.js tersedia untuk Linux, Windows, Mac OS X, serta SunOS. Untuk versi Linux, kebanyakan distro sudah menyertakan paket Node.js, hanya saja ada banyak versi dari Node.js dan jika kita menggunakan manajemen paket dari distro Linux, kita hanya bisa menginstall 1 versi saja. Sebagai contoh, di Arch Linux, paket Node.js bisa diinstrall dengan perintah ``pacman -S nodejs'' tetapi hanya pada versi resmi di repo Arch Linux (versi 0.8.16 pada tanggal 7 Januari 2012). 
+Node.js tersedia untuk Linux, Windows, Mac OS X, serta SunOS. Untuk versi Linux, kebanyakan distro sudah menyertakan paket Node.js, hanya saja ada banyak versi dari Node.js dan jika kita menggunakan manajemen paket dari distro Linux, kita hanya bisa menginstall 1 versi saja. Sebagai contoh, di Arch Linux, paket Node.js bisa diinstall dengan perintah ``pacman -S nodejs'' tetapi hanya pada versi resmi di repo Arch Linux (versi 0.10.5 pada tanggal 6 Mei 2013). 
 
 Langkah instalasi berikut ini adalah langkah untuk instalasi tanpa manajemen paket dari distro Linux.
 \begin{itemize}
-  \item Ambil paket \textit{binary executable} dari \url{http://nodejs/download} atau langsung ke \url{http://nodejs.org/dist/}. Versi yang digunakan disini adalah 0.8.16. Download file tersebut, kemudian simpan di direktori tertentu (terserah anda, dibuku ini diletakkan di \$HOME/master/nodejs).
+  \item Ambil paket \textit{binary executable} dari \url{http://nodejs/download} atau langsung ke \url{http://nodejs.org/dist/}. Versi yang digunakan disini adalah 0.10.5. Download file tersebut, kemudian simpan di direktori tertentu (terserah anda, dibuku ini diletakkan di \$HOME/master/nodejs).
 
 \lstset{language=bash,caption=Hasil dari download Node.js}
 \lstinputlisting{src/non-nodejs/bab-01/hasil-download-nodejs.txt}
@@ -209,7 +209,7 @@ Edit file \textit{routes/index.js} sebagai berikut:
 \lstset{language=Javascript,caption=Hasil edit routes/index.js}
 \lstinputlisting{src/bab-01/hello-vanilla/routes/index.js}
 
-Setelah itu, install modul-modul yang diperlukan dengan perintah \textit{npm install} pada direktori tersebut. npm akan membaca file package.json kemudian menginstall modul-modul sesuai dengan deskripsi pada \textit{dependencies}. Setelah diuji pada komputer lokal dengan perintah \textit{node app}, dan sukses bisa diakses di browser dengan alamat \textit{http://localhost:3000}, maka aplikasi tersebut bisa di-deploy di CloudFoundry. Proses deployment digambarkan sebagai berikut (anda sudah harus login menggunakan perintah \textit{vmc login} sebelumnya) dan berada di direktori tempat aplikasi tersebut berada:
+Setelah itu, install modul-modul yang diperlukan dengan perintah \textit{npm install} pada direktori tersebut. npm akan membaca file package.json kemudian menginstall modul-modul sesuai dengan deskripsi pada \textit{dependencies}. Setelah diuji pada komputer lokal dengan perintah \textit{node app.js}, dan sukses bisa diakses di browser dengan alamat \textit{http://localhost:3000}, maka aplikasi tersebut bisa di-deploy di CloudFoundry. Proses deployment digambarkan sebagai berikut (anda sudah harus login menggunakan perintah \textit{vmc login} sebelumnya) dan berada di direktori tempat aplikasi tersebut berada:
 
 \lstset{language=bash,caption=Deployment aplikasi ExpressJS ke CF}
 \lstinputlisting{src/non-nodejs/bab-01/deploy-express-cf.txt}
@@ -259,7 +259,7 @@ Hasilnya bisa dilihat di Gambar~\ref{fig:bab-01-hello-ganti-runtime}
     \begin{center}
       \includegraphics[scale=0.5]{images/bpdp-express-hello-update06.jpg}
     \end{center}
-    \caption{Deployement menggunakan versi runtime tertentu}
+    \caption{Deployment menggunakan versi runtime tertentu}
     \label{fig:bab-01-hello-ganti-runtime}
   \end{figure}
 

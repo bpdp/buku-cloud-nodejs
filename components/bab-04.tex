@@ -9,36 +9,7 @@
 Saat melakukan instalasi Node.js, secara otomatis \textit{npm} akan disertakan. Dengan perintah \textit{npm} tersebut, seorang pemrogram bisa mengelola pustaka yang tersedia di repositori. Jika pemrogram mempunya pustakan yang bisa digunakan oleh orang lain, maka pemrogram yang bersangkutan juga bisa menyimpan pustaka tersebut ke dalam repositori sehingga memungkinkan untuk diinstall oleh pemrogram-pemrogram lain di seluruh dunia. Sintaksis lengkap dari penggunaan perintah \textit{npm} ini adalah sebagai berikut\footnote{beberapa bagian tertulis spesifik lokasi direktori di komputer yang digunakan penulis}:
 
 \lstset{language=bash,caption=Sintaksis lengkap perintah \textit{npm}}
-\begin{lstlisting}
-$ npm --help
-
-Usage: npm <command>
-
-where <command> is one of:
-    add-user, adduser, apihelp, author, bin, bugs, c, cache,
-    completion, config, ddp, dedupe, deprecate, docs, edit,
-    explore, faq, find, find-dupes, get, help, help-search,
-    home, i, info, init, install, isntall, issues, la, link,
-    list, ll, ln, login, ls, outdated, owner, pack, prefix,
-    prune, publish, r, rb, rebuild, remove, restart, rm, root,
-    run-script, s, se, search, set, show, shrinkwrap, star,
-    stars, start, stop, submodule, tag, test, tst, un,
-    uninstall, unlink, unpublish, unstar, up, update, version,
-    view, whoami
-
-npm <cmd> -h     quick help on <cmd>
-npm -l           display full usage info
-npm faq          commonly asked questions
-npm help <term>  search for help on <term>
-npm help npm     involved overview
-
-Specify configs in the ini-formatted file:
-    /home/bpdp/.npmrc
-or on the command line via: npm <command> --key value
-Config info can be viewed via: npm help config
-
-npm@1.2.14 /home/bpdp/software/node-v0.10.0-linux-x86/lib/node_modules/npm
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-04/npm-help.txt}
 
 Pada bagian berikut, kita akan membahas lebih lanjut penggunaan perintah \textit{npm} tersebut.
 
@@ -47,11 +18,9 @@ Pada bagian berikut, kita akan membahas lebih lanjut penggunaan perintah \textit
 \index{npm!install paket}npm sebenarnya bukan merupakan singkatan dari \textit{Node Package Manager}, meskipun seringkali orang menterjemahkan dengan singkatan tersebut dan npm seharusnya ditulis dalam huruf kecil semua seperti yang dijelaskan pada FAQ (\textit{Frequently Asked Questions})\footnote{\url{https://npmjs.org/doc/faq.html}}. npm merupakan bilah alat berbasis baris perintah, dijalankan melalui shell atau \textit{command prompt}. Sama seperti kebanyakan bilah alat berbasis baris perintah lain, npm memiliki struktur perintah \textit{npm perintah argumen}. Installasi paket pustaka dilakukan dengan perintah berikut :
 
 \lstset{language=bash,caption=Cara install paket menggunakan npm}
-\begin{lstlisting}
-$ npm install foo
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-04/npm-install.txt}
 
-Perintah diatas akan memasang versi terakhir dari paket pustaka foo. Selain itu \textit{npm} juga dapat memasang paket pustaka langsung pada sebuah folder, tarball atau tautan untuk sebuah tarball.
+Perintah diatas akan memasang versi terakhir dari paket ``namapaket''. Selain itu \textit{npm} juga dapat memasang paket langsung pada sebuah folder, tarball atau tautan untuk sebuah tarball.
 
 \subsection{Struktur Instalasi Paket Node.js}
 
@@ -60,81 +29,36 @@ Perintah diatas akan memasang versi terakhir dari paket pustaka foo. Selain itu 
 Jika berada pada direktori \$HOME, maka paket-paket npm tersebut akan terinstall di \$HOME/.npm, sedangkan jika kita berada di luar direktori \$HOME, maka paket-paket tersebut akan terinstall di \$CWD/node\_modules (\$CWD = \textit{Current Working Directory} - direktori aktif saat ini). Daftar paket pustaka yang terpasang dapat dilihat menggunakan perintah berikut:
 
 \lstset{language=bash,caption=Argumen npm untuk melihat daftar paket terpasang}
-\begin{lstlisting}
-$ npm ls
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-04/npm-ls.txt}
 
 Selain melihat daftar paket pustaka yang digunakan dalam aplikasi maupun global, perintah diatas juga akan menampilkan paket dependensi dalam struktur pohon. Jika kita belum menginstall paket-paket yang diperlukan, akan muncul peringatan. Berikut ini adalah contoh peringatan dari paket-paket yang belum terinstall di aplikasi hello-express saat mengerjakan perintah ``npm ls'' di direktori tempat aplikasi tersebut berada (lihat bab 1):
 
 \lstset{language=bash,caption=npm ls pada aplikasi yang paket-paketnya belum terinstall}
-\begin{lstlisting}
-$ npm ls
-npm WARN package.json hello-node@0.0.1 No README.md file found!
-hello-node@0.0.1 /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-1/hello
-+-- UNMET DEPENDENCY express 3.1.0
-+-- UNMET DEPENDENCY jade *
+\lstinputlisting{src/non-nodejs/bab-04/npm-ls-paket-blm-terinstall.txt}
 
-npm ERR! missing: express@3.1.0, required by hello-node@0.0.1
-npm ERR! missing: jade@*, required by hello-node@0.0.1
-npm ERR! not ok code 0
-&
-\end{lstlisting}
+Jika sudah terinstall, perintah ``npm ls'' akan menampilkan struktur dari paket yang telah terinstall dalam bentuk struktur pohon seperti pada Gambar~\ref{fig:npm-ls-paket-terinstall}.
 
-Jika sudah terinstall, perintah ``npm ls'' akan menampilkan struktur dari paket yang telah terinstall dalam bentuk struktur pohon:
-\lstset{language=bash,caption=npm ls pada aplikasi yang paket-paketnya sudah terinstall}
-\begin{lstlisting}
-$ npm ls
-npm WARN package.json hello-node@0.0.1 No README.md file found!
-hello-node@0.0.1 /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/modul-1/hello
-+-- express@3.1.0
-| +-- buffer-crc32@0.1.1
-| |-- commander@0.6.1
-| +-- connect@2.7.2
-| | +-- bytes@0.1.0
-| | |-- formidable@1.0.11
-| | |-- pause@0.0.1
-| | +-- qs@0.5.1
-| +-- cookie@0.0.5
-| +-- cookie-signature@0.0.1
-| +-- debug@0.7.2
-| +-- fresh@0.1.0
-| +-- methods@0.0.1
-| +-- mkdirp@0.3.3
-| +-- range-parser@0.0.4
-| +-- send@0.1.0
-|   +-- mime@1.2.6
-+-- jade@0.28.2
-  +-- commander@0.6.1
-  +-- mkdirp@0.3.5
-$
-\end{lstlisting}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.5]{images/npm-ls-paket-terinstall.jpg}
+    \end{center}
+    \caption{Tampilan ``npm ls'' pada direktori proyek dengan paket terinstall lengkap}
+    \label{fig:npm-ls-paket-terinstall}
+  \end{figure}
 
 \subsection{Menghapus Paket / \textit{Uninstall}}
 
 \index{npm!Hapus paket}Menghapus paket pustaka menggunakan npm pada dasarnya hampir sama dengan saat memasang paket, namun dengan perintah \textit{uninstall}. Berikut perintah lengkapnya.
 
 \lstset{language=bash,caption=Perintah menghapus paket di npm}
-\begin{lstlisting}
-$ npm uninstall foo
-\end{lstlisting}
-
-Paket pustaka foo dalam lokal aplikasi akan dihapus, jika menggunakan hak administrasi sudo atau root maka akan menghapus dari installasi global.
+\lstinputlisting{src/non-nodejs/bab-04/npm-uninstall.txt}
 
 \subsection{Mencari Paket}
 
 \index{npm!Cari paket}Untuk mencari paket, gunakan argumen \textit{search} dan nama atau bagian dari nama paket yang dicari. Contoh berikut ini akan mencari paket dengan kata kunci 'sha512' (tampilan berikut merupakan tampilan yang terpotong):
 
 \lstset{language=bash,caption=Perintah menghapus paket di npm}
-\begin{lstlisting}
-$ npm search sha512
-npm WARN Building the local index for the first time, please be patient
-npm http GET https://registry.npmjs.org/-/all/since?stale=...
-npm http 200 https://registry.npmjs.org/-/all/since?stale=...
-NAME    DESCRIPTION                                       ...
-krypto  High-level crypto library, making the core crypto ...
-passhash  Easily and securely hash passwords with a variab...
-pwhash  Generate password hashes from the command line.   ...
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-04/npm-search.txt}
 
 Setelah menemukan paketnya, pemrogram bisa menginstall langsung ataupun melihat informasi lebih lanjut tentang pustakan tersebut.
 
@@ -143,63 +67,11 @@ Setelah menemukan paketnya, pemrogram bisa menginstall langsung ataupun melihat 
 \index{npm!Info paket}Setelah mengetahui nama paket, pemrogram bisa memperoleh informasi lebih lanjut dalam format JSON menggunakan parameter \textit{view}. Contoh dibawah ini menampilkan rincian dalam format JSON dari paket \textit{arango.client}:
 
 \lstset{language=bash,caption=Menampilkan rincian suatu paket dalam format JSON}
-\begin{lstlisting}
-$ npm view arango.client
-npm http GET https://registry.npmjs.org/arango.client
-npm http 304 https://registry.npmjs.org/arango.client
-
-{ name: 'arango.client',
-  description: 'ArangoDB javascript client',
-  'dist-tags': { latest: '0.5.6' },
-  versions: 
-   [ '0.3.1',
-     '0.3.2',
-     '0.4.0',
-     '0.5.0',
-     '0.5.1',
-     '0.5.4',
-     '0.5.6' ],
-  maintainers: 'kaerus <anders@kaerus.com>',
-  time: 
-   { '0.3.1': '2012-08-09T12:04:34.594Z',
-     '0.3.2': '2012-08-09T12:49:02.322Z',
-     '0.4.0': '2012-09-17T10:44:43.187Z',
-     '0.5.0': '2012-10-01T14:51:32.668Z',
-     '0.5.1': '2012-10-03T22:11:58.376Z',
-     '0.5.4': '2012-10-16T09:45:37.477Z',
-     '0.5.6': '2012-10-26T17:34:28.491Z' },
-  author: 'Kaerus <contact@kaerus.com> (http://kaerus.com)',
-  repository: 
-   { type: 'git',
-     url: 'git://github.com/kaerus/arango-client.git' },
-  version: '0.5.6',
-  keywords: 
-   [ 'arangodb',
-     'nosql',
-     'qunit',
-     'amd' ],
-  contributors: 'anders elo <anders@kaerus.com>',
-  dependencies: { amdefine: '>=0.0.2' },
-  devDependencies: { requirejs: '>=2.0.6' },
-  bugs: { url: 'https://github.com/kaerus/arango-client/issues' },
-  main: 'index.js',
-  license: 'MIT',
-  dist: 
-   { shasum: '48279e7cf9ea0b4b6766f09671224c46d6e716b0',
-     tarball: 'http://registry.npmjs.org/arango.client/-/arango.client-0.5.6.tgz' },
-  directories: {} }
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-04/npm-view.txt}
 
 \subsection{Memperbaharui Paket}
 
 \index{npm!Update paket}Jika terdapat versi baru, kita bisa memperbaharui secara otomatis menggunakan argumen \textit{update} berikut ini:
 
-\lstset{language=bash,caption=Memperbaharui paket lokal}
-\begin{lstlisting}
-npm update
-\end{lstlisting}
-
-\lstset{language=bash, caption=Memperbaharui paket secara global}
-\begin{lstlisting}
-npm update -g
-\end{lstlisting}
+\lstset{language=bash,caption=Memperbaharui paket}
+\lstinputlisting{src/non-nodejs/bab-04/npm-update.txt}

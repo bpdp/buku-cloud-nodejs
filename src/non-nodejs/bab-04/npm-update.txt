@@ -1,0 +1,4 @@
+$ npm update
+--> update paket di $CWD/node_modules
+$ npm update -g
+--> update paket global

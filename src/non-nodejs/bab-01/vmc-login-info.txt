@@ -1,3 +1,56 @@
+$ vmc login
+target: https://api.cloudfoundry.com
+
+Email> bambangpdp@yahoo.com
+
+Password> ***************
+
+Authenticating... OK
+$ vmc info --all
+Getting runtimes... OK
+Getting frameworks... OK
+Getting services... OK
+
+VMware's Cloud Application Platform
+
+target: https://api.cloudfoundry.com
+  version: 0.999
+  support: http://support.cloudfoundry.com
+
+user: bambangpdp@yahoo.com
+
+runtime   description
+java      1.6.0_24   
+java7     1.7.0_04   
+node      0.4.12     
+node06    0.6.8      
+node08    0.8.2      
+ruby18    1.8.7p357  
+ruby19    1.9.2p180  
+
+framework    description
+grails       
+java_web     
+lift         
+node         
+play         
+rack         
+rails3       
+sinatra      
+spring       
+standalone   
+
+service      version   provider   description                  
+mongodb      2.0       core       MongoDB NoSQL database       
+mysql        5.1       core       MySQL database               
+postgresql   9.0       core       PostgreSQL database (vFabric)
+rabbitmq     2.4       core       RabbitMQ message queue       
+redis        2.4       core       Redis key-value store        
+redis        2.2       core       Redis key-value store        
+redis        2.6       core       Redis key-value store
+$
+
+
 $ vmc login 
 target: https://api.cloudfoundry.com
 

@@ -1,0 +1,13 @@
+$ npm install mongojs
+npm http GET https://registry.npmjs.org/mongojs
+npm http 200 https://registry.npmjs.org/mongojs
+npm http GET https://registry.npmjs.org/mongojs/-/mongojs-0.7.4.tgz
+npm http 200 https://registry.npmjs.org/mongojs/-/mongojs-0.7.4.tgz
+npm http GET https://registry.npmjs.org/readable-stream
+npm http GET https://registry.npmjs.org/thunky
+npm http 200 https://registry.npmjs.org/readable-stream
+npm http 200 https://registry.npmjs.org/thunky
+mongojs@0.7.4 node_modules/mongojs
++-- thunky@0.1.0
++-- readable-stream@1.0.2
+$

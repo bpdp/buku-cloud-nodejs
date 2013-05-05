@@ -1,0 +1,9 @@
+$ ls -la node_modules/socket.io-client/dist/
+total 496
+drwxr-xr-x 2 bpdp bpdp   4096 May  6 00:00 .
+drwxr-xr-x 7 bpdp bpdp   4096 May  6 00:01 ..
+-rw-r--r-- 1 bpdp bpdp 101222 Nov  2  2012 socket.io.js
+-rw-r--r-- 1 bpdp bpdp  44789 Nov  2  2012 socket.io.min.js
+-rw-r--r-- 1 bpdp bpdp 175953 Mar 28  2012 WebSocketMainInsecure.swf
+-rw-r--r-- 1 bpdp bpdp 175830 Mar 28  2012 WebSocketMain.swf
+$ 

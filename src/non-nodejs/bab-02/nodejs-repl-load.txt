@@ -1,19 +1,26 @@
-> .load /home/bpdp/kerjaan/src/javascript/nodejs/server.js
+$ node
+> .load /home/bpdp/kerjaan/src/javascript/nodejs/hello.js
 > var http = require('http');
 undefined
 > http.createServer(function (req, res) {
-...     res.writeHead(200, {'Content-Type': 'text/plain'});
-...       res.end('Hello, world!\n');
-... }).listen(8124, "127.0.0.1");
-{ _connections: 0,
-  connections: [Getter/Setter],
-  allowHalfOpen: true,
-  _handle: null,
+...   res.writeHead(200, {'Content-Type': 'text/plain'});
+...   res.end('Hello World\n');
+... }).listen(1337, '127.0.0.1');
+{ domain: null,
   _events: 
    { request: [Function],
-     connection: [Function: connectionListener] },
-  httpAllowHalfOpen: false }
-> console.log('Server running at http://127.0.0.1:8124/');
-Server running at http://127.0.0.1:8124/
+     connection: [Function: connectionListener],
+     clientError: [Function] },
+  _maxListeners: 10,
+  _connections: 0,
+  connections: [Getter/Setter],
+  _handle: null,
+  _usingSlaves: false,
+  _slaves: [],
+  allowHalfOpen: true,
+  httpAllowHalfOpen: false,
+  timeout: 120000 }
+> console.log('Server running at http://127.0.0.1:1337/');
+Server running at http://127.0.0.1:1337/
 undefined
->
+> 

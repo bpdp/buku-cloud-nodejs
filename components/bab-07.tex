@@ -34,50 +34,12 @@ Pola ini dikenal juga dengan istilah Model 2 dan dipopulerkan oleh JavaEE.
 Setelah membuat kerangka aplikasi menggunakan ExpressJS, ada beberapa perubahan yang harus dilakukan. Perubahan ini terutama dilakukan untuk mengikuti pola arsitektur MVC (terutama peletakan file dan direktori). Pola asli dari kerangka aplikasi ExpressJS adalah sebagai berikut:
 
 \lstset{language=Bash,caption=Struktur direktori asli aplikasi ExpressJS}
-\begin{lstlisting}
-$ tree .
-.
-+-- app.js
-|-- package.json
-|-- public
-|   +-- images
-|   |-- javascripts
-|   +-- stylesheets
-|       +-- style.css
-|-- routes
-|   +-- index.js
-|   +-- user.js
-+-- views
-    +-- index.jade
-    +-- layout.jade
-
-6 directories, 7 files
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-07/express-dir-asli.txt}
 
 Struktur direktori tersebut akan diubah sesuai dengan pola MVC:
 
 \lstset{language=Bash,caption=Struktur direktori ExpressJS sesuai pola MVC}
-\begin{lstlisting}
-$ tree .
-.
-+-- app.js
-|-- controllers
-|   +-- index.js
-|   +-- user.js
-|-- models
-|   +-- db.js
-|-- package.json
-|-- public
-|   +-- images
-|   |-- javascripts
-|   +-- stylesheets
-|       +-- style.css
-+-- views
-    +-- index.jade
-    +-- layout.jade
-
-7 directories, 8 files
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-07/express-dir-jadi-mvc.txt}
 
 Beberapa perubahan terhadap struktur direktori:
 \begin{itemize}
@@ -90,94 +52,16 @@ Beberapa perubahan terhadap struktur direktori:
 Beberapa file diubah isinya dan ada juga file yang baru. 
 
 \lstset{language=JavaScript,caption=app.js}
-\begin{lstlisting}
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , controllers = require('./controllers')
-  , user = require('./controllers/user')
-  , http = require('http')
-  , path = require('path');
-
-var mongoose = require('mongoose');
-
-var app = express();
-
-mongoose.connect('mongodb://localhost/mydb');
-
-app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
-
-app.get('/', controllers.index);
-app.get('/users', user.list);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-\end{lstlisting}
+\lstinputlisting{src/bab-07/app.js}
 
 \lstset{language=JavaScript,caption=controllers/user.js}
-\begin{lstlisting}
-/*
- * GET employees listing.
- */
-
-var Employee = require('../models/db.js');
-
-exports.list = function(req, res){
-	Employee.find(function(err, employees) {
-	  res.send(employees);
-	});
-};
-\end{lstlisting}
+\lstinputlisting{src/bab-07/controllers/user.js}
 
 \lstset{language=JavaScript,caption=models/db.js}
-\begin{lstlisting}
-var mongoose = require('mongoose')
-   ,Schema = mongoose.Schema;
- 
-var employeeSchema = new Schema({
-    name: String,
-		address: String,
-    phone: String,
-    email: String
-});
- 
-module.exports = mongoose.model('Employee', employeeSchema);
-\end{lstlisting}
-
+\lstinputlisting{src/bab-07/models/db.js}
 
 \lstset{language=JavaScript,caption=package.json}
-\begin{lstlisting}
-{
-  "name": "express-mvc",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app"
-  },
-  "dependencies": {
-    "express": "latest",
-    "jade": "*",
-    "mongoose": "latest"
-  }
-}
-\end{lstlisting}
+\lstinputlisting{src/bab-07/package.json}
 
 \subsection{Hasil}
 

@@ -1,9 +1,9 @@
 $ node
 > .help
-.breakSometimes you get stuck, this gets you out
-.clearAlias 		for .break
-.exitExit the repl
-.helpShow repl options
-.loadLoad JS fr			om a file into the REPL session
-.saveSave all evaluated commands in th	is REPL session to a file
->
+.break	Sometimes you get stuck, this gets you out
+.clear	Alias for .break
+.exit	Exit the repl
+.help	Show repl options
+.load	Load JS from a file into the REPL session
+.save	Save all evaluated commands in this REPL session to a file
+> 

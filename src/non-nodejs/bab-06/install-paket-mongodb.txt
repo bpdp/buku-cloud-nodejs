@@ -1,0 +1,27 @@
+$ npm install mongodb
+npm http GET https://registry.npmjs.org/mongodb
+npm http 200 https://registry.npmjs.org/mongodb
+npm http GET https://registry.npmjs.org/mongodb/-/mongodb-1.3.0.tgz
+npm http 200 https://registry.npmjs.org/mongodb/-/mongodb-1.3.0.tgz
+npm http GET https://registry.npmjs.org/kerberos
+npm http GET https://registry.npmjs.org/bson/0.1.8
+npm http 200 https://registry.npmjs.org/kerberos
+npm http GET https://registry.npmjs.org/kerberos/-/kerberos-0.0.2.tgz
+npm http 200 https://registry.npmjs.org/bson/0.1.8
+npm http GET https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
+npm http 200 https://registry.npmjs.org/kerberos/-/kerberos-0.0.2.tgz
+npm http 200 https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
+
+> kerberos@0.0.2 install /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/
+  src/bab-06/node_modules/mongodb/node_modules/kerberos
+> (node-gyp rebuild 2> builderror.log) || (exit 0)
+
+
+> bson@0.1.8 install /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/
+  bab-06/node_modules/mongodb/node_modules/bson
+> (node-gyp rebuild 2> builderror.log) || (exit 0)
+
+mongodb@1.3.0 node_modules/mongodb
++-- bson@0.1.8
++-- kerberos@0.0.2
+$

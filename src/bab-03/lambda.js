@@ -3,15 +3,15 @@
 // dengan beberapa perubahan
 
 function applyOperation(a, b, operation) {
-	return operation(a, b);
+  return operation(a, b);
 }
 
 function add(a, b) {
-	return a+b;
+  return a+b;
 }
 
 function subtract(a, b) {
-	return a-b;
+  return a-b;
 }
 
 console.log('1,2, add: ' + applyOperation(1,2, add));

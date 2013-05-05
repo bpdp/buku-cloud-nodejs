@@ -11,7 +11,7 @@ rl.question("What do you think of node.js? ", function(answer) {
 });
 
 // hasil:
-// [bpdp@bpdp-arch modul-2]$ node readline.js 
+// $ node readline.js 
 // What do you think of node.js? awesome!
 // Thank you for your valuable feedback: awesome!
-// [bpdp@bpdp-arch bab-2]$
+// $

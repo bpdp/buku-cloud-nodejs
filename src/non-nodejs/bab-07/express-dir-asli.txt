@@ -1,0 +1,18 @@
+$ tree .
+.
+|-- app.js
+|-- package.json
+|-- public
+|   |-- images
+|   |-- javascripts
+|   `-- stylesheets
+|       `-- style.css
+|-- routes
+|   |-- index.js
+|   `-- user.js
+`-- views
+    |-- index.jade
+    `-- layout.jade
+
+6 directories, 7 files
+$

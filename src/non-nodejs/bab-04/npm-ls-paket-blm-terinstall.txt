@@ -1,0 +1,10 @@
+$ npm ls
+npm WARN package.json hello@0.0.1 No README.md file found!
+hello@0.0.1 /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/src/bab-01/hello
++-- UNMET DEPENDENCY express 3.2.2
++-- UNMET DEPENDENCY jade *
+
+npm ERR! missing: express@3.2.2, required by hello@0.0.1
+npm ERR! missing: jade@*, required by hello@0.0.1
+npm ERR! not ok code 0
+$

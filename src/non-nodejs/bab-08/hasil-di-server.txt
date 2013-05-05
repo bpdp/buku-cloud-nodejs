@@ -1,0 +1,37 @@
+   info  - socket.io started
+GET / 200 141ms - 628b
+GET /stylesheets/style.css 304 3ms
+GET /javascripts/socket.io.js 200 9ms - 98.85kb
+   debug - client authorized
+   info  - handshake authorized LOoIlHJJjOl1g34JtLnP
+   debug - setting request GET /socket.io/1/websocket/LOoIlHJJjOl1g34JtLnP
+   debug - set heartbeat interval for client LOoIlHJJjOl1g34JtLnP
+   debug - client authorized for 
+   debug - websocket writing 1::
+   debug - websocket writing 5:::{"name":"kirim ke browser","args":
+   [{"kalimatDariServer":"Kalimat ini dikirim dari server"}]}
+Kalimat ini dikirim dari browser
+GET / 200 4ms - 628b
+   info  - transport end (socket end)
+   debug - set close timeout for client LOoIlHJJjOl1g34JtLnP
+   debug - cleared close timeout for client LOoIlHJJjOl1g34JtLnP
+   debug - cleared heartbeat interval for client LOoIlHJJjOl1g34JtLnP
+   debug - discarding transport
+GET /stylesheets/style.css 304 1ms
+GET /javascripts/socket.io.js 304 1ms
+   debug - client authorized
+   info  - handshake authorized ijvgksAoa-BWm7uytLnQ
+   debug - setting request GET /socket.io/1/websocket/ijvgksAoa-BWm7uytLnQ
+   debug - set heartbeat interval for client ijvgksAoa-BWm7uytLnQ
+   debug - client authorized for 
+   debug - websocket writing 1::
+   debug - websocket writing 5:::{"name":"kirim ke browser","args":
+   [{"kalimatDariServer":"Kalimat ini dikirim dari server"}]}
+Kalimat ini dikirim dari browser
+   debug - emitting heartbeat for client ijvgksAoa-BWm7uytLnQ
+   debug - websocket writing 2::
+   debug - set heartbeat timeout for client ijvgksAoa-BWm7uytLnQ
+   debug - got heartbeat packet
+   debug - cleared heartbeat timeout for client ijvgksAoa-BWm7uytLnQ
+   debug - set heartbeat interval for client ijvgksAoa-BWm7uytLnQ
+

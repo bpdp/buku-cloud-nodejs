@@ -1,0 +1,43 @@
+$ mkdir data
+$ mongod --rest --dbpath ./data
+Sun May  5 22:47:05.495 
+Sun May  5 22:47:05.495 warning: 32-bit servers don't have journaling 
+  enabled by default. Please use --journal if you want durability.
+Sun May  5 22:47:05.495 
+Sun May  5 22:47:05.581 [initandlisten] MongoDB starting : pid=2994 
+  port=27017 dbpath=./data 32-bit host=bpdp-arch
+Sun May  5 22:47:05.581 [initandlisten] 
+Sun May  5 22:47:05.581 [initandlisten] ** NOTE: This is a 32 bit 
+  MongoDB binary.
+Sun May  5 22:47:05.581 [initandlisten] **       32 bit builds are 
+  limited to less than 2GB of data (or less with --journal).
+Sun May  5 22:47:05.581 [initandlisten] **       Note that journaling 
+  defaults to off for 32 bit and is currently off.
+Sun May  5 22:47:05.581 [initandlisten] **       See 
+  http://dochub.mongodb.org/core/32bit
+Sun May  5 22:47:05.581 [initandlisten] 
+Sun May  5 22:47:05.581 [initandlisten] db version v2.4.4-pre-
+Sun May  5 22:47:05.581 [initandlisten] git version: nogitversion
+Sun May  5 22:47:05.581 [initandlisten] build info: Linux fyan 
+  3.8.3-2-ARCH #1 SMP PREEMPT Sun Mar 17 13:04:22 CET 2013 
+  i686 BOOST_LIB_VERSION=1_53
+Sun May  5 22:47:05.581 [initandlisten] allocator: system
+Sun May  5 22:47:05.581 [initandlisten] options: { dbpath: 
+  "./data", rest: true }
+Sun May  5 22:47:05.789 [FileAllocator] allocating new datafile 
+  ./data/local.ns, filling with zeroes...
+Sun May  5 22:47:05.790 [FileAllocator] creating directory 
+  ./data/_tmp
+Sun May  5 22:47:05.997 [FileAllocator] done allocating datafile 
+  ./data/local.ns, size: 16MB,  took 0.088 secs
+Sun May  5 22:47:05.998 [FileAllocator] allocating new datafile 
+  ./data/local.0, filling with zeroes...
+Sun May  5 22:47:06.086 [FileAllocator] done allocating datafile 
+  ./data/local.0, size: 16MB,  took 0.088 secs
+Sun May  5 22:47:06.091 [initandlisten] command local.$cmd command: 
+  { create: "startup_log", size: 10485760, capped: true } 
+  ntoreturn:1 keyUpdates:0  reslen:37 301ms
+Sun May  5 22:47:06.093 [initandlisten] waiting for connections 
+  on port 27017
+Sun May  5 22:47:06.093 [websvr] admin web console waiting for 
+  connections on port 28017

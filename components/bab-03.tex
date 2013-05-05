@@ -11,121 +11,28 @@ JavaScript bukan merupakan bahasa pemrograman fungsional yang murni, tetapi ada 
 \index{Ekspresi Lambda}Ekspresi lambda / \textit{lambda expression} merupakan hasil karya dari ALonzo Church sekitar tahun 1930-an. Aplikasi dari konsep ini di dalam pemrograman adalah penggunaan fungsi sebagai parameter untuk suatu fungsi. Dalam pemrograman, \textit{lambda function} sering juga disebut sebagai fungsi anonimus (fungsi yang dipanggil/dieksekusi tanpa ditautkan (\textit{bound}) ke suatu \textit{identifier}). Berikut adalah implementasi dari konsep ini di JavaSCript:
 
 \lstset{language=JavaScript,caption=Ekspresi Lambda di JavaScript}
-\begin{lstlisting}
-// Diambil dari 
-// http://stackoverflow.com/questions/3865335/what-is-a-lambda-language
-// dengan beberapa perubahan
-
-function applyOperation(a, b, operation) {
-	return operation(a, b);
-}
-
-function add(a, b) {
-	return a+b;
-}
-
-function subtract(a, b) {
-	return a-b;
-}
-
-console.log('1,2, add: ' + applyOperation(1,2, add));
-console.log('43,21, subtract: ' + applyOperation(43,21, subtract));
-
-console.log('4^3: ' + applyOperation(4, 3, function(a,b) {return Math.pow(a, b)}))
-
-// hasil:
-// 1,2, add: 3
-// 43,21, subtract: 22
-// 4^3: 64
-\end{lstlisting}
+\lstinputlisting{src/bab-03/lambda.js}
 
 \subsection{Higher-order Function}
 
 \index{Higher-order Function}\textit{Higher-order function} (sering disebut juga sebagai \textit{functor} adalah suatu fungsi yang setidak-tidaknya menggunakan satu atau lebih fungsi lain sebagai parameter dari fungsi, atau menghasilkan fungsi sebagai nilai kembalian. 
 
 \lstset{language=JavaScript,caption=Higher-order Function di JavaScript}
-\begin{lstlisting}
-function forEach(array, action) {
-	for (var i = 0; i < array.length; i++ )
-		action(array[i]);
-}
-
-function print(word) {
-	console.log(word);
-}
-
-function makeUpperCase(word) {
-	console.log(word.toUpperCase());
-}
-
-forEach(["satu", "dua", "tiga"], print);
-forEach(["satu", "dua", "tiga"], makeUpperCase);
-
-// hasil:
-//satu
-//dua
-//tiga
-//SATU
-//DUA
-//TIGA
-\end{lstlisting}
+\lstinputlisting{src/bab-03/hof.js}
 
 \subsection{Closure}
 
 \index{Closure}Suatu \textit{closure} merupakan definisi suatu fungsi bersama-sama dengan lingkungannya. Lingkungan tersebut terdiri atas fungsi internal serta berbagai variabel lokal yang masih tetap tersedia saat fungsi utama / closure tersebut selesai dieksekusi. 
 
 \lstset{language=JavaScript,caption=Closure di JavaScript}
-\begin{lstlisting}
-// Diambil dengan sedikit perubahan dari:
-// https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures
-function makeAdder(x) {
-  return function(y) {
-    return x + y;
-  };
-}
- 
-var add5 = makeAdder(5);
-var add10 = makeAdder(10);
- 
-console.log(add5(2));  // 7
-console.log(add10(2)); // 12
-\end{lstlisting}
+\lstinputlisting{src/bab-03/closure.js}
 
 \subsection{Currying}
 
 \index{Currying}\textit{Currying} memungkinkan pemrogram untuk membuat suatu fungsi dengan cara menggunakan fungsi yang sudah tersedia secara parsial, artinya tidak perlu menggunakan semua argumen dari fungsi yang sudah tersedia tersebut.
 
 \lstset{language=JavaScript,caption=Currying di JavaScript}
-\begin{lstlisting}
-// Diambil dari:
-// http://javascriptweblog.wordpress.com/2010/04/05/
-// 		curry-cooking-up-tastier-functions/
-// dengan sedikit perubahan
-
-function toArray(fromEnum) {
-    return Array.prototype.slice.call(fromEnum);
-}
-
-Function.prototype.curry = function() {
-    if (arguments.length<1) {
-        return this; //nothing to curry with - return function
-    }
-    var __method = this;
-    var args = toArray(arguments);
-    return function() {
-        return __method.apply(this, args.concat(toArray(arguments)));
-    }
-}
-
-var add = function(a,b) {
-    return a + b;
-}
-
-//create function that returns 10 + argument
-var addTen = add.curry(10); 
-console.log(addTen(20)); //30
-\end{lstlisting}
-
+\lstinputlisting{src/bab-03/currying.js}
 
 \section{Pemrograman Berorientasi Obyek}
 
@@ -142,104 +49,11 @@ JavaScript adalah bahasa pemrograman yang mendukung PBO dan merupakan implementa
 \index{Obyek}Definisi obyek dilakukan dengan menggunakan definisi \textit{function}, sementara \textit{this} digunakan di dalam definisi untuk menunjukkan ke obyek tersebut. Sementara itu, Kelas.prototype.namaMethod digunakan untuk mendefinisikan method dengan nama method namaMethod pada kelas Kelas. Perhatikan contoh pada listing berikut.
 
 \lstset{language=JavaScript,caption=Definisi obyek di JavaScript}
-\begin{lstlisting}
-var url = require('url');
-
-// Definisi obyek
-function Halaman(alamatUrl) {
-  this.url = alamatUrl;
-  console.log("Mengakses alamat " + alamatUrl);
-}
-
-Halaman.prototype.getDomainName = function() {
-  return url.parse(this.url, true).host; 
-}
-// sampai disini definisi obyek
-// Halaman.prototype.getDomainName => menetapkan method getDomainName
-// untuk obyek
-
-var halSatu = new Halaman("http://nodejs.org/api/http.html");
-var halDua = new Halaman("http://bpdp.name/login?fromHome");
-
-console.log("Alamat URL yang diakses oleh halSatu = " + halSatu.url);
-console.log("Alamat URL yang diakses oleh halDua = " + halDua.url);
-
-console.log("Nama domain halDua = " + halDua.getDomainName());
-
-// hasil:
-// Mengakses alamat http://nodejs.org/api/http.html
-// Mengakses alamat http://bpdp.name/login?fromHome
-// Alamat URL yang diakses oleh halSatu = http://nodejs.org/api/http.html
-// Alamat URL yang diakses oleh halDua = http://bpdp.name/login?fromHome
-// Nama domain halDua = bpdp.name
-\end{lstlisting}
+\lstinputlisting{src/bab-03/obyek.js}
 
 \subsection{\textit{Inheritance} / Pewarisan}
 
 \index{Pewarisan}Pewarisan di JavaScript bisa dicapai menggunakan \textit{prototype}. Listing program berikut memperlihatkan bagaimana pewarisan diimplementasikan di JavaScript.
 
 \lstset{language=JavaScript,caption=Pewarisan di PBO JavaScript}
-\begin{lstlisting}
-// Definisi obyek
-function Kelas(param) {
-  this.property1 = new String(param);
-}
-
-Kelas.prototype.methodSatu = function() {
-  return this.property1; 
-}
-
-var kelasSatu = new Kelas("ini parameter 1 dari kelas 1");
-
-console.log("Property 1 dari kelasSatu = " + kelasSatu.property1);
-console.log("Property 1 dari kelasSatu, diambil dari method  = " + kelasSatu.methodSatu());
-
-// Definisi inheritance:
-// SubKelas merupakan anak dari Kelas yang didefinisikan
-// di atas.
-
-SubKelas.prototype = new Kelas();
-SubKelas.prototype.constructor = SubKelas;
-
-function SubKelas(param) {
-  this.property1 = new String(param);
-}
-
-// method overriding
-SubKelas.prototype.methodSatu = function(keHurufBesar) {
-  console.log("Ubah ke huruf besar? = " + keHurufBesar);
-  if (keHurufBesar) {
-    return this.property1.toUpperCase();
-  } else {
-    return this.property1.toLowerCase();
-  }
-}
-
-SubKelas.prototype.methodDua = function() {
-  console.log("Berada di method dua dari SubKelas");
-}
-
-// mari diuji
-var subKelasSatu = new SubKelas("Parameter 1 Dari Sub Kelas 1");
-
-console.log("Property 1 dari sub kelas 1 = " + subKelasSatu.property1);
-console.log("Property 1 dari sub kelas 1, diambil dari method+param = " + 
-  subKelasSatu.methodSatu(true));
-console.log("Property 1 dari sub kelas 1, diambil dari method+param = " +
-  subKelasSatu.methodSatu(false));
-
-console.log(subKelasSatu.methodDua());
-// hasil:
-//
-//Property 1 dari kelasSatu = ini parameter 1 dari kelas 1
-//Property 1 dari kelasSatu, diambil dari method  = ini 
-//parameter 1 dari kelas 1
-//Property 1 dari sub kelas 1 = Parameter 1 Dari Sub Kelas 1
-//Ubah ke huruf besar? = true
-//Property 1 dari sub kelas 1, diambil dari method+param = 
-//PARAMETER 1 DARI SUB KELAS 1
-//Ubah ke huruf besar? = false
-//Property 1 dari sub kelas 1, diambil dari method+param = 
-//parameter 1 dari sub kelas 1
-//Berada di method dua dari SubKelas
-\end{lstlisting}
+\lstinputlisting{src/bab-03/inheritance.js}

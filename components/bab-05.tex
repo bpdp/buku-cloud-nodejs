@@ -5,27 +5,7 @@
 Pada saat membangun aplikasi Cloud dengan antarmuka web menggunakan Node.js, ada beberapa teknik pemrograman yang bisa digunakan. Bab ini akan membahas berbagai teknik tersebut. Untuk mengerjakan beberapa latihan di bab ini, digunakan suatu file dengan format JSON. File \textit{pegawai.json} berikut ini akan digunakan dalam pembahasan selanjutnya.
 
 \lstset{language=JavaScript,caption=pegawai.json}
-\begin{lstlisting}
-{
-    "pegawai": [
-        {
-            "id": "1",
-            "nama": "Zaky",
-            "alamat": "Purwomartani"
-        },
-        {
-            "id": "2",
-            "nama": "Ahmad",
-            "alamat": "Kalasan"
-        },
-        {
-            "id": "3",
-            "name": "Aditya",
-            "alamat": "Sleman"
-        }
-    ]
-}
-\end{lstlisting}
+\lstinputlisting{src/bab-05/pegawai.json}
 
 \index{JSON!Validator}Jika ingin memeriksa validitas dari data berformat JSON, pemrogram bisa menggunakan validator di \url{http://jsonlint.com}.
 
@@ -53,114 +33,17 @@ Untuk memahami mekanisme ini, pahami dua kode sumber berikut:
 File server.js dijalankan lebih dulu, setelah itu baru menjalankan server-on-error.js.
 
 \lstset{language=JavaScript,caption=server.js}
-\begin{lstlisting}
-var http = require('http');
-http.createServer(function (req, res) {
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.end('Hello World\n');
-}).listen(1337, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:1337/');
-\end{lstlisting}
+\lstinputlisting{src/bab-05/edp/server.js}
 
 \lstset{language=JavaScript,caption=server-on-error.js}
-\begin{lstlisting}
-var net = require('net');
-
-var server = net.createServer(function(sock) {
-
-	// Event dan event-handler
-	// 'data' => jika ada data yang dikirimkan dari klien
-	sock.on('data', function(data) {
-		console.log('data ' + sock.remoteAddress + ': ' + data);
-	});
-
-	// 'close' => jika koneksi ditutup
-	sock.on('close', function(data) {
-		console.log('koneksi ditutup');
-	});
-
-});
-
-server.listen(1337, function() {
-	console.log('Server aktif di 127.0.0.1:1337');
-});
-
-server.on('error', function (e) {
-	if (e.code == 'EADDRINUSE') {
-		console.log('Error: host dan port sudah digunakan.');
-	}
-});
-\end{lstlisting}
+\lstinputlisting{src/bab-05/edp/server-on-error.js}
 
 \section{Asynchronous / Non-blocking IO dan \textit{Callback}}
 
 \index{Asynchronous}\index{Non-blocking IO}\index{Callback}\textit{Asynchronous input/output} merupakan suatu bentuk pemrosesan masukan/keluaran yang memungkinkan pemrosesan dilanjutkan tanpa menunggu proses tersebut selesai. Saat pemrosesan masukan/keluaran tersebut selesai, hasil akan diberikan ke suatu fungsi. Fungsi yang menangani hasil pemrosesan saat pemrosesan tersebut selesai disebut \textit{callback} (pemanggilan kembali). Jadi, mekanismenya adalah: proses masukan/keluaran - lanjut ke alur berikutnya - panggil kembali fungsi pemroses jika proses masukan/keluaran sudah selesai.
 
 \lstset{language=JavaScript,caption=Membaca file secara synchronous}
-\begin{lstlisting}
-var fs = require('fs');
-var sys = require('sys');
-
-sys.puts('Mulai baca file');
-data = fs.readFileSync('./pegawai.json', "utf-8");
-console.log(data);
-sys.puts('Baris setelah membaca file');
-// Hasil:
-//Mulai baca file
-//{
-//    "pegawai": [
-//        {
-//            "id": "1",
-//            "nama": "Zaky",
-//            "alamat": "Purwomartani"
-//        },
-//        {
-//            "id": "2",
-//            "nama": "Ahmad",
-//            "alamat": "Kalasan"
-//        },
-//        {
-//            "id": "3",
-//            "name": "Aditya",
-//            "alamat": "Sleman"
-//        }
-//    ]
-//}
-//
-//Baris setelah membaca file
-\end{lstlisting}
+\lstinputlisting{src/bab-05/synchronous.js}
 
 \lstset{language=JavaScript,caption=Membaca file secara asynchronous}
-\begin{lstlisting}
-var fs = require('fs');
-var sys = require('sys');
-
-sys.puts('Mulai baca file');
-fs.readFile('./pegawai.json', "utf-8",  function(err, data) {
-  if (err) throw err;
-  console.log(data);
-})
-sys.puts('Baris setelah membaca file');
-// Hasil:
-//Mulai baca file
-//Baris setelah membaca file
-//{
-//    "pegawai": [
-//        {
-//            "id": "1",
-//            "nama": "Zaky",
-//            "alamat": "Purwomartani"
-//        },
-//        {
-//            "id": "2",
-//            "nama": "Ahmad",
-//            "alamat": "Kalasan"
-//        },
-//        {
-//            "id": "3",
-//            "name": "Aditya",
-//            "alamat": "Sleman"
-//        }
-//    ]
-//}
-\end{lstlisting}
+\lstinputlisting{src/bab-05/asynchronous-callback.js}

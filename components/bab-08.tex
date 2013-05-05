@@ -86,35 +86,7 @@ Aplikasi ini hanya merupakan contoh kecil dari real-time Web. Aplikasi terdiri a
 
 \subsubsection{Membuat Kerangka Aplikasi dengan ExpressJS}
 
-Untuk membuat aplikasi ini, kita akan menggunakan ExpressJS dan Socket.io. Pada awalnya, kita akan membuat kerangka aplikasi menggunakan express (jika ExpressJS belum terinstall, install dengan menggunakan \textit{npm install -g express}. 
-
-\lstset{language=Bash,caption=Membuat kerangka aplikasi dengan ExpressJS}
-\begin{lstlisting}
-$ express 
-
-   create : .
-   create : ./package.json
-   create : ./app.js
-   create : ./public
-   create : ./public/images
-   create : ./public/stylesheets
-   create : ./public/stylesheets/style.css
-   create : ./routes
-   create : ./routes/index.js
-   create : ./routes/user.js
-   create : ./views
-   create : ./views/layout.jade
-   create : ./views/index.jade
-   create : ./public/javascripts
-
-   install dependencies:
-     $ cd . && npm install
-
-   run the app:
-     $ node app
-
-$
-\end{lstlisting}
+Untuk membuat aplikasi ini, kita akan menggunakan ExpressJS dan Socket.io. Pada awalnya, kita akan membuat kerangka aplikasi menggunakan express (jika ExpressJS belum terinstall, install dengan menggunakan \textit{npm install -g express}. Jika sudah terinstall, buat direktori baru, kemudian buatlah kerangka aplikasi menggunakan express pada direktori tersebut: ``express<Enter>''.
 
 Pada pembahasan berikutnya, kita akan mengadakan berbagai perubahan yang diperlukan.
 
@@ -123,23 +95,7 @@ Pada pembahasan berikutnya, kita akan mengadakan berbagai perubahan yang diperlu
 File \textit{package.json} berisi beberapa informasi tentang aplikasi ini serta beberapa paket yang diperlukan. Isi dari file ini adalah sebagai berikut:
 
 \lstset{language=JavaScript,caption=package.json}
-\begin{lstlisting}
-{
-  "name": "socket.io-expressjs",
-  "version": "0.0.1",
-  "author": "Bambang Purnomosidi D. P.",
-  "private": true,
-  "scripts": {
-    "start": "node app"
-  },
-  "dependencies": {
-    "express": "latest",
-    "jade": "*",
-    "socket.io": "latest",
-    "socket.io-client": "latest"
-  }
-}
-\end{lstlisting}
+\lstinputlisting{src/bab-08/package.json}
 
 Setelah itu. install paket-paket tersebut dengan menggunakan perintah \textit{npm install} di direktori tersebut. 
 
@@ -148,16 +104,7 @@ Setelah itu. install paket-paket tersebut dengan menggunakan perintah \textit{np
 Browser juga memerlukan pustaka untuk Socket.io yang diperoleh dari paket \textit{socket.io-client}. Pada paket tersebut, terdapat direktori \textit{dist}:
 
 \lstset{language=Bash,caption=Isi direktori dist di socket.io-client}
-\begin{lstlisting}
-$ ls node_modules/socket.io-client/dist/
-total 496
-drwxr-xr-x 2 bpdp users   4096 Dec 16 20:18 .
-drwxr-xr-x 7 bpdp users   4096 Dec 16 20:18 ..
--rw-r--r-- 1 bpdp users 101222 Nov  2 22:02 socket.io.js
--rw-r--r-- 1 bpdp users  44789 Nov  2 22:02 socket.io.min.js
--rw-r--r-- 1 bpdp users 175953 Mar 28  2012 WebSocketMainInsecure.swf
--rw-r--r-- 1 bpdp users 175830 Mar 28  2012 WebSocketMain.swf
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-08/isi-dir-socket-io-client-dist.txt}
 
 \textit{Copy}-kan file-file tersebut ke direktori \textit{public/javascripts}.
 
@@ -173,114 +120,20 @@ Ada beberapa file yang tidak diperlukan dan harus dihapus:
 Beberapa file akan diedit. Beberapa diantaranya akan diuraikan di bagian ini.
 
 \lstset{language=JavaScript,caption=app.js}
-\begin{lstlisting}
-var express = require('express')
-		, app = express()
-  	, routes = require('./routes')
-	  , http = require('http')
-		, server = http.createServer(app)
-	  , io = require('socket.io').listen(server);
-
-server.listen(80);
-
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-	app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
-});
-
-app.get('/', routes.index);
-
-io.sockets.on('connection', function (socket) {
-	socket.emit('kirim ke browser', { 
-		kalimatDariServer: 'Kalimat ini dikirim dari server' });
-	socket.on('dari browser', function (data) {
-		console.log(data.kalimatDariBrowser);
-	});
-});
-\end{lstlisting}
+\lstinputlisting{src/bab-08/app.js}
 
 \lstset{language=html,caption=views/index.jade}
-\begin{lstlisting}
-extends layout
-
-block content
-  h1= title
-  p #{title}
-  script(src="/javascripts/socket.io.js")
-  script
-    var socket = io.connect('http://localhost');
-    socket.on('kirim ke browser', function (data) {
-      document.getElementById("container").innerHTML=
-        "<p>" + data.kalimatDariServer + "</p>";
-      socket.emit('dari browser', { 
-        kalimatDariBrowser: 'Kalimat ini dikirim dari browser' });
-    });
-  #container
-    p #{title}
-\end{lstlisting}
+\lstinputlisting{src/bab-08/views/index.jade}
 
 \lstset{language=html,caption=routes/index.js}
-\begin{lstlisting}
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-  res.render('index', { title: 'Contoh Socket.io + Express' });
-};
-\end{lstlisting}
+\lstinputlisting{src/bab-08/routes/index.js}
 
 \subsubsection{Menjalankan Server Socket.io}
 
 Server socket.io menggunakan port 80 sehingga harus dijalankan oleh \textit{root}. 
 
 \lstset{language=Bash,caption=Menjalankan server Socket.io}
-\begin{lstlisting}
-# node app.js 
-   info  - socket.io started
-   debug - client authorized
-   info  - handshake authorized qrMUlAcSRMywnvUK31RV
-   debug - setting request GET /socket.io/1/websocket/qrMUlAcSRMywnvUK31RV
-   debug - set heartbeat interval for client qrMUlAcSRMywnvUK31RV
-   debug - client authorized for 
-   debug - websocket writing 1::
-   debug - websocket writing 5:::{"name":"kirim ke browser","args":[{"kalimatDariServer":
-		"Kalimat ini dikirim dari server"}]}
-Kalimat ini dikirim dari browser
-GET / 200 44ms - 628
-   info  - transport end (socket end)
-   debug - set close timeout for client qrMUlAcSRMywnvUK31RV
-   debug - cleared close timeout for client qrMUlAcSRMywnvUK31RV
-   debug - cleared heartbeat interval for client qrMUlAcSRMywnvUK31RV
-   debug - discarding transport
-GET /javascripts/socket.io.js 304 4ms
-GET /stylesheets/style.css 304 4ms
-   debug - client authorized
-   info  - handshake authorized Eug556Y-X-4R8fOB31RW
-   debug - setting request GET /socket.io/1/websocket/Eug556Y-X-4R8fOB31RW
-   debug - set heartbeat interval for client Eug556Y-X-4R8fOB31RW
-   debug - client authorized for 
-   debug - websocket writing 1::
-   debug - websocket writing 5:::{"name":"kirim ke browser","args":[{"kalimatDariServer":
-		"Kalimat ini dikirim dari server"}]}
-Kalimat ini dikirim dari browser
-   debug - emitting heartbeat for client Eug556Y-X-4R8fOB31RW
-   debug - websocket writing 2::
-   debug - set heartbeat timeout for client Eug556Y-X-4R8fOB31RW
-   debug - got heartbeat packet
-   debug - cleared heartbeat timeout for client Eug556Y-X-4R8fOB31RW
-   debug - set heartbeat interval for client Eug556Y-X-4R8fOB31RW
-	 ...
-	 ...
-	 ...
-	 ...
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-08/hasil-di-server.txt}
 
 Keluaran pada sisi server tersebut merupakan keluaran yang sudah termasuk akses dari browser. Setelah server dijalankan, buka browser kemudian akses URL \url{http://localhost}. Setelah diakses melalui browser, server akan mengirimkan kode sumber HTML sebagai berikut:
 

@@ -1,0 +1,46 @@
+$ npm view arango.client
+npm http GET https://registry.npmjs.org/arango.client
+npm http 200 https://registry.npmjs.org/arango.client
+
+{ name: 'arango.client',
+  description: 'ArangoDB javascript client',
+  'dist-tags': { latest: '0.5.6' },
+  versions: 
+   [ '0.3.1',
+     '0.3.2',
+     '0.4.0',
+     '0.5.0',
+     '0.5.1',
+     '0.5.4',
+     '0.5.6' ],
+  maintainers: 'kaerus <anders@kaerus.com>',
+  time: 
+   { '0.3.1': '2012-08-09T12:04:34.594Z',
+     '0.3.2': '2012-08-09T12:49:02.322Z',
+     '0.4.0': '2012-09-17T10:44:43.187Z',
+     '0.5.0': '2012-10-01T14:51:32.668Z',
+     '0.5.1': '2012-10-03T22:11:58.376Z',
+     '0.5.4': '2012-10-16T09:45:37.477Z',
+     '0.5.6': '2012-10-26T17:34:28.491Z' },
+  author: 'Kaerus <contact@kaerus.com> (http://kaerus.com)',
+  repository: 
+   { type: 'git',
+     url: 'git://github.com/kaerus/arango-client.git' },
+  version: '0.5.6',
+  keywords: 
+   [ 'arangodb',
+     'nosql',
+     'qunit',
+     'amd' ],
+  contributors: 'anders elo <anders@kaerus.com>',
+  dependencies: { amdefine: '>=0.0.2' },
+  devDependencies: { requirejs: '>=2.0.6' },
+  bugs: { url: 'https://github.com/kaerus/arango-client/issues' },
+  main: 'index.js',
+  license: 'MIT',
+  dist: 
+   { shasum: '48279e7cf9ea0b4b6766f09671224c46d6e716b0',
+     tarball: 'http://registry.npmjs.org/arango.client/-/arango.client-0.5.6.tgz' },
+  directories: {} }
+
+$

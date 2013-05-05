@@ -22,81 +22,19 @@
 Seperti halnya basis data relasional seperti MySQL, PostgreSQL, dan lain-lain, mongoDB juga memulai dengan menjalankan server yang memungkinkan server tersebut melayani permintaan akses data dokumen melalui klien. Untuk memulai server, siapkan direktori yang akan menjadi tempat menyimpan data (defaultnya adalah /data/db). Jika menginginkan lokasi lain, gunakan argumen \textit{--dbpath} saat menjalankan server sebagai berikut (buat direktorinya jika belum ada):
 
 \lstset{language=bash,caption=Menjalankan server MongoDB (mongod)}
-\begin{lstlisting}
-$ pwd
-/home/bpdp/mongodb
-$ mkdir data
-$ mongod --rest --dbpath ./data
-Fri Mar 22 10:15:35 
-Fri Mar 22 10:15:35 warning: 32-bit servers don't have journaling 
-enabled by default. Please use --journal if you want durability.
-Fri Mar 22 10:15:35 
-Fri Mar 22 10:15:35 [initandlisten] MongoDB starting : pid=8601 
-port=27017 dbpath=./data/ 32-bit host=bpdp-arch
-Fri Mar 22 10:15:35 [initandlisten] 
-Fri Mar 22 10:15:35 [initandlisten] ** NOTE: when using MongoDB 32 
-bit, you are limited to about 2 gigabytes of data
-Fri Mar 22 10:15:35 [initandlisten] **       see 
-http://blog.mongodb.org/post/137788967/32-bit-limitations
-Fri Mar 22 10:15:35 [initandlisten] **       with --journal, 
-the limit is lower
-Fri Mar 22 10:15:35 [initandlisten] 
-Fri Mar 22 10:15:35 [initandlisten] db version v2.2.3, pdfile 
-version 4.5
-Fri Mar 22 10:15:35 [initandlisten] git version: nogitversion
-Fri Mar 22 10:15:35 [initandlisten] build info: Linux fyan 3.7.5-1-ARCH 
-#1 SMP PREEMPT Mon Jan 28 10:03:32 CET 2013 i686 BOOST_LIB_VERSION=1_52
-Fri Mar 22 10:15:35 [initandlisten] options: { dbpath: "./data/", 
-rest: true }
-Fri Mar 22 10:15:35 [initandlisten] Unable to check for journal files 
-due to: boost::filesystem::directory_iterator::construct: No such file 
-or directory: "./data/journal"
-Fri Mar 22 10:15:35 [websvr] admin web console waiting for connections 
-on port 28017
-Fri Mar 22 10:15:35 [initandlisten] waiting for connections on 
-port 27017
-
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/mongodb-run.txt}
 
 Untuk mengakhiri server, tekan \textit{Ctrl-C}, mongoDB akan mengakhiri server sebagai berikut:
 
 \lstset{language=bash,caption=Mengakhiri server MongoDB (mongod)}
-\begin{lstlisting}
-^CFri Mar 22 10:17:59 got signal 2 (Interrupt), will terminate 
-after current cmd ends
-Fri Mar 22 10:17:59 [interruptThread] now exiting
-Fri Mar 22 10:17:59 dbexit: 
-Fri Mar 22 10:17:59 [interruptThread] shutdown: going to close 
-listening sockets...
-Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 5
-Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 6
-Fri Mar 22 10:17:59 [interruptThread] closing listening socket: 7
-Fri Mar 22 10:17:59 [interruptThread] removing socket file: 
-/tmp/mongodb-27017.sock
-Fri Mar 22 10:17:59 [interruptThread] shutdown: going to flush 
-diaglog...
-Fri Mar 22 10:17:59 [interruptThread] shutdown: going to close 
-sockets...
-Fri Mar 22 10:17:59 [interruptThread] shutdown: waiting for fs 
-preallocator...
-Fri Mar 22 10:17:59 [interruptThread] shutdown: closing all files...
-Fri Mar 22 10:17:59 [interruptThread] closeAllFiles() finished
-Fri Mar 22 10:17:59 [interruptThread] shutdown: removing fs lock...
-Fri Mar 22 10:17:59 dbexit: really exiting now
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/mongodb-stop.txt}
 
 \subsection{Klien dan Shell mongoDB}
 
 Setelah server hidup, pemrogram bisa menggunakan antarmuka administrasi web maupun menggunakan shell. \textit{Admin web console} bisa diakses menggunakan port 28017 seperti pada gambar~\ref{fig:mongowebadminconsole}. Sementara itu, untuk mengakses server menggunakan shell, bisa digunakan perintah \textit{mongo} sebagai berikut:
 
 \lstset{language=bash,caption=Shell mongoDB (mongo)}
-\begin{lstlisting}
-$ mongo
-MongoDB shell version: 2.2.3
-connecting to: test
-> 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/mongodb-shell.txt}
 
   \begin{figure}
     \begin{center}
@@ -112,60 +50,7 @@ connecting to: test
 Konsep dasar yang harus dipahami dalam mongoDB sebagai \textit{document-oriented database} adalah \textit{documents} dan \textit{collections}. Sama halnya dengan basis data relasional, mongoDB menyimpan data dalam suatu basis data. Di dalam basis data tersebut terdapat \textit{collections} yang bisa diibaratkan seperti tabel dalam basis data relasional. \textit{Collections} digunakan untuk menyimpan dokumen (\textit{documents}). Dalam istilah basis data relasional, \textit{documents} adalah \textit{records}. Kerjakan latihan berikut untuk memahami pengertian dari \textit{documents} dan \textit{collections}.
 
 \lstset{language=bash,caption=Sesi dalam shell mongoDB}
-\begin{lstlisting}
-$ mongo
-MongoDB shell version: 2.2.3
-connecting to: test
-> db
-test
-> use mydb
-switched to db mydb
-> show dbs
-local	(empty)
-> emp1 = { name : "Zaky", address : "Griya Purwa Asri" }
-{ "name" : "Zaky", "address" : "Griya Purwa Asri" }
-> emp2 = { name : "Ahmad", address : "Purwomartani", email : "zakyahmadaditya@gmail.com" }
-{
-	"name" : "Ahmad",
-	"address" : "Purwomartani",
-	"email" : "zakyahmadaditya@gmail.com"
-}
-> emp3 = { name : "Aditya", address : "Kalasan", phone: "08787878787" }
-{ "name" : "Aditya", "address" : "Kalasan", "phone" : "08787878787" }
-> db.employees.insert( emp1 )
-> db.employees.insert( emp2 )
-> db.employees.insert( emp3 )
-> show dbs
-local	(empty)
-mydb	0.0625GB
-> db
-mydb
-> show collections
-employees
-system.indexes
-> db.employees.find()
-{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
-	"Griya Purwa Asri" }
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
-	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
-{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" : "Aditya", "address" : 
-	"Kalasan", "phone" : "08787878787" }
-> db.employees.find( {name : "Ahmad"} )
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
-	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
-> db.employees.findOne()
-{
-	"_id" : ObjectId("50c74b63a7f83cba11e6b21e"),
-	"name" : "Zaky",
-	"address" : "Griya Purwa Asri"
-}
-> db.employees.find().limit(2)
-{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
-	"Griya Purwa Asri" }
-{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
-	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
-> 
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/mongodb-shell-session.txt}
 
 Basis data mongoDB hanya akan dibuat jika sudah dilakukan perintah untuk menyisipkan atau mengisikan data \textit{documents} ke dalam \textit{collections} seperti perintah di atas.
 
@@ -176,34 +61,16 @@ Basis data mongoDB hanya akan dibuat jika sudah dilakukan perintah untuk menyisi
 \index{Node-gyp}Node-gyp merupakan \textit{native add-on build tool}, berfungsi untuk membantu proses kompilasi modul add-on native di Node.js. Node-gyp merupakan software bebas dan bisa diinstall menggunakan npm:
 
 \lstset{language=bash,caption=Instalasi node-gyp}
-\begin{lstlisting}
-$ npm install -g node-gyp
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/install-node-gyp.txt}
 
 Node-gyp ini diinstall pada lokasi global. Pada materi ini, Node-gyp diperlukan untuk membangun \textit{driver} dari mongoDB sehingga mongoDB bisa diakses oleh Node.js. 
 
 \subsection{Driver Node.js untuk mongoDB}
 
-\index{mongoDB!Driver}Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Beberapa solusi yang tersedia adalah:
+\index{mongoDB!Driver}Mengakses mongoDB dari Node.js bisa dilakukan dengan menggunakan driver atau berbagai \textit{wrapper} serta solusi sejenis ORM \textit{Object-Relational Mapping}. Salah satu solusi yang tersedia adalah paket \textbf{mongodb}.
+
 \lstset{language=bash,caption=Instalasi driver mongoDB}
-\begin{lstlisting}
-$ npm install mongodb
-npm http GET https://registry.npmjs.org/mongodb
-npm http 200 https://registry.npmjs.org/mongodb
-npm http GET https://registry.npmjs.org/mongodb/-/mongodb-1.2.14.tgz
-npm http 200 https://registry.npmjs.org/mongodb/-/mongodb-1.2.14.tgz
-npm http GET https://registry.npmjs.org/bson/0.1.8
-npm http 200 https://registry.npmjs.org/bson/0.1.8
-npm http GET https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
-npm http 200 https://registry.npmjs.org/bson/-/bson-0.1.8.tgz
-
-> bson@0.1.8 install /home/bpdp/kerjaan/git-repos/buku-cloud-nodejs/images/node_modules/mongodb/node_modules/bson
-> (node-gyp rebuild 2> builderror.log) || (exit 0)
-
-mongodb@1.2.14 node_modules/mongodb
-+-- bson@0.1.8
-$
-\end{lstlisting}
+\lstinputlisting{src/non-nodejs/bab-06/install-paket-mongodb.txt}
 
 Solusi lain yang bisa digunakan antara lain adalah:
 \begin{itemize}
@@ -217,223 +84,36 @@ Solusi lain yang bisa digunakan antara lain adalah:
 
 Dengan menggunakan \textit{collections} dan \textit{documents} di atas, kita akan mengakses data tersebut menggunakan Node.js. Untuk lebih menyederhanakan, kita akan menggunakan \textit{wrapper} dari mongoDB native driver, yaitu Mongojs. Install Mongojs lebih dahulu menggunakan npm:
 
-\lstset{language=bash,caption=Instalasi driver mongoDB}
-\begin{lstlisting}
-$ npm install mongojs
-npm http GET https://registry.npmjs.org/mongojs
-npm http 200 https://registry.npmjs.org/mongojs
-npm http GET https://registry.npmjs.org/mongojs/-/mongojs-0.7.2.tgz
-npm http 200 https://registry.npmjs.org/mongojs/-/mongojs-0.7.2.tgz
-npm http GET https://registry.npmjs.org/thunky
-npm http GET https://registry.npmjs.org/readable-stream
-npm http 200 https://registry.npmjs.org/thunky
-npm http GET https://registry.npmjs.org/thunky/-/thunky-0.1.0.tgz
-npm http 200 https://registry.npmjs.org/thunky/-/thunky-0.1.0.tgz
-npm http 200 https://registry.npmjs.org/readable-stream
-npm http GET https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.2.tgz
-npm http 200 https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.2.tgz
-mongojs@0.7.2 node_modules/mongojs
-+-- thunky@0.1.0
-+-- readable-stream@1.0.2
-$
-\end{lstlisting}
+\lstset{language=bash,caption=Instalasi wrapper mongojs}
+\lstinputlisting{src/non-nodejs/bab-06/install-paket-mongojs.txt}
 
 Setelah itu, buat program sesuai dengan listing program berikut.
 
 \lstset{language=bash,caption=Mengakses mongoDB dari Node.js}
-\begin{lstlisting}
-var databaseUrl = "localhost/mydb";
-var collections = ["employees"];
-var db = require("mongojs").connect(databaseUrl, collections);
-
-// mencari pegawai bernama Aditya
-db.employees.find({name: "Aditya"}, function(err, employees) {
-  if( err || !employees) console.log("Tidak ada pegawai dengan nama Aditya");
-  else employees.forEach( function(emps) {
-    console.log(emps);
-  });
-});
-
-// menyimpan data pegawai baru: Bambang
-db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", 
-	sex: "male"}, function(err, saved) {
-  if( err || !saved ) console.log("Pegawai 'Bambang' gagal disimpan");
-  else console.log("Data pegawai 'Bambang' tersimpan");
-});
-
-// mengupdate data pegawai: Ahmad
-db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, 
-	function(err, updated) {
-  if( err || !updated ) console.log("Data 'Ahmad' gagal diperbaharui");
-  else console.log("Data 'Ahmad' berhasil diperbaharui");
-});
-
-// Hasil:
-//{ _id: 50c74b79a7f83cba11e6b220,
-//  name: 'Aditya',
-//  address: 'Kalasan',
-//  phone: '08787878787' }
-//Data pegawai 'Bambang' tersimpan
-//Data 'Ahmad' berhasil diperbaharui
-//
-// Hasil di db:
-//> db.employees.find()
-//{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : 
-//"Zaky", "address" : "Griya Purwa Asri" }
-//{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "address" :
-//"Finlandia", "email" : "zakyahmadaditya@gmail.com", "name" : "Ahmad" }
-//{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" :
-//"Aditya", "address" : "Kalasan", "phone" : "08787878787" }
-//{ "name" : "Bambang", "address" : "Yogyakarta", "password" : 
-//"ealhadalah", "sex" : "male", "_id" : 
-//ObjectId("50c75d43c111384846000001") }
-//> 
-//  
-\end{lstlisting}
+\lstinputlisting{src/bab-06/akses-mongodb.js}
 
 \section{Aplikasi Web Menggunakan Node.js dan mongoDB}
 
-Contoh aplikasi web berikut hanya digunakan untuk mengambil data dari mongoDB kemudian menampilkannya di web. Data diambil dari basis data mongoDB yang sudah dibuat sebelumnya (mydb). Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, buat kerangka aplikasi di subdirektori tersebut sebagai berikut:
-
-\lstset{language=bash,caption=Mengakses mongoDB dari Node.js}
-\begin{lstlisting}
-$ express 
-
-   create : .
-   create : ./package.json
-   create : ./app.js
-   create : ./public
-   create : ./public/javascripts
-   create : ./routes
-   create : ./routes/index.js
-   create : ./routes/user.js
-   create : ./public/images
-   create : ./views
-   create : ./views/layout.jade
-   create : ./views/index.jade
-   create : ./public/stylesheets
-   create : ./public/stylesheets/style.css
-
-   install dependencies:
-     $ cd . && npm install
-
-   run the app:
-     $ node app
-
-$
-\end{lstlisting}
+Contoh aplikasi web berikut hanya digunakan untuk mengambil data dari mongoDB kemudian menampilkannya di web. Data diambil dari basis data mongoDB yang sudah dibuat sebelumnya (mydb). Untuk keperluan ini, kita akan menggunakan framework Express (\url{http://expressjs.com}). Install Express di level global dengan \textit{npm install -g express}. Setelah terinstall, buat subdirektori baru (lokasi bebas) yang akan digunakan untuk menyimpan aplikasi web. Setelah itu, masuk ke direktori tersebut kemudian buat kerangka aplikasi di subdirektori tersebut menggunakan perintah ``express'' (lihat bab 1).
 
 Berikut ini adalah beberapa perubahan yang dilakukan untuk rerangka aplikasi yang dihasilkan dari perintah \textit{express} tersebut.
 
-\lstset{language=JavaScript,caption=app.js}
-\begin{lstlisting}
-/**
- * Module dependencies.
- */
+\lstset{language=JavaScript,caption=Express+MongoDB web: app.js}
+\lstinputlisting{src/bab-06/web/app.js}
 
-var express = require('express')
-  , routes = require('./routes')
-  , employee = require('./routes/employee')
-  , http = require('http')
-  , path = require('path');
+\lstset{language=JavaScript,caption=Express+MongoDB web: package.json}
+\lstinputlisting{src/bab-06/web/package.json}
 
-var app = express();
-
-app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-});
-
-app.get('/', routes.index);
-app.get('/employees', employee.list);
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-\end{lstlisting}
-
-\lstset{language=JavaScript,caption=package.json}
-\begin{lstlisting}
-{
-  "name": "show-employees",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app"
-  },
-  "dependencies": {
-    "express": "3.1.0",
-    "jade": "*",
-    "mongojs": "latest"
-  }
-}
-\end{listing}
-
-\lstset{language=JavaScript,caption=routes/index.js}
-\begin{lstlisting}
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-  res.render('index', { title: 'Contoh Express+mongoDB' });
-};
-\end{lstlisting}
+\lstset{language=JavaScript,caption=Express+MonggoDB web: routes/index.js}
+\lstinputlisting{src/bab-06/web/routes/index.js}
 
 Selain itu, ada beberapa tambahan file (routes/employee.js dan views/employee.jade), penghapusan file (routes/user.js), dan perubahan yang cukup signifikan pada file \textit{views/index.jade}.
 
-\lstset{language=JavaScript,caption=routes/employee.js}
-\begin{lstlisting}
-/*
- * GET employees listing.
- */
+\lstset{language=JavaScript,caption=Express+MongoDB web: routes/employee.js}
+\lstinputlisting{src/bab-06/web/routes/employee.js}
 
-var databaseUrl = "localhost/mydb";
-var collections = ["employees"];
-var db = require("mongojs").connect(databaseUrl, collections);
-
-exports.list = function(req, res){
-
-	// mencari dan menampilkan semua pegawai
-	db.employees.find(function(err, employees) {
-  	res.render('employee', {listOfEmployee: employees, title: 'Daftar pegawai'});
-	});
-
-};
-\end{lstlisting}
-
-\lstset{language=html,caption=views/employee.jade}
-\begin{lstlisting}
-extends layout
-
-block content
-	h1= title
-	p #{title}
-
-	each employee in listOfEmployee
-		p #{employee.name}
-\end{lstlisting}
+\lstset{language=html,caption=Express+MongoDB web: views/employee.jade}
+\lstinputlisting{src/bab-06/web/views/employee.jade}
 
 \lstset{language=html,caption=views/index.jade}
-\begin{lstlisting}
-extends layout
-
-block content
-	h1= title
-	p 
-		|	Selamat datang di #{title}. Aplikasi ini hanya sekedar contoh 
-			aplikasi web dengan mongoDB sebagai backend. Untuk saat ini hanya 
-			tersedia fasilitas untuk melihat 
-		a(href="/employees") daftar pegawai.
-\end{lstlisting}
+\lstinputlisting{src/bab-06/web/views/index.jade}

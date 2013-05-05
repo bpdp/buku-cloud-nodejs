@@ -1,0 +1,56 @@
+$ mongo
+MongoDB shell version: 2.4.4-pre
+connecting to: test
+...
+... [ jgn pedulikan warning ini ]
+...
+...
+> db
+test
+> use mydb
+switched to db mydb
+> show dbs
+local	(empty)
+> emp1 = { name : "Zaky", address : "Griya Purwa Asri" }
+{ "name" : "Zaky", "address" : "Griya Purwa Asri" }
+> emp2 = { name : "Ahmad", address : "Purwomartani", email : "zakyahmadaditya@gmail.com" }
+{
+	"name" : "Ahmad",
+	"address" : "Purwomartani",
+	"email" : "zakyahmadaditya@gmail.com"
+}
+> emp3 = { name : "Aditya", address : "Kalasan", phone: "08787878787" }
+{ "name" : "Aditya", "address" : "Kalasan", "phone" : "08787878787" }
+> db.employees.insert( emp1 )
+> db.employees.insert( emp2 )
+> db.employees.insert( emp3 )
+> show dbs
+local	(empty)
+mydb	0.0625GB
+> db
+mydb
+> show collections
+employees
+system.indexes
+> db.employees.find()
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
+	"Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+{ "_id" : ObjectId("50c74b79a7f83cba11e6b220"), "name" : "Aditya", "address" : 
+	"Kalasan", "phone" : "08787878787" }
+> db.employees.find( {name : "Ahmad"} )
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+> db.employees.findOne()
+{
+	"_id" : ObjectId("50c74b63a7f83cba11e6b21e"),
+	"name" : "Zaky",
+	"address" : "Griya Purwa Asri"
+}
+> db.employees.find().limit(2)
+{ "_id" : ObjectId("50c74b63a7f83cba11e6b21e"), "name" : "Zaky", "address" : 
+	"Griya Purwa Asri" }
+{ "_id" : ObjectId("50c74b6da7f83cba11e6b21f"), "name" : "Ahmad", "address" : 
+	"Purwomartani", "email" : "zakyahmadaditya@gmail.com" }
+> 

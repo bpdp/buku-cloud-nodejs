@@ -1,7 +1,6 @@
-$ ls -la
-...
-...
--rw-r--r-- 1 bpdp bpdp 4477561 Mar 11 07:51 node-v0.10.0-linux-x86.tar.gz
-...
-...
-$ 
+20:30:31-bpdp@bpdp-arch:~/master/nodejs$ ls
+total 4672
+drwxr-xr-x  2 bpdp bpdp    4096 Apr 26 20:37 .
+drwxr-xr-x 46 bpdp bpdp    4096 May  4 23:33 ..
+-rw-r--r--  1 bpdp bpdp 4770726 Apr 24 03:34 node-v0.10.5-linux-x86.tar.gz
+20:30:31-bpdp@bpdp-arch:~/master/nodejs$ 
