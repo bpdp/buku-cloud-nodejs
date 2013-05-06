@@ -41,8 +41,8 @@ SubKelas.prototype.methodDua = function() {
 var subKelasSatu = new SubKelas("Parameter 1 Dari Sub Kelas 1");
 
 console.log("Property 1 dari sub kelas 1 = " + subKelasSatu.property1);
-console.log("Property 1 dari sub kelas 1, diambil dari method+param = " + subKelasSatu.methodSatu(true));
-console.log("Property 1 dari sub kelas 1, diambil dari method+param = " + subKelasSatu.methodSatu(false));
+console.log("Property 1 dari sub kelas 1, dr method+param = " + subKelasSatu.methodSatu(true));
+console.log("Property 1 dari sub kelas 1, dr method+param = " + subKelasSatu.methodSatu(false));
 
 console.log(subKelasSatu.methodDua());
 // hasil:
@@ -52,9 +52,9 @@ console.log(subKelasSatu.methodDua());
 //parameter 1 dari kelas 1
 //Property 1 dari sub kelas 1 = Parameter 1 Dari Sub Kelas 1
 //Ubah ke huruf besar? = true
-//Property 1 dari sub kelas 1, diambil dari method+param = 
+//Property 1 dari sub kelas 1, dr method+param = 
 //PARAMETER 1 DARI SUB KELAS 1
 //Ubah ke huruf besar? = false
-//Property 1 dari sub kelas 1, diambil dari method+param = 
+//Property 1 dari sub kelas 1, dr method+param = 
 //parameter 1 dari sub kelas 1
 //Berada di method dua dari SubKelas

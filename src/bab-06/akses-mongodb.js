@@ -11,13 +11,15 @@ db.employees.find({name: "Aditya"}, function(err, employees) {
 });
 
 // menyimpan data pegawai baru: Bambang
-db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", sex: "male"}, function(err, saved) {
+db.employees.save({name : "Bambang", address : "Yogyakarta", password: "ealhadalah", 
+  sex: "male"}, function(err, saved) {
   if( err || !saved ) console.log("Pegawai 'Bambang' gagal disimpan");
   else console.log("Data pegawai 'Bambang' tersimpan");
 });
 
 // mengupdate data pegawai: Ahmad
-db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, function(err, updated) {
+db.employees.update({name : "Ahmad"}, {$set: {address: "Finlandia"}}, 
+    function(err, updated) {
   if( err || !updated ) console.log("Data 'Ahmad' gagal diperbaharui");
   else console.log("Data 'Ahmad' berhasil diperbaharui");
 });
