@@ -1,11 +1,3 @@
-Status
-======
-
-+ 22 Maret 2013 - memperbaharui buku, sesuai dengan versi terakhir dari software (Node.js 0.10.0 - npm 1.2.14 - mongodb 2.2.3 - express 3.1.0). Versi PDF ada di SlideShare (lihat link URL di bawah).
-* 7 Januari 2013 - memperbaharui buku, sesuai dengan versi terakhir dari semua software yang dipakai pada tanggal ini. File PDF versi terbaru juga sudah diupload. Jika masih versi lama pada versi PDF-nya, silahkan tunggu setidaknya sampai jam 23.30 malam hari ini karena proses di Slideshare membutuhkan sekitar 30 menit untuk mengganti file.
-* 23 Desember 2012 - **buku selesai lengkap**. Edit hanya dilakukan jika ada Errata (termasuk rilis versi baru dari software-software yang digunakan). 
-* 26 Desember 2012 - File .pdf tersedia. Jika anda tidak mempunyai LaTeX untuk memproses kode sumber ini, silahkan langsung download PDF-nya di [SlideShare](http://www.slideshare.net/bpdp/pengembangan-aplikasi-cloud-computing-menggunakan-nodejs).
-
 Selamat datang!
 ===============
 
@@ -18,6 +10,11 @@ Jika anda mempunyai LaTeX, koma-script, dan "make", ada 3 perintah yang sudah sa
 * make clean-without-pdf: membersihkan berbagai file yang tidak diperlukan lagi (file PDF tetap tidak dihapus)
 * make clean-all: membersihkan semua file yang tidak diperlukan
 * make view: menampilkan file PDF hasil proses menggunakan "epdfview" (jika anda menggunakan PDF viewer lain, misalnya xpdf, Adobe Acrobat Reader, evince, dll, silahkan diganti isi **Makefile** sesuai dengan nama command-line executable-nya).
+
+Changelogs
+==========
+
+Lihat di file [Changelogs.txt](Changelogs.txt).
 
 Versi PDF
 =========
